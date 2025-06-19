@@ -42,7 +42,7 @@ interface DotGridProps {
 }
 
 const DotGrid = ({
-  dotSize = 16,
+  dotSize = 8,
   gap = 32,
   baseColor = "#5227FF",
   activeColor = "#5227FF",
@@ -74,9 +74,14 @@ const DotGrid = ({
   const activeRgb = useMemo(() => hexToRgb(activeColor), [activeColor]);
 
   const circlePath = useMemo(() => {
-    const p = new Path2D();
-    p.arc(0, 0, dotSize / 2, 0, Math.PI * 2);
-    return p;
+    // Check if Path2D is available (not available in SSR)
+    if (typeof Path2D !== 'undefined') {
+      const p = new Path2D();
+      p.arc(0, 0, dotSize / 2, 0, Math.PI * 2);
+      return p;
+    }
+    // Fallback: return null and we'll use ctx.arc() instead
+    return null;
   }, [dotSize]);
 
   const buildGrid = useCallback(() => {
@@ -151,7 +156,14 @@ const DotGrid = ({
         ctx.save();
         ctx.translate(ox, oy);
         ctx.fillStyle = style;
-        ctx.fill(circlePath);
+        if (circlePath) {
+          ctx.fill(circlePath);
+        } else {
+          // Fallback: use standard canvas arc method
+          ctx.beginPath();
+          ctx.arc(0, 0, dotSize / 2, 0, Math.PI * 2);
+          ctx.fill();
+        }
         ctx.restore();
       }
 
@@ -165,19 +177,21 @@ const DotGrid = ({
   useEffect(() => {
     buildGrid();
     let ro: ResizeObserver | null = null;
-    if ("ResizeObserver" in window) {
-      ro = new ResizeObserver(buildGrid);
-      if (wrapperRef.current) {
-        ro.observe(wrapperRef.current);
+    if (typeof window !== 'undefined') {
+      if ("ResizeObserver" in window) {
+        ro = new ResizeObserver(buildGrid);
+        if (wrapperRef.current) {
+          ro.observe(wrapperRef.current);
+        }
+      } else {
+        window.addEventListener("resize", buildGrid as any);
       }
-    } else {
-      window.addEventListener("resize", buildGrid as any);
     }
 
     return () => {
       if (ro) {
         ro.disconnect();
-      } else {
+      } else if (typeof window !== 'undefined') {
         window.removeEventListener("resize", buildGrid as any);
       }
     };
@@ -262,12 +276,16 @@ const DotGrid = ({
     };
 
     const throttledMove = throttle(onMove, 50);
-    window.addEventListener("mousemove", throttledMove, { passive: true });
-    window.addEventListener("click", onClick);
+    if (typeof window !== 'undefined') {
+      window.addEventListener("mousemove", throttledMove, { passive: true });
+      window.addEventListener("click", onClick);
+    }
 
     return () => {
-      window.removeEventListener("mousemove", throttledMove);
-      window.removeEventListener("click", onClick);
+      if (typeof window !== 'undefined') {
+        window.removeEventListener("mousemove", throttledMove);
+        window.removeEventListener("click", onClick);
+      }
     };
   }, [
     maxSpeed,

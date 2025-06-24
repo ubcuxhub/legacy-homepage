@@ -1,8 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const CTASection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      
+      // Show CTA when scrolled down, hide when near top
+      if (scrollPosition > windowHeight * 0.5) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div 
+      className={`transition-all duration-700 ease-in-out ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      }`}
       style={{
         background: 'linear-gradient(156deg, #052462 -1.32%, #CA97CE 77.58%, #F09485 97.31%)',
       }}
@@ -52,7 +75,7 @@ const CTASection = () => {
           <input
             type="email"
             placeholder="ex: myname@example.com"
-            className="outline-none transition-all duration-300 hover:bg-[rgba(242,244,248,0.45)] focus:bg-[rgba(242,244,248,0.45)] w-full"
+            className="outline-none transition-all duration-300 ease-in-out hover:bg-[rgba(242,244,248,0.45)] focus:bg-[rgba(242,244,248,0.45)] w-full hover:scale-[1.02] focus:scale-[1.02]"
             style={{
               display: 'flex',
               height: '25px',
@@ -78,7 +101,7 @@ const CTASection = () => {
             }}
           >
             <button
-              className="rounded-full bg-white text-black font-dm-sans transition-all duration-300 hover:bg-opacity-95 hover:transform hover:scale-[1.02] active:scale-[0.98]"
+              className="rounded-full bg-white text-black font-dm-sans transition-all duration-300 ease-in-out hover:bg-opacity-95 hover:transform hover:scale-[1.05] hover:shadow-lg hover:shadow-black/20 active:scale-[0.98] transform hover:-translate-y-1"
               style={{
                 display: 'flex',
                 height: '33px',

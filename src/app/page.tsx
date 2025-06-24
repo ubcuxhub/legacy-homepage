@@ -10,12 +10,10 @@ import DotGrid from '@/components/DotGrid';
 import HeroSection from '@/components/HeroSection';
 import CTASection from '@/components/CTASection';
 import Navbar from '@/components/Navbar';
-import SplashScreen from '@/components/SplashScreen';
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-gray-100 relative">
-      <SplashScreen />
       {/* Navigation */}
       <Navbar />
       
@@ -169,6 +167,7 @@ export default function Home() {
               </p>
               <div className="mt-8 flex gap-4">
                 <button 
+                  className="transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-black/20 transform hover:-translate-y-1 active:scale-95"
                   style={{
                     display: 'flex',
                     width: '252px',
@@ -192,6 +191,7 @@ export default function Home() {
                     height="24" 
                     viewBox="0 0 24 24" 
                     fill="none"
+                    className="transition-transform duration-300 ease-in-out group-hover:translate-x-1"
                     style={{
                       width: '24px',
                       height: '24px',
@@ -220,9 +220,8 @@ export default function Home() {
         <div className="mt-[70px]">
           <CTASection />
         </div>
-
         {/* WHO WE ARE Section */}
-        <div className="mt-[100px] px-[300px] pb-[100px]">
+        <div id="who-we-are" className="mt-[100px] px-[300px] pb-[100px]">
           <h2 
             className="font-dm-sans text-center"
             style={{
@@ -236,7 +235,7 @@ export default function Home() {
           </h2>
           <div className="flex gap-[40px] justify-center">
             <div 
-              className="flex-1 p-[40px] rounded-[20px]"
+              className="flex-1 p-[40px] rounded-[20px] transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl hover:shadow-black/10 transform hover:-translate-y-2"
               style={{
                 background: 'rgba(242, 244, 248, 0.40)',
                 backdropFilter: 'blur(10px)',
@@ -266,7 +265,7 @@ export default function Home() {
               </p>
             </div>
             <div 
-              className="flex-1 p-[40px] rounded-[20px]"
+              className="flex-1 p-[40px] rounded-[20px] transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl hover:shadow-black/10 transform hover:-translate-y-2"
               style={{
                 background: 'rgba(242, 244, 248, 0.40)',
                 backdropFilter: 'blur(10px)',

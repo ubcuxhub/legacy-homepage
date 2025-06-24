@@ -12,7 +12,8 @@ const headerStyle: React.CSSProperties = {
   display: 'inline-flex',
   alignItems: 'center',
   gap: '10px',
-  padding: '20 28px',
+  padding: '20px 4px 20px 28px',
+  justifyContent: 'flex-start',
 };
 
 const circleStyle: React.CSSProperties = {
@@ -47,7 +48,7 @@ const contentFrameStyle: React.CSSProperties = {
   justifyContent: 'center',
   gap: '80px',
   flex: 1,
-  padding: '128px',
+  padding: '80px 128px 128px 128px',
 };
 
 const heroStyle: React.CSSProperties = {

@@ -4,9 +4,9 @@ import { InertiaPlugin } from "gsap/InertiaPlugin";
 
 gsap.registerPlugin(InertiaPlugin);
 
-const throttle = (func: (...args: any[]) => void, limit: number) => {
+const throttle = <T extends unknown[]>(func: (...args: T) => void, limit: number) => {
   let lastCall = 0;
-  return function (this: any, ...args: any[]) {
+  return function (this: unknown, ...args: T) {
     const now = performance.now();
     if (now - lastCall >= limit) {
       lastCall = now;
@@ -41,6 +41,14 @@ interface DotGridProps {
   style?: React.CSSProperties;
 }
 
+interface Dot {
+  cx: number;
+  cy: number;
+  xOffset: number;
+  yOffset: number;
+  _inertiaApplied: boolean;
+}
+
 const DotGrid = ({
   dotSize = 8,
   gap = 32,
@@ -58,7 +66,7 @@ const DotGrid = ({
 }: DotGridProps) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const dotsRef = useRef<any[]>([]);
+  const dotsRef = useRef<Dot[]>([]);
   const pointerRef = useRef({
     x: 0,
     y: 0,
@@ -112,7 +120,7 @@ const DotGrid = ({
     const startX = extraX / 2 + dotSize / 2;
     const startY = extraY / 2 + dotSize / 2;
 
-    const dots = [];
+    const dots: Dot[] = [];
     for (let y = 0; y < rows; y++) {
       for (let x = 0; x < cols; x++) {
         const cx = startX + x * cell;
@@ -172,7 +180,7 @@ const DotGrid = ({
 
     draw();
     return () => cancelAnimationFrame(rafId);
-  }, [proximity, baseColor, activeRgb, baseRgb, circlePath]);
+  }, [proximity, baseColor, activeRgb, baseRgb, circlePath, dotSize]);
 
   useEffect(() => {
     buildGrid();
@@ -184,7 +192,7 @@ const DotGrid = ({
           ro.observe(wrapperRef.current);
         }
       } else {
-        window.addEventListener("resize", buildGrid as any);
+        (window as Window).addEventListener("resize", buildGrid);
       }
     }
 
@@ -192,7 +200,7 @@ const DotGrid = ({
       if (ro) {
         ro.disconnect();
       } else if (typeof window !== 'undefined') {
-        window.removeEventListener("resize", buildGrid as any);
+        (window as Window).removeEventListener("resize", buildGrid);
       }
     };
   }, [buildGrid]);

@@ -7,7 +7,6 @@ const CTASection = () => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
       
       // Show CTA when scrolled down, hide when near top
       if (scrollPosition > windowHeight * 0.5) {

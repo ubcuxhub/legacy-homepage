@@ -3,9 +3,6 @@
 
 "use client";
 
-import { useState } from "react";
-import { DndContext, DragEndEvent } from "@dnd-kit/core";
-import { motion } from "framer-motion";
 import DotGrid from "@/components/DotGrid";
 import HeroSection from "@/components/HeroSection";
 import CTASection from "@/components/CTASection";

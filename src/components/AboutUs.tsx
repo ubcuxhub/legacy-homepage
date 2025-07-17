@@ -48,7 +48,7 @@ const AboutUs: React.FC = () => {
               }}
             >
               <p>
-                Founded in February 2017 as UBC's{" "}
+                Founded in February 2017 as UBC&apos;s{" "}
                 <strong>first and only user experience club</strong>, UBC UX Hub
                 is a growing collective of{" "}
                 <strong>design-passionate students</strong>. We empower emerging
@@ -58,7 +58,7 @@ const AboutUs: React.FC = () => {
               </p>
               <p>
                 Our mission is to <strong>foster growth and community</strong>{" "}
-                within the design field. Whether you're an aspiring designer or
+                within the design field. Whether you&apos;re an aspiring designer or
                 a seasoned expert, we invite you to join us on our journey to{" "}
                 <strong>fully explore the world of UX design</strong>.
               </p>

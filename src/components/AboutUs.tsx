@@ -16,10 +16,17 @@ const AboutUs: React.FC = () => {
         <div className="flex items-center gap-12">
           <div className="flex-1">
             <p
-              className="text-gray-600 italic mb-4"
-              style={{ fontFamily: "Lora", fontWeight: 600, fontSize: "31px" }}
+              className="font-dm-sans"
+              style={{
+                color: "#383838",
+                fontSize: "64px",
+                fontStyle: "normal",
+                fontWeight: 700,
+                lineHeight: "normal",
+                marginBottom: "20px"
+              }}
             >
-              who we are
+              Who we are
             </p>
             <h2
               className="text-gray-800 mb-6 leading-tight"

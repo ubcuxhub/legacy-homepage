@@ -12,6 +12,7 @@ import CTASection from "@/components/CTASection";
 import Navbar from "@/components/Navbar";
 import AboutUs from "@/components/AboutUs";
 import LogoCarousel from "@/components/LogoCarousel";
+import EventsSection from "@/components/EventsSection";
 
 export default function Home() {
   return (
@@ -261,89 +262,11 @@ export default function Home() {
           <LogoCarousel />
         </div>
 
-        {/* WHO WE ARE Section */}
-        <div id="who-we-are" className="mt-[100px] px-[300px] pb-[100px]">
-          <h2
-            className="font-dm-sans text-center"
-            style={{
-              fontSize: "55px",
-              fontWeight: 700,
-              color: "#383838",
-              marginBottom: "40px",
-            }}
-          >
-            WHO WE ARE
-          </h2>
-          <div className="flex gap-[40px] justify-center">
-            <div
-              className="flex-1 p-[40px] rounded-[20px] transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl hover:shadow-black/10 transform hover:-translate-y-2"
-              style={{
-                background: "rgba(242, 244, 248, 0.40)",
-                backdropFilter: "blur(10px)",
-                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.05)",
-              }}
-            >
-              <h3
-                className="font-dm-sans mb-4"
-                style={{
-                  fontSize: "24px",
-                  fontWeight: 600,
-                  color: "#383838",
-                }}
-              >
-                Our Mission
-              </h3>
-              <p
-                className="font-dm-sans"
-                style={{
-                  fontSize: "16px",
-                  lineHeight: "1.6",
-                  color: "#383838",
-                  opacity: 0.9,
-                }}
-              >
-                We empower UBC students to explore and excel in UX design
-                through hands-on learning, industry connections, and
-                collaborative projects. Our goal is to bridge the gap between
-                academic learning and real-world UX practices.
-              </p>
-            </div>
-            <div
-              className="flex-1 p-[40px] rounded-[20px] transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl hover:shadow-black/10 transform hover:-translate-y-2"
-              style={{
-                background: "rgba(242, 244, 248, 0.40)",
-                backdropFilter: "blur(10px)",
-                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.05)",
-              }}
-            >
-              <h3
-                className="font-dm-sans mb-4"
-                style={{
-                  fontSize: "24px",
-                  fontWeight: 600,
-                  color: "#383838",
-                }}
-              >
-                Our Community
-              </h3>
-              <p
-                className="font-dm-sans"
-                style={{
-                  fontSize: "16px",
-                  lineHeight: "1.6",
-                  color: "#383838",
-                  opacity: 0.9,
-                }}
-              >
-                Join a diverse community of aspiring designers, researchers, and
-                creative problem-solvers. We welcome students from all
-                backgrounds who share a passion for creating meaningful user
-                experiences.
-              </p>
-            </div>
-          </div>
+        {/* Events Section */}
+        <div className="mt-[70px]">
+          <EventsSection />
         </div>
-      </div>
+        </div>
     </main>
   );
 }

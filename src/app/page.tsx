@@ -10,6 +10,7 @@ import Navbar from "@/components/Navbar";
 import AboutUs from "@/components/AboutUs";
 import LogoCarousel from "@/components/LogoCarousel";
 import EventsSection from "@/components/EventsSection";
+import TeamSection from "@/components/TeamSection";
 
 export default function Home() {
   return (
@@ -262,6 +263,11 @@ export default function Home() {
         {/* Events Section */}
         <div className="mt-[70px]">
           <EventsSection />
+        </div>
+
+        {/* Team Section */}
+        <div className="mt-[70px]">
+          <TeamSection />
         </div>
         </div>
     </main>

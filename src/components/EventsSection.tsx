@@ -4,14 +4,17 @@ const EventsSection: React.FC = () => {
   return (
     <div 
       className="w-full bg-gray-100"
-      style={{
-        paddingLeft: "160px",
-        paddingRight: "160px",
-        paddingTop: "80px",
-        paddingBottom: "139px",
-      }}
+      // style={{
+      //   paddingLeft: "160px",
+      //   paddingRight: "160px",
+      //   paddingTop: "80px",
+      //   paddingBottom: "139px",
+      // }}
     >
-      <div className="max-w-8xl mx-auto">
+      <div className="max-w-8xl mx-auto"
+      style={{
+        width: "fit-content",
+      }}>
         {/* Header */}
         <div className="mb-16">
           <p 

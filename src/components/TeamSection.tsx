@@ -88,8 +88,6 @@ const TeamSection: React.FC = () => {
     );
   };
 
-  const visibleCards = teamMembers.slice(currentIndex, currentIndex + 3);
-
   return (
     <div 
       className="w-full bg-gray-100"

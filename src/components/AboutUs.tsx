@@ -4,7 +4,7 @@ import AboutImageStack from "./AboutImageStack";
 const AboutUs: React.FC = () => {
   return (
     <div
-      className="bg-gradient-to-r from-blue-50 to-purple-50"
+      className="bg-white"
       style={{
         paddingLeft: "160px",
         paddingRight: "160px",
@@ -16,17 +16,18 @@ const AboutUs: React.FC = () => {
         <div className="flex items-center gap-12">
           <div className="flex-1">
             <p
-              className="font-dm-sans"
+              className="mb-0"
               style={{
-                color: "#383838",
-                fontSize: "64px",
-                fontStyle: "normal",
-                fontWeight: 700,
+                color: "#7A7A7A",
+                fontFamily: "Lora",
+                fontSize: "31.871px",
+                fontStyle: "italic",
+                fontWeight: 600,
                 lineHeight: "normal",
-                marginBottom: "20px"
+                alignSelf: "stretch",
               }}
             >
-              Who we are
+              who we are
             </p>
             <h2
               className="text-gray-800 mb-6 leading-tight"
@@ -58,9 +59,10 @@ const AboutUs: React.FC = () => {
               </p>
               <p>
                 Our mission is to <strong>foster growth and community</strong>{" "}
-                within the design field. Whether you&apos;re an aspiring designer or
-                a seasoned expert, we invite you to join us on our journey to{" "}
-                <strong>fully explore the world of UX design</strong>.
+                within the design field. Whether you&apos;re an aspiring
+                designer or a seasoned expert, we invite you to join us on our
+                journey to <strong>fully explore the world of UX design</strong>
+                .
               </p>
             </div>
           </div>

@@ -56,10 +56,24 @@ const LogoCarousel: React.FC = () => {
   return (
     <div className="w-full py-12 bg-gray-50 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-center text-gray-400 text-md font-medium mb-12">
+        <p
+          className="mb-4"
+          style={{
+            color: "#383838",
+            fontFamily: "DM Sans",
+            fontSize: "16px",
+            fontStyle: "normal",
+            fontWeight: 500,
+            lineHeight: "normal",
+            alignSelf: "stretch",
+            alignContent: "center",
+            textAlign: "center",
+            marginBottom: "50px",
+          }}
+        >
           Proudly partnered with startups, clubs, and companies across UBC and
           beyond
-        </h2>
+        </p>
 
         <div className="relative">
           {/* Gradient overlays for fade effect */}

@@ -33,7 +33,7 @@ export default function Home() {
       {/* Content Container */}
       <div className="relative z-10 pt-[80px]">
         {/* Hero Section */}
-        <div className="flex justify-center items-start pt-[70px]">
+        <div id="home" className="flex justify-center items-start pt-[70px]">
           <HeroSection>
             <div>
               <h1
@@ -246,7 +246,7 @@ export default function Home() {
         </div>
 
         {/* About us Section */}
-        <div className="mt-[70px]">
+        <div id="about-us" className="mt-[70px]">
           <AboutUs />
         </div>
 
@@ -261,15 +261,15 @@ export default function Home() {
         </div>
 
         {/* Events Section */}
-        <div className="mt-[70px]">
+        <div id="events" className="mt-[70px]">
           <EventsSection />
         </div>
 
         {/* Team Section */}
-        <div className="mt-[70px]">
+        <div id="team" className="mt-[70px]">
           <TeamSection />
         </div>
-        </div>
+      </div>
     </main>
   );
 }

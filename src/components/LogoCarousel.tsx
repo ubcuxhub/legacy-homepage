@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 interface Logo {
   name: string;
@@ -87,9 +88,11 @@ const LogoCarousel: React.FC = () => {
                 key={`${logo.name}-${index}`}
                 className="flex-shrink-0 transition-all duration-300 opacity-60 hover:opacity-100"
               >
-                <img
+                <Image
                   src={logo.src}
                   alt={logo.alt}
+                  width={100}
+                  height={100}
                   className="h-12 w-auto object-contain"
                 />
               </div>

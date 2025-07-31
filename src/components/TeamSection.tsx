@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Image from "next/image";
 
 const TeamSection: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -307,9 +308,11 @@ const TeamSection: React.FC = () => {
                         margin: "0 auto",
                       }}
                     >
-                      <img
+                      <Image
                         src="/image.png"
                         alt={`${member.name} - ${member.role}`}
+                        width={270}
+                        height={300}
                         className="w-full h-full object-cover"
                       />
                     </div>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const navLinkStyles =
   "text-[#000000] no-underline font-dm-sans text-[16px] font-medium leading-normal hover:text-gray-600 whitespace-nowrap decoration-transparent transition-all duration-300 ease-in-out hover:scale-105 hover:translate-y-[-1px]";
@@ -30,7 +31,7 @@ const Navbar = () => {
         {/* Left frame with logo */}
         <div className="pl-[70px]">
           <div className="w-[72px] h-[72px]">
-            <img src="/logo.png" alt="UBC UX HUB" className="w-full h-full" />
+            <Image src="/logo.png" alt="UBC UX HUB" width={72} height={72} className="w-full h-full" />
           </div>
         </div>
 

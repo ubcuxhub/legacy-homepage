@@ -134,9 +134,11 @@ const EventsSection: React.FC = () => {
             {/* Content */}
             <div className="relative z-10 h-full flex flex-col justify-between p-8">
               <div className="flex-1 flex items-center justify-center">
-                <img
+                <Image
                   src="/event2.png"
                   alt="UXATHON 2025 Event"
+                  width={800}
+                  height={600}
                   className="max-w-full max-h-full object-contain"
                 />
               </div>

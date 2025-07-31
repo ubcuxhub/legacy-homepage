@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const Footer = () => {
   return (
@@ -17,7 +18,7 @@ const Footer = () => {
         {/* Logo */}
         <div className="mb-8">
           <div className="w-[120px] h-[120px]">
-            <img src="/logo.png" alt="UBC UX HUB" className="w-full h-full" />
+            <Image src="/logo.png" alt="UBC UX HUB" width={120} height={120} className="w-full h-full" />
           </div>
         </div>
 

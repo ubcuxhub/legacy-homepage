@@ -5,46 +5,49 @@ import Image from "next/image";
 
 const AboutImageStack = () => {
   return (
-    <div className="relative w-[600px] h-[500px] flex justify-center items-center group mx-auto">
-      {/* Top Right Photo (Largest and most prominent) */}
-      <div className="absolute top-8 right-8 transition-all duration-500 ease-in-out transform rotate-6 group-hover:rotate-12 group-hover:translate-x-8 group-hover:translate-y-4 z-10">
-        <div className="w-56 h-72 rounded-2xl shadow-xl overflow-hidden">
-          <Image
-            src="/aboutus1.png"
-            alt="About us 1"
-            width={224}
-            height={288}
-            className="w-full h-full object-cover"
-            priority
-          />
+    <div className="relative w-[600px] h-[500px] flex justify-end items-center group mx-auto">
+      {/* Container for the horizontal stack - moved more to the right */}
+      <div className="relative w-[500px] h-[400px] flex items-center" style={{ marginRight: '-100px' }}>
+        {/* Left Image (Back) */}
+        <div className="absolute left-0 transition-all duration-600 ease-out transform group-hover:translate-x-[-180px] group-hover:rotate-[-12deg] z-10">
+          <div className="w-64 h-80 rounded-lg shadow-2xl overflow-hidden bg-white p-3">
+            <Image
+              src="/aboutus1.png"
+              alt="About us 1"
+              width={256}
+              height={320}
+              className="w-full h-full object-cover rounded"
+              priority
+            />
+          </div>
         </div>
-      </div>
 
-      {/* Middle Left Photo (Overlapping) */}
-      <div className="absolute top-20 left-12 transition-all duration-500 ease-in-out transform -rotate-3 group-hover:-rotate-6 group-hover:-translate-x-8 group-hover:-translate-y-4 z-20">
-        <div className="w-52 h-68 rounded-2xl shadow-xl overflow-hidden">
-          <Image
-            src="/aboutus2.jpg"
-            alt="About us 2"
-            width={208}
-            height={272}
-            className="w-full h-full object-cover"
-            priority
-          />
+        {/* Center Image (Middle) */}
+        <div className="absolute left-16 transition-all duration-600 ease-out transform group-hover:translate-x-0 group-hover:rotate-0 z-20">
+          <div className="w-72 h-88 rounded-lg shadow-2xl overflow-hidden bg-white p-3">
+            <Image
+              src="/aboutus2.jpg"
+              alt="About us 2"
+              width={288}
+              height={352}
+              className="w-full h-full object-cover rounded"
+              priority
+            />
+          </div>
         </div>
-      </div>
 
-      {/* Bottom Right Photo (Smallest and partially obscured) */}
-      <div className="absolute bottom-8 right-4 transition-all duration-500 ease-in-out transform rotate-2 group-hover:rotate-4 group-hover:translate-x-4 group-hover:translate-y-8 z-30">
-        <div className="w-44 h-56 rounded-2xl shadow-lg overflow-hidden">
-          <Image
-            src="/aboutus3.png"
-            alt="About us 3"
-            width={176}
-            height={224}
-            className="w-full h-full object-cover"
-            priority
-          />
+        {/* Right Image (Front) */}
+        <div className="absolute left-32 transition-all duration-600 ease-out transform group-hover:translate-x-[180px] group-hover:rotate-[12deg] z-30">
+          <div className="w-64 h-80 rounded-lg shadow-2xl overflow-hidden bg-white p-3">
+            <Image
+              src="/aboutus3.png"
+              alt="About us 3"
+              width={256}
+              height={320}
+              className="w-full h-full object-cover rounded"
+              priority
+            />
+          </div>
         </div>
       </div>
     </div>

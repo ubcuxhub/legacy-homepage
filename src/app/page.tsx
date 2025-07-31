@@ -11,6 +11,7 @@ import AboutUs from "@/components/AboutUs";
 import LogoCarousel from "@/components/LogoCarousel";
 import EventsSection from "@/components/EventsSection";
 import TeamSection from "@/components/TeamSection";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -268,6 +269,175 @@ export default function Home() {
         {/* Team Section */}
         <div id="team" className="mt-[70px]">
           <TeamSection />
+        </div>
+
+        {/* CTA Section After Team */}
+        <div className="mt-[70px]">
+          <div 
+            className="flex items-center justify-center py-20"
+            style={{
+              background: 'linear-gradient(156deg, #052462 -1.32%, #CA97CE 77.58%, #F09485 97.31%)',
+              width: '1001px',
+              height: '536.034px',
+              flexShrink: 0,
+              margin: '0 auto',
+              borderRadius: '20px',
+            }}
+          >
+            <div 
+              className="max-w-6xl mx-auto px-8 text-center"
+              style={{
+                display: 'flex',
+                width: '552px',
+                height: '301px',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                gap: '20px',
+                flexShrink: 0,
+              }}
+            >
+              <h2 
+                className="font-dm-sans mb-6"
+                style={{
+                  color: '#FFFFFF',
+                  fontSize: '48px',
+                  fontWeight: 700,
+                  lineHeight: 'normal',
+                  textShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
+                }}
+              >
+                Ready to kickstart your design journey?
+              </h2>
+              <p 
+                className="font-dm-sans mb-8 max-w-2xl mx-auto"
+                style={{
+                  color: '#FFF',
+                  textAlign: 'center',
+                  fontFamily: 'DM Sans',
+                  fontSize: '16px',
+                  fontStyle: 'normal',
+                  fontWeight: 400,
+                  lineHeight: 'normal',
+                  height: '49px',
+                  flexShrink: 0,
+                  alignSelf: 'stretch',
+                }}
+              >
+                Join hundreds of student designers at UX Hub learning, building, and supporting each other on their journey to better UI and better design.
+              </p>
+              <div className="flex gap-2.5 justify-center">
+                <button
+                  className="transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-black/20 transform hover:-translate-y-1 active:scale-95"
+                  style={{
+                    display: "flex",
+                    width: "252px",
+                    height: "54px",
+                    padding: "8px 10px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "12px",
+                    borderRadius: "67.066px",
+                    background: "#383838",
+                    backdropFilter: "blur(0.5px)",
+                    color: "white",
+                    border: "none",
+                    cursor: "pointer",
+                  }}
+                >
+                  BECOME A MEMBER
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    className="transition-transform duration-300 ease-in-out group-hover:translate-x-1"
+                    style={{
+                      width: "24px",
+                      height: "24px",
+                      transform: "rotate(0deg)",
+                      flexShrink: 0,
+                      aspectRatio: "1/1",
+                    }}
+                  >
+                    <g clipPath="url(#clip0_84_134)">
+                      <path
+                        d="M19.1677 7.63191C19.2083 7.36987 19.1431 7.10244 18.9865 6.88844C18.83 6.67443 18.5948 6.53138 18.3328 6.49073L10.427 5.26547C10.2961 5.24286 10.1621 5.24653 10.0327 5.27627C9.90326 5.30601 9.78107 5.36123 9.67323 5.4387C9.56539 5.51617 9.47405 5.61435 9.40456 5.72749C9.33506 5.84064 9.2888 5.96649 9.26846 6.09771C9.24812 6.22893 9.25412 6.36288 9.28611 6.49176C9.3181 6.62063 9.37543 6.74184 9.45476 6.84832C9.5341 6.9548 9.63384 7.04442 9.74818 7.11194C9.86252 7.17945 9.98916 7.22353 10.1207 7.24158L15.6409 8.09711L4.95305 15.9167C4.739 16.0733 4.59593 16.3085 4.55532 16.5706C4.5147 16.8327 4.57986 17.1002 4.73646 17.3142C4.89306 17.5283 5.12828 17.6713 5.39036 17.712C5.65245 17.7526 5.91994 17.6874 6.13399 17.5308L16.8219 9.71123L15.9664 15.2315C15.9307 15.4912 15.9985 15.7546 16.1552 15.9649C16.3118 16.1752 16.5448 16.3155 16.8039 16.3556C17.063 16.3958 17.3275 16.3326 17.5405 16.1796C17.7535 16.0266 17.8978 15.7961 17.9425 15.5377L19.1677 7.63191Z"
+                        fill="white"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_84_134">
+                        <rect
+                          width="24"
+                          height="24"
+                          fill="white"
+                          transform="translate(24) rotate(90)"
+                        />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </button>
+                <button
+                  className="transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-black/20 transform hover:-translate-y-1 active:scale-95"
+                  style={{
+                    display: "flex",
+                    width: "252px",
+                    height: "54px",
+                    padding: "8px 10px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "12px",
+                    borderRadius: "67.066px",
+                    background: "rgba(255, 255, 255, 0.1)",
+                    backdropFilter: "blur(0.5px)",
+                    color: "#383838",
+                    border: "1px solid rgba(255, 255, 255, 0.3)",
+                    cursor: "pointer",
+                  }}
+                >
+                  CONTACT US
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    className="transition-transform duration-300 ease-in-out group-hover:translate-x-1"
+                    style={{
+                      width: "24px",
+                      height: "24px",
+                      transform: "rotate(0deg)",
+                      flexShrink: 0,
+                      aspectRatio: "1/1",
+                    }}
+                  >
+                    <g clipPath="url(#clip0_84_134)">
+                      <path
+                        d="M19.1677 7.63191C19.2083 7.36987 19.1431 7.10244 18.9865 6.88844C18.83 6.67443 18.5948 6.53138 18.3328 6.49073L10.427 5.26547C10.2961 5.24286 10.1621 5.24653 10.0327 5.27627C9.90326 5.30601 9.78107 5.36123 9.67323 5.4387C9.56539 5.51617 9.47405 5.61435 9.40456 5.72749C9.33506 5.84064 9.2888 5.96649 9.26846 6.09771C9.24812 6.22893 9.25412 6.36288 9.28611 6.49176C9.3181 6.62063 9.37543 6.74184 9.45476 6.84832C9.5341 6.9548 9.63384 7.04442 9.74818 7.11194C9.86252 7.17945 9.98916 7.22353 10.1207 7.24158L15.6409 8.09711L4.95305 15.9167C4.739 16.0733 4.59593 16.3085 4.55532 16.5706C4.5147 16.8327 4.57986 17.1002 4.73646 17.3142C4.89306 17.5283 5.12828 17.6713 5.39036 17.712C5.65245 17.7526 5.91994 17.6874 6.13399 17.5308L16.8219 9.71123L15.9664 15.2315C15.9307 15.4912 15.9985 15.7546 16.1552 15.9649C16.3118 16.1752 16.5448 16.3155 16.8039 16.3556C17.063 16.3958 17.3275 16.3326 17.5405 16.1796C17.7535 16.0266 17.8978 15.7961 17.9425 15.5377L19.1677 7.63191Z"
+                        fill="#383838"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_84_134">
+                        <rect
+                          width="24"
+                          height="24"
+                          fill="white"
+                          transform="translate(24) rotate(90)"
+                        />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Footer */}
+        <div className="mt-[60px]">
+          <Footer />
         </div>
       </div>
     </main>

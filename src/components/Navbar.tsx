@@ -30,7 +30,7 @@ const Navbar = () => {
         {/* Left frame with logo */}
         <div className="pl-[70px]">
           <div className="w-[72px] h-[72px]">
-            <img src="/logo.svg" alt="UBC UX HUB" className="w-full h-full" />
+            <img src="/logo.png" alt="UBC UX HUB" className="w-full h-full" />
           </div>
         </div>
 

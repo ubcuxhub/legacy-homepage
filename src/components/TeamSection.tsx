@@ -165,7 +165,7 @@ const TeamSection: React.FC = () => {
         }}
       >
         {/* Header */}
-        <div className="mb-16 ml-20 mr-20">
+        <div className="mb-16" style={{ paddingLeft: "160px", paddingRight: "160px" }}>
           <p
             className="mb-0"
             style={{
@@ -200,7 +200,7 @@ const TeamSection: React.FC = () => {
           {/* Navigation Arrows */}
           <button
             onClick={prevSlide}
-            className="absolute left-8 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-3 shadow-lg hover:bg-gray-50 transition-all duration-300 hover:scale-110"
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-3 shadow-lg hover:bg-gray-50 transition-all duration-300 hover:scale-110"
             style={{ width: "48px", height: "48px" }}
           >
             <svg
@@ -222,7 +222,7 @@ const TeamSection: React.FC = () => {
 
           <button
             onClick={nextSlide}
-            className="absolute right-8 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-3 shadow-lg hover:bg-gray-50 transition-all duration-300 hover:scale-110"
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-3 shadow-lg hover:bg-gray-50 transition-all duration-300 hover:scale-110"
             style={{ width: "48px", height: "48px" }}
           >
             <svg
@@ -491,11 +491,13 @@ const TeamSection: React.FC = () => {
                 <button
                   key={i}
                   onClick={() => setCurrentIndex(i * 3)}
-                  className={`w-3 h-3 rounded-full transition-colors ${
-                    Math.floor(currentIndex / 3) === i
-                      ? "bg-blue-600"
-                      : "bg-gray-300"
-                  }`}
+                  className={`
+                    w-3 h-3 rounded-full transition-colors ${
+                      Math.floor(currentIndex / 3) === i
+                        ? "bg-blue-600"
+                        : "bg-gray-300"
+                    }
+                  `}
                 />
               )
             )}

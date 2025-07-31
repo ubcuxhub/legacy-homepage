@@ -91,8 +91,8 @@ const LogoCarousel: React.FC = () => {
                 <Image
                   src={logo.src}
                   alt={logo.alt}
-                  width={100}
-                  height={100}
+                  width={48}
+                  height={48}
                   className="h-12 w-auto object-contain"
                 />
               </div>

@@ -137,9 +137,9 @@ const EventsSection: React.FC = () => {
                 <Image
                   src="/event2.png"
                   alt="UXATHON 2025 Event"
-                  width={800}
-                  height={600}
-                  className="max-w-full max-h-full object-contain"
+                  width={400}
+                  height={300}
+                  className="w-full h-full object-contain"
                 />
               </div>
 

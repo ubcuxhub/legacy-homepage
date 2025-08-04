@@ -1,9 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 
 const TeamSection: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
   const teamMembers = [
     {
       name: "Martin",
@@ -139,18 +137,6 @@ const TeamSection: React.FC = () => {
 
   // Duplicate team members for seamless loop
   const duplicatedTeamMembers = [...teamMembers, ...teamMembers, ...teamMembers];
-
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === teamMembers.length - 3 ? 0 : prevIndex + 1
-    );
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? teamMembers.length - 3 : prevIndex - 1
-    );
-  };
 
   return (
     <div className="w-full bg-gray-100">

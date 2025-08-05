@@ -36,7 +36,46 @@ export default function Home() {
         {/* Hero Section */}
         <div id="home" className="flex justify-center items-start pt-[70px]">
           <HeroSection>
-            <div>
+            <div style={{ position: "relative" }}>
+              {/* Figma Cursor Chat - "and largest!" */}
+              <div
+                style={{
+                  position: "absolute",
+                  top: "-20px",
+                  left: "200px",
+                  zIndex: 10,
+                }}
+              >
+                <img
+                  src="/and largest.png"
+                  alt="and largest!"
+                  style={{
+                    width: "auto",
+                    height: "auto",
+                    maxWidth: "150px",
+                  }}
+                />
+              </div>
+
+              {/* Figma Cursor Chat - "UBC UX Hub" */}
+              <div
+                style={{
+                  position: "absolute",
+                  top: "150px",
+                  right: "-120px",
+                  zIndex: 10,
+                }}
+              >
+                <img
+                  src="/figma cursor chat.png"
+                  alt="UBC UX Hub"
+                  style={{
+                    width: "auto",
+                    height: "auto",
+                    maxWidth: "150px",
+                  }}
+                />
+              </div>
               <h1
                 className="font-dm-sans font-bold leading-normal flex flex-col gap-8"
                 style={{
@@ -273,58 +312,62 @@ export default function Home() {
 
         {/* CTA Section After Team */}
         <div className="mt-[70px]">
-          <div 
+          <div
             className="flex items-center justify-center py-20"
             style={{
-              background: 'linear-gradient(156deg, #052462 -1.32%, #CA97CE 77.58%, #F09485 97.31%)',
-              width: '1001px',
-              height: '536.034px',
+              background:
+                "linear-gradient(156deg, #052462 -1.32%, #CA97CE 77.58%, #F09485 97.31%)",
+              width: "1000px",
+              height: "500px",
               flexShrink: 0,
-              margin: '0 auto',
-              borderRadius: '20px',
+              margin: "0 auto",
+              borderRadius: "20px",
+              marginTop: "100px",
             }}
           >
-            <div 
+            <div
               className="max-w-6xl mx-auto px-8 text-center"
               style={{
-                display: 'flex',
-                width: '552px',
-                height: '301px',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                gap: '20px',
+                display: "flex",
+                width: "552px",
+                height: "301px",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "20px",
                 flexShrink: 0,
               }}
             >
-              <h2 
+              <h2
                 className="font-dm-sans mb-6"
                 style={{
-                  color: '#FFFFFF',
-                  fontSize: '48px',
+                  color: "#FFFFFF",
+                  fontSize: "42px",
                   fontWeight: 700,
-                  lineHeight: 'normal',
-                  textShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
+                  lineHeight: "normal",
+                  textShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
                 }}
               >
                 Ready to kickstart your design journey?
               </h2>
-              <p 
+              <p
                 className="font-dm-sans mb-8 max-w-2xl mx-auto"
                 style={{
-                  color: '#FFF',
-                  textAlign: 'center',
-                  fontFamily: 'DM Sans',
-                  fontSize: '16px',
-                  fontStyle: 'normal',
+                  color: "#FFF",
+                  textAlign: "center",
+                  fontFamily: "DM Sans",
+                  fontSize: "16px",
+                  fontStyle: "normal",
                   fontWeight: 400,
-                  lineHeight: 'normal',
-                  height: '49px',
+                  lineHeight: "normal",
+                  height: "49px",
                   flexShrink: 0,
-                  alignSelf: 'stretch',
+                  alignSelf: "stretch",
                 }}
               >
-                Join hundreds of student designers at UX Hub learning, building, and supporting each other on their journey to better UI and better design.
+                Join hundreds of student designers at UX Hub learning, building,
+                and supporting each other on their journey to better UI and
+                better design.
               </p>
               <div className="flex gap-2.5 justify-center">
                 <button
@@ -343,6 +386,7 @@ export default function Home() {
                     color: "white",
                     border: "none",
                     cursor: "pointer",
+                    marginRight: "6px",
                   }}
                 >
                   BECOME A MEMBER
@@ -395,6 +439,7 @@ export default function Home() {
                     color: "#383838",
                     border: "1px solid rgba(255, 255, 255, 0.3)",
                     cursor: "pointer",
+                    marginRight: "6px",
                   }}
                 >
                   CONTACT US

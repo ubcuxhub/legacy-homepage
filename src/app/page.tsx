@@ -441,6 +441,9 @@ export default function Home() {
                     cursor: "pointer",
                     marginRight: "6px",
                   }}
+                  onClick={() =>
+                    (window.location.href = "mailto:ubcuxhub@gmail.com")
+                  }
                 >
                   CONTACT US
                   <svg

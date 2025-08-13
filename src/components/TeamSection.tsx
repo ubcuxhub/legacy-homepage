@@ -5,7 +5,7 @@ const TeamSection: React.FC = () => {
   const teamMembers = [
     {
       name: "Martin",
-      role: "Designer",
+      role: "Design Director",
       aboutMe: "I love Costco Hotdogs!",
       funFact: "I dream in black and white",
       image: "/martin.png",
@@ -19,9 +19,9 @@ const TeamSection: React.FC = () => {
     },
     {
       name: "Aurora",
-      role: "UX Lead",
-      aboutMe: "I'm this years VP marketing and design!",
-      funFact: "My MBTI is ISTJ and I love cafe hopping",
+      role: "VP Marketing Design",
+      aboutMe: "I'm studying CS and I love UX design!",
+      funFact: "My MBTI is ISTJ and I like cafe hopping",
       image: "/aurora.png",
       skills: {
         organization: 95,
@@ -33,7 +33,7 @@ const TeamSection: React.FC = () => {
     },
     {
       name: "Aubrey",
-      role: "Developer",
+      role: "Design Director",
       aboutMe: "Hi! I'm a 3rd year Media Studies student 🐰",
       funFact: "I like collecting k-pop photocards",
       image: "/aubrey.png",
@@ -47,7 +47,7 @@ const TeamSection: React.FC = () => {
     },
     {
       name: "Iris",
-      role: "Researcher",
+      role: "Media Director",
       aboutMe: "I'm a product designer, filmmaker, and denim skirt enthusiast!",
       funFact: "I got lost in Ottawa once and walked to Quebec.",
       image: "/iris.png",
@@ -61,7 +61,7 @@ const TeamSection: React.FC = () => {
     },
     {
       name: "Mia",
-      role: "Strategist",
+      role: "Logistics Director",
       aboutMe: "I'm studying cs but I love learning about design!",
       funFact: "I learned a bit of asl in high school",
       image: "/Mia.png",
@@ -75,7 +75,7 @@ const TeamSection: React.FC = () => {
     },
     {
       name: "Kat",
-      role: "Content Designer",
+      role: "Partnerships Director",
       aboutMe: "I'm Kat! I'm a 3rd year BUCS student",
       funFact: "I love collecting useless but cute things",
       image: "/Kat.png",
@@ -89,7 +89,7 @@ const TeamSection: React.FC = () => {
     },
     {
       name: "Mason",
-      role: "Product Manager",
+      role: "Media Director",
       aboutMe: "I'm Mason! I'm a 5th year Marketing student.",
       funFact: "I run a Tiktok food account",
       image: "/mason.png",
@@ -103,7 +103,7 @@ const TeamSection: React.FC = () => {
     },
     {
       name: "Cherry",
-      role: "Visual Designer",
+      role: "Media Director",
       aboutMe: "I'm Cherry and I'm doing BMS + cpsc ;)",
       funFact: "I sleeptalk multilingual",
       image: "/cherry.png",
@@ -117,7 +117,7 @@ const TeamSection: React.FC = () => {
     },
     {
       name: "Elisabeth",
-      role: "Frontend Developer",
+      role: "VP Logistics",
       aboutMe: "I love badminton, calligraphy, kr&b, and cafe hopping",
       funFact: "I've lived on campus since I was 5 years old",
       image: "/Elisabeth.png",

@@ -72,6 +72,13 @@ const Navbar = () => {
           >
             Meet the Team
           </Link>
+          <Link
+            href="mailto:ubcuxhub@gmail.com"
+            className={navLinkStyles}
+            style={{ textDecoration: "none" }}
+          >
+            Contact Us
+          </Link>
 
           {/* Become a Member Button */}
           <Link

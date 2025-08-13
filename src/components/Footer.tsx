@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer 
+    <footer
       className="w-full py-16 bg-gray-100"
       style={{
         position: "relative",
@@ -109,6 +109,23 @@ const Footer = () => {
                 }}
               >
                 Meet the Team
+              </a>
+            </li>
+            <li>
+              <a
+                href="mailto:ubcuxhub@gmail.com"
+                className="hover:text-gray-900 transition-colors no-underline"
+                style={{
+                  color: "var(--Black, #2F2E41)",
+                  fontFamily: "DM Sans",
+                  fontSize: "16px",
+                  fontStyle: "normal",
+                  fontWeight: 500,
+                  lineHeight: "normal",
+                  textDecoration: "none",
+                }}
+              >
+                Contact Us
               </a>
             </li>
           </ul>

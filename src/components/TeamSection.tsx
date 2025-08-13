@@ -8,6 +8,7 @@ const TeamSection: React.FC = () => {
       role: "Designer",
       aboutMe: "I love Costco Hotdogs!",
       funFact: "I dream in black and white",
+      image: "/martin.png",
       skills: {
         organization: 80,
         visual: 90,
@@ -17,10 +18,11 @@ const TeamSection: React.FC = () => {
       },
     },
     {
-      name: "Sarah",
+      name: "Aurora",
       role: "UX Lead",
-      aboutMe: "Coffee addict and design enthusiast",
-      funFact: "I can solve a Rubik's cube in under 2 minutes",
+      aboutMe: "I'm this years VP marketing and design!",
+      funFact: "My MBTI is ISTJ and I love cafe hopping",
+      image: "/aurora.png",
       skills: {
         organization: 95,
         visual: 85,
@@ -30,10 +32,11 @@ const TeamSection: React.FC = () => {
       },
     },
     {
-      name: "Alex",
+      name: "Aubrey",
       role: "Developer",
-      aboutMe: "Building the future, one pixel at a time",
-      funFact: "I have a pet cactus named Spike",
+      aboutMe: "Hi! I'm a 3rd year Media Studies student 🐰",
+      funFact: "I like collecting k-pop photocards",
+      image: "/aubrey.png",
       skills: {
         organization: 75,
         visual: 70,
@@ -43,10 +46,11 @@ const TeamSection: React.FC = () => {
       },
     },
     {
-      name: "Emma",
+      name: "Iris",
       role: "Researcher",
-      aboutMe: "Understanding users through data and empathy",
-      funFact: "I can identify any font just by looking at it",
+      aboutMe: "I'm a product designer, filmmaker, and denim skirt enthusiast!",
+      funFact: "I got lost in Ottawa once and walked to Quebec.",
+      image: "/iris.png",
       skills: {
         organization: 90,
         visual: 75,
@@ -56,10 +60,11 @@ const TeamSection: React.FC = () => {
       },
     },
     {
-      name: "Jordan",
+      name: "Mia",
       role: "Strategist",
-      aboutMe: "Connecting dots between business and design",
-      funFact: "I've visited 15 countries in the last 3 years",
+      aboutMe: "I'm studying cs but I love learning about design!",
+      funFact: "I learned a bit of asl in high school",
+      image: "/Mia.png",
       skills: {
         organization: 85,
         visual: 80,
@@ -69,10 +74,11 @@ const TeamSection: React.FC = () => {
       },
     },
     {
-      name: "Maya",
+      name: "Kat",
       role: "Content Designer",
-      aboutMe: "Crafting words that connect and inspire",
-      funFact: "I can recite the entire alphabet backwards",
+      aboutMe: "I'm Kat! I'm a 3rd year BUCS student",
+      funFact: "I love collecting useless but cute things",
+      image: "/Kat.png",
       skills: {
         organization: 85,
         visual: 80,
@@ -82,10 +88,11 @@ const TeamSection: React.FC = () => {
       },
     },
     {
-      name: "David",
+      name: "Mason",
       role: "Product Manager",
-      aboutMe: "Turning ideas into reality through strategic thinking",
-      funFact: "I collect vintage typewriters",
+      aboutMe: "I'm Mason! I'm a 5th year Marketing student.",
+      funFact: "I run a Tiktok food account",
+      image: "/mason.png",
       skills: {
         organization: 95,
         visual: 70,
@@ -95,10 +102,11 @@ const TeamSection: React.FC = () => {
       },
     },
     {
-      name: "Lisa",
+      name: "Cherry",
       role: "Visual Designer",
-      aboutMe: "Creating beautiful experiences that tell stories",
-      funFact: "I can draw with both hands simultaneously",
+      aboutMe: "I'm Cherry and I'm doing BMS + cpsc ;)",
+      funFact: "I sleeptalk multilingual",
+      image: "/cherry.png",
       skills: {
         organization: 75,
         visual: 95,
@@ -108,10 +116,11 @@ const TeamSection: React.FC = () => {
       },
     },
     {
-      name: "Tom",
+      name: "Elisabeth",
       role: "Frontend Developer",
-      aboutMe: "Bringing designs to life with clean code",
-      funFact: "I can type 120 words per minute",
+      aboutMe: "I love badminton, calligraphy, kr&b, and cafe hopping",
+      funFact: "I've lived on campus since I was 5 years old",
+      image: "/Elisabeth.png",
       skills: {
         organization: 80,
         visual: 75,
@@ -121,10 +130,11 @@ const TeamSection: React.FC = () => {
       },
     },
     {
-      name: "Nina",
-      role: "UX Researcher",
-      aboutMe: "Uncovering insights that drive better design",
-      funFact: "I speak 4 languages fluently",
+      name: "Chhavi",
+      role: "Design Director",
+      aboutMe: "I am in my fourth year studying CS",
+      funFact: "I love the moon 🌙",
+      image: "/chhavi.jpeg",
       skills: {
         organization: 90,
         visual: 70,
@@ -134,9 +144,6 @@ const TeamSection: React.FC = () => {
       },
     },
   ];
-
-  // Duplicate team members for seamless loop
-  const duplicatedTeamMembers = [...teamMembers, ...teamMembers, ...teamMembers];
 
   return (
     <div className="w-full bg-gray-100">
@@ -189,14 +196,14 @@ const TeamSection: React.FC = () => {
             style={{ minHeight: "500px" }}
           >
             <div
-              className="flex transition-transform duration-500 ease-in-out animate-scroll"
+              className="flex animate-scroll"
               style={{
                 alignItems: "center",
                 gap: "53px",
-                width: `${duplicatedTeamMembers.length * (312.2 + 53) - 53}px`,
+                width: `${teamMembers.length * (312.2 + 53) - 53}px`,
               }}
             >
-              {duplicatedTeamMembers.map((member, index) => (
+              {teamMembers.map((member, index) => (
                 <div
                   key={`${member.name}-${index}`}
                   className="flex-shrink-0"
@@ -308,7 +315,7 @@ const TeamSection: React.FC = () => {
                       }}
                     >
                       <Image
-                        src="/image.png"
+                        src={member.image}
                         alt={`${member.name} - ${member.role}`}
                         width={270}
                         height={280}
@@ -568,16 +575,12 @@ const TeamSection: React.FC = () => {
             transform: translateX(0);
           }
           100% {
-            transform: translateX(calc(-50% - 2rem));
+            transform: translateX(calc(-100% + 100vw));
           }
         }
 
         .animate-scroll {
-          animation: scroll 90s linear infinite;
-        }
-
-        .animate-scroll:hover {
-          animation-play-state: paused;
+          animation: scroll 60s linear infinite;
         }
       `}</style>
     </div>

@@ -3,7 +3,14 @@ import Image from 'next/image';
 
 const Footer = () => {
   return (
-    <footer className="w-full py-16 bg-gray-50">
+    <footer 
+      className="w-full py-16 bg-gray-100"
+      style={{
+        position: "relative",
+        zIndex: 9999,
+        backgroundColor: "#f3f4f6",
+      }}
+    >
       <div 
         className="max-w-6xl mx-auto px-8 text-center"
         style={{

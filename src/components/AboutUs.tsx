@@ -4,12 +4,15 @@ import AboutImageStack from "./AboutImageStack";
 const AboutUs: React.FC = () => {
   return (
     <div
-      className="bg-white"
+      className="bg-gray-100"
       style={{
         paddingLeft: "160px",
         paddingRight: "160px",
         paddingTop: "139px",
         paddingBottom: "139px",
+        position: "relative",
+        zIndex: 9999,
+        backgroundColor: "#f3f4f6",
       }}
     >
       <div className="max-w-8xl mx-auto">

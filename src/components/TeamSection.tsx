@@ -5,17 +5,10 @@ const TeamSection: React.FC = () => {
   const teamMembers = [
     {
       name: "Martin",
-      role: "Design Director",
+      role: "Design",
       aboutMe: "I love Costco Hotdogs!",
       funFact: "I dream in black and white",
       image: "/martin.png",
-      skills: {
-        organization: 80,
-        visual: 90,
-        coding: 60,
-        creative: 85,
-        speed: 75,
-      },
     },
     {
       name: "Aurora",
@@ -23,13 +16,6 @@ const TeamSection: React.FC = () => {
       aboutMe: "I'm studying CS and I love UX design!",
       funFact: "My MBTI is ISTJ and I like cafe hopping",
       image: "/aurora.png",
-      skills: {
-        organization: 95,
-        visual: 85,
-        coding: 70,
-        creative: 90,
-        speed: 80,
-      },
     },
     {
       name: "Aubrey",
@@ -37,13 +23,6 @@ const TeamSection: React.FC = () => {
       aboutMe: "Hi! I'm a 3rd year Media Studies student 🐰",
       funFact: "I like collecting k-pop photocards",
       image: "/aubrey.png",
-      skills: {
-        organization: 75,
-        visual: 70,
-        coding: 95,
-        creative: 80,
-        speed: 90,
-      },
     },
     {
       name: "Iris",
@@ -51,13 +30,6 @@ const TeamSection: React.FC = () => {
       aboutMe: "I'm a product designer, filmmaker, and denim skirt enthusiast!",
       funFact: "I got lost in Ottawa once and walked to Quebec.",
       image: "/iris.png",
-      skills: {
-        organization: 90,
-        visual: 75,
-        coding: 65,
-        creative: 85,
-        speed: 70,
-      },
     },
     {
       name: "Mia",
@@ -65,13 +37,6 @@ const TeamSection: React.FC = () => {
       aboutMe: "I'm studying cs but I love learning about design!",
       funFact: "I learned a bit of asl in high school",
       image: "/Mia.png",
-      skills: {
-        organization: 85,
-        visual: 80,
-        coding: 55,
-        creative: 90,
-        speed: 85,
-      },
     },
     {
       name: "Kat",
@@ -79,13 +44,6 @@ const TeamSection: React.FC = () => {
       aboutMe: "I'm Kat! I'm a 3rd year BUCS student",
       funFact: "I love collecting useless but cute things",
       image: "/Kat.png",
-      skills: {
-        organization: 85,
-        visual: 80,
-        coding: 45,
-        creative: 95,
-        speed: 85,
-      },
     },
     {
       name: "Mason",
@@ -93,13 +51,6 @@ const TeamSection: React.FC = () => {
       aboutMe: "I'm Mason! I'm a 5th year Marketing student.",
       funFact: "I run a Tiktok food account",
       image: "/mason.png",
-      skills: {
-        organization: 95,
-        visual: 70,
-        coding: 60,
-        creative: 80,
-        speed: 90,
-      },
     },
     {
       name: "Cherry",
@@ -107,13 +58,6 @@ const TeamSection: React.FC = () => {
       aboutMe: "I'm Cherry and I'm doing BMS + cpsc ;)",
       funFact: "I sleeptalk multilingual",
       image: "/cherry.png",
-      skills: {
-        organization: 75,
-        visual: 95,
-        coding: 50,
-        creative: 90,
-        speed: 80,
-      },
     },
     {
       name: "Elisabeth",
@@ -121,13 +65,6 @@ const TeamSection: React.FC = () => {
       aboutMe: "I love badminton, calligraphy, kr&b, and cafe hopping",
       funFact: "I've lived on campus since I was 5 years old",
       image: "/Elisabeth.png",
-      skills: {
-        organization: 80,
-        visual: 75,
-        coding: 95,
-        creative: 70,
-        speed: 85,
-      },
     },
     {
       name: "Chhavi",
@@ -135,13 +72,6 @@ const TeamSection: React.FC = () => {
       aboutMe: "I am in my fourth year studying CS",
       funFact: "I love the moon 🌙",
       image: "/chhavi.jpeg",
-      skills: {
-        organization: 90,
-        visual: 70,
-        coding: 55,
-        creative: 85,
-        speed: 75,
-      },
     },
   ];
 
@@ -189,7 +119,6 @@ const TeamSection: React.FC = () => {
 
         {/* Team Cards Slideshow */}
         <div className="relative">
-          {/* Gradient overlays for fade effect */}
           <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-gray-100 to-transparent z-10"></div>
           <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-gray-100 to-transparent z-10"></div>
 
@@ -202,8 +131,8 @@ const TeamSection: React.FC = () => {
               className="flex animate-scroll"
               style={{
                 alignItems: "center",
-                gap: "53px",
-                width: `${teamMembers.length * (312.2 + 53) - 53}px`,
+                gap: "40px",
+                width: `${teamMembers.length * (292.2 + 53) - 53}px`,
               }}
             >
               {teamMembers.map((member, index) => (
@@ -212,7 +141,7 @@ const TeamSection: React.FC = () => {
                   className="flex-shrink-0"
                   style={{
                     display: "flex",
-                    width: "312.2px",
+                    width: "280px",
                     padding: "20px",
                     flexDirection: "column",
                     alignItems: "center",
@@ -233,12 +162,12 @@ const TeamSection: React.FC = () => {
                     className="relative w-full"
                     style={{
                       display: "flex",
-                      width: "282px",
-                      height: "480px", // Increased height to accommodate content
-                      padding: "14.953px 14.953px 14.953px 14.953px", // Reduced bottom padding
+                      width: "262px",
+                      height: "460px",
+                      padding: "16px 9px 16px 9px",
                       justifyContent: "center",
                       alignItems: "flex-start", // Changed from center to flex-start
-                      gap: "4.984px",
+                      gap: "1.984px",
                       flexShrink: 0,
                       background: "#FFF",
                       borderRadius: "20px",
@@ -278,7 +207,7 @@ const TeamSection: React.FC = () => {
 
                     {/* Name Label - Speech Bubble Style positioned relative to white card */}
                     <div
-                      className="absolute bottom-200 left-20"
+                      className="absolute bottom-180 right-20"
                       style={{
                         background: "white",
                         padding: "6px 14px",
@@ -290,18 +219,18 @@ const TeamSection: React.FC = () => {
                       }}
                     >
                       {member.name}
-                      {/* Speech bubble tail pointing left */}
+                      {/* Speech bubble tail pointing right */}
                       <div
                         style={{
                           position: "absolute",
-                          left: "-6px",
+                          right: "-6px",
                           top: "50%",
                           transform: "translateY(-50%)",
                           width: "0",
                           height: "0",
                           borderTop: "6px solid transparent",
                           borderBottom: "6px solid transparent",
-                          borderRight: "6px solid white",
+                          borderLeft: "6px solid white",
                         }}
                       />
                     </div>
@@ -310,8 +239,8 @@ const TeamSection: React.FC = () => {
                     <div
                       className="flex items-center justify-center overflow-hidden"
                       style={{
-                        width: "270px",
-                        height: "280px", // Reduced height to make room for text
+                        width: "250px",
+                        height: "300px",
                         flexShrink: 0,
                         borderRadius: "20px",
                         margin: "0 auto",
@@ -320,256 +249,110 @@ const TeamSection: React.FC = () => {
                       <Image
                         src={member.image}
                         alt={`${member.name} - ${member.role}`}
-                        width={270}
-                        height={280}
-                        className="w-full h-full object-cover"
+                        width={250}
+                        height={300}
+                        className="w-full h-full object-contain" // Changed from object-cover to object-contain
                         onError={(e) => {
                           // Fallback to a placeholder if image fails to load
                           const target = e.target as HTMLImageElement;
                           target.src =
-                            "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='270' height='280' viewBox='0 0 270 280'%3E%3Crect width='270' height='280' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%239ca3af' font-family='Arial' font-size='16'%3EPhoto%3C/text%3E%3C/svg%3E";
+                            "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='300' viewBox='0 0 250 300'%3E%3Crect width='250' height='300' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%239ca3af' font-family='Arial' font-size='16'%3EPhoto%3C/text%3E%3C/svg%3E";
                         }}
                       />
                     </div>
 
-                    {/* Bottom Section - Split into two columns */}
+                    {/* Bottom Section - Full width text content */}
                     <div
-                      className="flex w-full mt-2" // Reduced margin top
+                      className="flex w-full mt-2"
                       style={{
                         display: "flex",
-                        flexDirection: "row",
-                        gap: "12px", // Reduced gap
+                        flexDirection: "column",
+                        gap: "0px",
                         width: "100%",
-                        justifyContent: "space-between",
-                        alignItems: "flex-start",
-                        flex: 1, // Take remaining space
+                        justifyContent: "center",
+                        alignItems: "stretch",
+                        flex: 1,
                       }}
                     >
-                      {/* Left side - Text */}
-                      <div
-                        className="flex-1"
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "flex-start",
-                          gap: "6px", // Reduced gap
-                          alignSelf: "stretch",
-                        }}
-                      >
-                        <div>
-                          <h4
+                      {/* About Me Section */}
+                      <div>
+                        <h4
+                          style={{
+                            color: "#1E90FF",
+                            fontFamily: "Inter",
+                            fontSize: "13px",
+                            fontStyle: "normal",
+                            fontWeight: "400",
+                            lineHeight: "normal",
+                            marginBottom: "2px",
+                          }}
+                        >
+                          About me
+                        </h4>
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "8px 10px",
+                            alignItems: "center",
+                            gap: "3.5px",
+                            alignSelf: "stretch",
+                            border: "1px solid #000",
+                            background: "#FFF",
+                            borderRadius: "8px",
+                          }}
+                        >
+                          <p
                             style={{
-                              color: "#1E90FF",
-                              fontFamily: "Inter",
-                              fontSize: "13px", // Slightly smaller
-                              fontStyle: "normal",
-                              fontWeight: "600",
-                              lineHeight: "normal",
-                              marginBottom: "3px", // Reduced margin
+                              fontSize: "12px",
+                              lineHeight: "1.4",
+                              padding: "1px 0",
+                              color: "#374151",
+                              margin: 0,
                             }}
                           >
-                            About me
-                          </h4>
-                          <div
-                            style={{
-                              display: "flex",
-                              padding: "8px 10px", // Reduced padding
-                              alignItems: "center",
-                              gap: "3.5px",
-                              alignSelf: "stretch",
-                              border: "1px solid #000",
-                              background: "#FFF",
-                              borderRadius: "8px",
-                            }}
-                          >
-                            <p
-                              style={{
-                                fontSize: "12px", // Slightly smaller
-                                lineHeight: "1.4",
-                                padding: "1px 0",
-                                color: "#374151",
-                                margin: 0,
-                              }}
-                            >
-                              {member.aboutMe}
-                            </p>
-                          </div>
-                        </div>
-                        <div>
-                          <h4
-                            style={{
-                              color: "#1E90FF",
-                              fontFamily: "Inter",
-                              fontSize: "13px", // Slightly smaller
-                              fontStyle: "normal",
-                              fontWeight: "600",
-                              lineHeight: "normal",
-                              marginBottom: "3px", // Reduced margin
-                            }}
-                          >
-                            Fun Fact
-                          </h4>
-                          <div
-                            style={{
-                              display: "flex",
-                              padding: "8px 10px", // Reduced padding
-                              alignItems: "center",
-                              gap: "3.5px",
-                              alignSelf: "stretch",
-                              border: "1px solid #000",
-                              background: "#FFF",
-                              borderRadius: "8px",
-                            }}
-                          >
-                            <p
-                              style={{
-                                fontSize: "12px", // Slightly smaller
-                                lineHeight: "1.4",
-                                padding: "1px 0",
-                                color: "#374151",
-                                margin: 0,
-                              }}
-                            >
-                              {member.funFact}
-                            </p>
-                          </div>
+                            {member.aboutMe}
+                          </p>
                         </div>
                       </div>
 
-                      {/* Right side - Radar Chart */}
-                      <div
-                        className="flex flex-col items-center"
-                        style={{
-                          width: "70px", // Slightly smaller
-                          height: "90px", // Reduced height
-                          justifyContent: "center",
-                          position: "relative",
-                        }}
-                      >
-                        <div
+                      {/* Fun Fact Section */}
+                      <div>
+                        <h4
                           style={{
-                            position: "relative",
-                            width: "60px",
-                            height: "60px",
+                            color: "#1E90FF",
+                            fontFamily: "Inter",
+                            fontSize: "13px",
+                            fontStyle: "normal",
+                            fontWeight: "400",
+                            lineHeight: "normal",
+                            marginBottom: "2px", // Reduced from 3px to 2px
                           }}
                         >
-                          {" "}
-                          {/* Smaller chart */}
-                          <svg
-                            width="60"
-                            height="60"
-                            viewBox="0 0 60 60"
-                            className="transform -rotate-90"
-                          >
-                            {/* Radar Chart Background */}
-                            <polygon
-                              points="30,6 45,15 39,30 21,30 15,15"
-                              fill="rgba(59, 130, 246, 0.1)"
-                              stroke="rgba(59, 130, 246, 0.3)"
-                              strokeWidth="1"
-                            />
-                            <polygon
-                              points="30,12 42,18 36,27 24,27 18,18"
-                              fill="rgba(59, 130, 246, 0.1)"
-                              stroke="rgba(59, 130, 246, 0.3)"
-                              strokeWidth="1"
-                            />
-                            <polygon
-                              points="30,18 39,21 33,24 27,24 21,21"
-                              fill="rgba(59, 130, 246, 0.1)"
-                              stroke="rgba(59, 130, 246, 0.3)"
-                              strokeWidth="1"
-                            />
-
-                            {/* Skills Polygon */}
-                            <polygon
-                              points={`
-                                ${
-                                  30 + (member.skills.organization - 50) * 0.3
-                                },${
-                                30 - (member.skills.organization - 50) * 0.3
-                              }
-                                ${30 + (member.skills.visual - 50) * 0.3},${
-                                30 - (member.skills.visual - 50) * 0.3
-                              }
-                                ${30 + (member.skills.coding - 50) * 0.3},${
-                                30 - (member.skills.coding - 50) * 0.3
-                              }
-                                ${30 + (member.skills.creative - 50) * 0.3},${
-                                30 - (member.skills.creative - 50) * 0.3
-                              }
-                                ${30 + (member.skills.speed - 50) * 0.3},${
-                                30 - (member.skills.speed - 50) * 0.3
-                              }
-                              `}
-                              fill="rgba(59, 130, 246, 0.3)"
-                              stroke="rgba(59, 130, 246, 0.8)"
-                              strokeWidth="2"
-                            />
-                          </svg>
-                          {/* Radar Chart Labels - Positioned around the chart like a compass */}
-                          <span
+                          Fun Fact
+                        </h4>
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "8px 10px",
+                            alignItems: "center",
+                            gap: "3.5px",
+                            alignSelf: "stretch",
+                            border: "1px solid #000",
+                            background: "#FFF",
+                            borderRadius: "8px",
+                          }}
+                        >
+                          <p
                             style={{
-                              position: "absolute",
-                              top: "-8px",
-                              left: "50%",
-                              transform: "translateX(-50%)",
-                              fontSize: "7px",
-                              color: "#666",
-                              fontWeight: "500",
+                              fontSize: "12px",
+                              lineHeight: "1.4",
+                              padding: "1px 0",
+                              color: "#374151",
+                              margin: 0,
                             }}
                           >
-                            Org
-                          </span>
-                          <span
-                            style={{
-                              position: "absolute",
-                              top: "15px",
-                              right: "-8px",
-                              fontSize: "7px",
-                              color: "#666",
-                              fontWeight: "500",
-                            }}
-                          >
-                            Speed
-                          </span>
-                          <span
-                            style={{
-                              position: "absolute",
-                              bottom: "-8px",
-                              left: "50%",
-                              transform: "translateX(-50%)",
-                              fontSize: "7px",
-                              color: "#666",
-                              fontWeight: "500",
-                            }}
-                          >
-                            Coding
-                          </span>
-                          <span
-                            style={{
-                              position: "absolute",
-                              bottom: "15px",
-                              left: "-10px",
-                              fontSize: "7px",
-                              color: "#666",
-                              fontWeight: "500",
-                            }}
-                          >
-                            Creative
-                          </span>
-                          <span
-                            style={{
-                              position: "absolute",
-                              top: "15px",
-                              left: "-8px",
-                              fontSize: "7px",
-                              color: "#666",
-                              fontWeight: "500",
-                            }}
-                          >
-                            Visual
-                          </span>
+                            {member.funFact}
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -592,7 +375,7 @@ const TeamSection: React.FC = () => {
         }
 
         .animate-scroll {
-          animation: scroll 60s linear infinite;
+          animation: scroll 70s linear infinite;
         }
       `}</style>
     </div>

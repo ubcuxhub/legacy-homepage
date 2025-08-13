@@ -98,7 +98,7 @@ const CTASection = () => {
           />
 
           {/* Honeypot field (anti-bot). Keep it off-screen but in the form. */}
-          <div
+          {/* <div
             style={{ position: "absolute", left: "-5000px" }}
             aria-hidden="true"
           >
@@ -108,7 +108,7 @@ const CTASection = () => {
               tabIndex="-1"
               defaultValue=""
             />
-          </div>
+          </div> */}
 
           <div
             style={{

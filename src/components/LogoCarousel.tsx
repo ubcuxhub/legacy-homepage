@@ -82,7 +82,18 @@ const LogoCarousel: React.FC = () => {
           <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-gray-50 to-transparent z-10"></div>
 
           {/* Logo container */}
-          <div className="flex items-center space-x-[80px] animate-scroll">
+          <div
+            className="flex items-center space-x-[80px]"
+            style={{
+              animation: "scroll 20s linear infinite",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.animationPlayState = "paused";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.animationPlayState = "running";
+            }}
+          >
             {duplicatedLogos.map((logo, index) => (
               <div
                 key={`${logo.name}-${index}`}
@@ -101,24 +112,20 @@ const LogoCarousel: React.FC = () => {
         </div>
       </div>
 
-      <style jsx>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+          @keyframes scroll {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(calc(-50% - 2rem));
+            }
           }
-          100% {
-            transform: translateX(calc(-50% - 2rem));
-          }
-        }
-
-        .animate-scroll {
-          animation: scroll 20s linear infinite;
-        }
-
-        .animate-scroll:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
+        `,
+        }}
+      />
     </div>
   );
 };

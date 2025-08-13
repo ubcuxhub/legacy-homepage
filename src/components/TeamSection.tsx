@@ -154,7 +154,10 @@ const TeamSection: React.FC = () => {
         }}
       >
         {/* Header */}
-        <div className="mb-16" style={{ paddingLeft: "160px", paddingRight: "160px" }}>
+        <div
+          className="mb-16"
+          style={{ paddingLeft: "160px", paddingRight: "160px" }}
+        >
           <p
             className="mb-0"
             style={{
@@ -167,7 +170,7 @@ const TeamSection: React.FC = () => {
               alignSelf: "stretch",
             }}
           >
-            The team
+            the team
           </p>
           <h2
             style={{
@@ -323,7 +326,8 @@ const TeamSection: React.FC = () => {
                         onError={(e) => {
                           // Fallback to a placeholder if image fails to load
                           const target = e.target as HTMLImageElement;
-                          target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='270' height='280' viewBox='0 0 270 280'%3E%3Crect width='270' height='280' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%239ca3af' font-family='Arial' font-size='16'%3EPhoto%3C/text%3E%3C/svg%3E";
+                          target.src =
+                            "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='270' height='280' viewBox='0 0 270 280'%3E%3Crect width='270' height='280' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%239ca3af' font-family='Arial' font-size='16'%3EPhoto%3C/text%3E%3C/svg%3E";
                         }}
                       />
                     </div>
@@ -378,13 +382,13 @@ const TeamSection: React.FC = () => {
                               borderRadius: "8px",
                             }}
                           >
-                            <p 
-                              style={{ 
+                            <p
+                              style={{
                                 fontSize: "12px", // Slightly smaller
                                 lineHeight: "1.4",
                                 padding: "1px 0",
                                 color: "#374151",
-                                margin: 0
+                                margin: 0,
                               }}
                             >
                               {member.aboutMe}
@@ -417,13 +421,13 @@ const TeamSection: React.FC = () => {
                               borderRadius: "8px",
                             }}
                           >
-                            <p 
-                              style={{ 
+                            <p
+                              style={{
                                 fontSize: "12px", // Slightly smaller
                                 lineHeight: "1.4",
                                 padding: "1px 0",
                                 color: "#374151",
-                                margin: 0
+                                margin: 0,
                               }}
                             >
                               {member.funFact}
@@ -433,16 +437,24 @@ const TeamSection: React.FC = () => {
                       </div>
 
                       {/* Right side - Radar Chart */}
-                      <div 
+                      <div
                         className="flex flex-col items-center"
-                        style={{ 
+                        style={{
                           width: "70px", // Slightly smaller
                           height: "90px", // Reduced height
                           justifyContent: "center",
-                          position: "relative"
+                          position: "relative",
                         }}
                       >
-                        <div style={{ position: "relative", width: "60px", height: "60px" }}> {/* Smaller chart */}
+                        <div
+                          style={{
+                            position: "relative",
+                            width: "60px",
+                            height: "60px",
+                          }}
+                        >
+                          {" "}
+                          {/* Smaller chart */}
                           <svg
                             width="60"
                             height="60"
@@ -472,7 +484,9 @@ const TeamSection: React.FC = () => {
                             {/* Skills Polygon */}
                             <polygon
                               points={`
-                                ${30 + (member.skills.organization - 50) * 0.3},${
+                                ${
+                                  30 + (member.skills.organization - 50) * 0.3
+                                },${
                                 30 - (member.skills.organization - 50) * 0.3
                               }
                                 ${30 + (member.skills.visual - 50) * 0.3},${
@@ -493,66 +507,65 @@ const TeamSection: React.FC = () => {
                               strokeWidth="2"
                             />
                           </svg>
-                          
                           {/* Radar Chart Labels - Positioned around the chart like a compass */}
-                          <span 
-                            style={{ 
-                              position: 'absolute', 
-                              top: '-8px', 
-                              left: '50%', 
-                              transform: 'translateX(-50%)', 
-                              fontSize: '7px',
-                              color: '#666',
-                              fontWeight: '500'
+                          <span
+                            style={{
+                              position: "absolute",
+                              top: "-8px",
+                              left: "50%",
+                              transform: "translateX(-50%)",
+                              fontSize: "7px",
+                              color: "#666",
+                              fontWeight: "500",
                             }}
                           >
                             Org
                           </span>
-                          <span 
-                            style={{ 
-                              position: 'absolute', 
-                              top: '15px', 
-                              right: '-8px', 
-                              fontSize: '7px',
-                              color: '#666',
-                              fontWeight: '500'
+                          <span
+                            style={{
+                              position: "absolute",
+                              top: "15px",
+                              right: "-8px",
+                              fontSize: "7px",
+                              color: "#666",
+                              fontWeight: "500",
                             }}
                           >
                             Speed
                           </span>
-                          <span 
-                            style={{ 
-                              position: 'absolute', 
-                              bottom: '-8px', 
-                              left: '50%', 
-                              transform: 'translateX(-50%)', 
-                              fontSize: '7px',
-                              color: '#666',
-                              fontWeight: '500'
+                          <span
+                            style={{
+                              position: "absolute",
+                              bottom: "-8px",
+                              left: "50%",
+                              transform: "translateX(-50%)",
+                              fontSize: "7px",
+                              color: "#666",
+                              fontWeight: "500",
                             }}
                           >
                             Coding
                           </span>
-                          <span 
-                            style={{ 
-                              position: 'absolute', 
-                              bottom: '15px', 
-                              left: '-10px', 
-                              fontSize: '7px',
-                              color: '#666',
-                              fontWeight: '500'
+                          <span
+                            style={{
+                              position: "absolute",
+                              bottom: "15px",
+                              left: "-10px",
+                              fontSize: "7px",
+                              color: "#666",
+                              fontWeight: "500",
                             }}
                           >
                             Creative
                           </span>
-                          <span 
-                            style={{ 
-                              position: 'absolute', 
-                              top: '15px', 
-                              left: '-8px', 
-                              fontSize: '7px',
-                              color: '#666',
-                              fontWeight: '500'
+                          <span
+                            style={{
+                              position: "absolute",
+                              top: "15px",
+                              left: "-8px",
+                              fontSize: "7px",
+                              color: "#666",
+                              fontWeight: "500",
                             }}
                           >
                             Visual
@@ -565,9 +578,8 @@ const TeamSection: React.FC = () => {
               ))}
             </div>
           </div>
-          </div>
-          </div>
-        
+        </div>
+      </div>
 
       <style jsx>{`
         @keyframes scroll {

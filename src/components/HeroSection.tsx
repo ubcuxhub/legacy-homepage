@@ -1,7 +1,7 @@
 import React from "react";
 
 const headerStyle: React.CSSProperties = {
-  width: "1247px",
+  width: "100%", // Changed from fixed width to responsive
   height: "58px",
   flexShrink: 0,
   borderTopLeftRadius: "20px",
@@ -12,7 +12,7 @@ const headerStyle: React.CSSProperties = {
   display: "inline-flex",
   alignItems: "center",
   gap: "10px",
-  padding: "18px 18px 18px 80px",
+  padding: "18px 18px 18px 80px", // Large screen padding
   justifyContent: "flex-start",
 };
 
@@ -44,18 +44,19 @@ const rightCircleStyle: React.CSSProperties = {
 
 const contentFrameStyle: React.CSSProperties = {
   display: "flex",
-  width: "992px",
+  width: "100%", // Changed from fixed width to responsive
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
-  gap: "80px",
+  gap: "80px", // Large screen gap
   flex: 1,
-  padding: "80px 128px 128px 128px",
+  padding: "80px 128px 128px 128px", // Large screen padding
 };
 
 const heroStyle: React.CSSProperties = {
-  width: "1247px",
-  height: "694px",
+  width: "100%", // Changed from fixed width to responsive
+  maxWidth: "1247px", // Large screen max width
+  height: "694px", // Large screen height
   flexShrink: 0,
   borderRadius: "20px",
   border: "1px solid #C1C7CD",
@@ -74,13 +75,24 @@ export default function HeroSection({
   children?: React.ReactNode;
 }) {
   return (
-    <section style={heroStyle}>
-      <div style={headerStyle}>
+    <section 
+      className="w-full max-w-[1247px] lg:h-[694px] md:h-[600px] sm:h-[500px] flex-shrink-0 rounded-[20px] border border-[#C1C7CD] bg-[#f5f5f5] box-border relative overflow-hidden flex flex-col items-center"
+      style={heroStyle}
+    >
+      <div 
+        className="w-full h-[58px] flex-shrink-0 rounded-t-[20px] bg-[#f5f5f5] opacity-70 border-b border-[#C1C7CD] inline-flex items-center gap-[10px] lg:px-[80px] md:px-[60px] sm:px-[40px] py-[18px] justify-start"
+        style={headerStyle}
+      >
         <div style={circleStyle}></div>
         <div style={middleCircleStyle}></div>
         <div style={rightCircleStyle}></div>
       </div>
-      <div style={contentFrameStyle}>{children}</div>
+      <div 
+        className="flex w-full flex-col items-center justify-center lg:gap-[80px] md:gap-[60px] sm:gap-[40px] flex-1 lg:px-[128px] lg:py-[80px] md:px-[80px] md:py-[60px] sm:px-[40px] sm:py-[40px]"
+        style={contentFrameStyle}
+      >
+        {children}
+      </div>
     </section>
   );
 }

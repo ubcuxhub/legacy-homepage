@@ -1,5 +1,4 @@
 // This is the main landing page for the UX Hub app
-// It features a FigJam-like board with draggable sticky notes and shapes, a toolbar, and a dot grid background
 
 "use client";
 
@@ -32,13 +31,14 @@ export default function Home() {
       </div>
 
       {/* Content Container */}
-      <div className="relative z-10 pt-[80px]">
+      <div className="relative z-10 pt-[80px] lg:pt-[80px] md:pt-[70px] sm:pt-[60px]">
         {/* Hero Section */}
-        <div id="home" className="flex justify-center items-start pt-[70px]">
+        <div id="home" className="flex justify-center items-start pt-[70px] lg:pt-[70px] md:pt-[50px] sm:pt-[30px]">
           <HeroSection>
             <div style={{ position: "relative" }}>
               {/* Figma Cursor Chat - "and largest!" */}
               <div
+                className="absolute lg:top-[-20px] lg:left-[200px] md:top-[-15px] md:left-[150px] sm:top-[-10px] sm:left-[100px] z-10"
                 style={{
                   position: "absolute",
                   top: "-20px",
@@ -49,6 +49,7 @@ export default function Home() {
                 <img
                   src="/and largest.png"
                   alt="and largest!"
+                  className="lg:max-w-[150px] md:max-w-[120px] sm:max-w-[100px]"
                   style={{
                     width: "auto",
                     height: "auto",
@@ -59,6 +60,7 @@ export default function Home() {
 
               {/* Figma Cursor Chat - "UBC UX Hub" */}
               <div
+                className="absolute lg:top-[150px] lg:right-[-120px] md:top-[120px] md:right-[-80px] sm:top-[80px] sm:right-[-60px] z-10"
                 style={{
                   position: "absolute",
                   top: "150px",
@@ -67,8 +69,9 @@ export default function Home() {
                 }}
               >
                 <img
-                  src="/figma cursor chat.png"
+                  src="/figma-cursor-chat.png"
                   alt="UBC UX Hub"
+                  className="lg:max-w-[150px] md:max-w-[120px] sm:max-w-[100px]"
                   style={{
                     width: "auto",
                     height: "auto",
@@ -77,7 +80,7 @@ export default function Home() {
                 />
               </div>
               <h1
-                className="font-dm-sans font-bold leading-normal flex flex-col gap-8"
+                className="font-dm-sans font-bold leading-normal flex flex-col gap-8 lg:text-[64px] md:text-[48px] sm:text-[32px]"
                 style={{
                   color: "#383838",
                   fontSize: "64px",
@@ -205,7 +208,7 @@ export default function Home() {
                 </div>
               </h1>
               <p
-                className="font-dm-sans"
+                className="font-dm-sans lg:text-[16px] md:text-[14px] sm:text-[12px]"
                 style={{
                   color: "#000",
                   fontSize: "16px",
@@ -216,15 +219,15 @@ export default function Home() {
                   marginBottom: "50px",
                 }}
               >
-                <span style={{ display: "inline-block", width: "900px" }}>
+                <span className="lg:inline-block lg:w-[900px] md:inline-block md:w-[700px] sm:block sm:w-full" style={{ display: "inline-block", width: "900px" }}>
                   UBC UX Hub empowers students through hands-on learning,
                   creative collaboration, and access to the latest in user
                   experience and emerging technology.
                 </span>
               </p>
-              <div className="mt-8 flex gap-4">
+              <div className="mt-8 flex gap-4 lg:gap-4 md:gap-3 sm:gap-2">
                 <button
-                  className="transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-black/20 transform hover:-translate-y-1 active:scale-95"
+                  className="transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-black/20 transform hover:-translate-y-1 active:scale-95 lg:w-[252px] lg:h-[54px] md:w-[220px] md:h-[48px] sm:w-[180px] sm:h-[42px]"
                   style={{
                     display: "flex",
                     width: "252px",
@@ -281,17 +284,18 @@ export default function Home() {
         </div>
 
         {/* CTA Section */}
-        <div className="mt-[70px]">
+        <div className="mt-[70px] lg:mt-[70px] md:mt-[50px] sm:mt-[30px]">
           <CTASection />
         </div>
 
         {/* About us Section */}
-        <div id="about-us" className="mt-[70px]">
+        <div id="about-us" className="mt-[70px] lg:mt-[70px] md:mt-[50px] sm:mt-[30px]">
           <AboutUs />
         </div>
 
         {/* Spnonsors section */}
         <div
+          className="lg:pt-[100px] lg:pb-[100px] md:pt-[80px] md:pb-[80px] sm:pt-[60px] sm:pb-[60px]"
           style={{
             paddingTop: "100px",
             paddingBottom: "100px",
@@ -301,19 +305,19 @@ export default function Home() {
         </div>
 
         {/* Events Section */}
-        <div id="events" className="mt-[70px]">
+        <div id="events" className="mt-[70px] lg:mt-[70px] md:mt-[50px] sm:mt-[30px]">
           <EventsSection />
         </div>
 
         {/* Team Section */}
-        <div id="team" className="mt-[70px]">
+        <div id="team" className="mt-[70px] lg:mt-[70px] md:mt-[50px] sm:mt-[30px]">
           <TeamSection />
         </div>
 
         {/* CTA Section After Team */}
-        <div className="mt-[70px]">
+        <div className="mt-[70px] lg:mt-[70px] md:mt-[50px] sm:mt-[30px]">
           <div
-            className="flex items-center justify-center py-20"
+            className="flex items-center justify-center lg:py-20 md:py-16 sm:py-12 lg:w-[1000px] lg:h-[500px] md:w-[800px] md:h-[400px] sm:w-full sm:h-[300px] mx-auto rounded-[20px] lg:mt-[100px] md:mt-[80px] sm:mt-[60px]"
             style={{
               background:
                 "linear-gradient(156deg, #052462 -1.32%, #CA97CE 77.58%, #F09485 97.31%)",
@@ -326,7 +330,7 @@ export default function Home() {
             }}
           >
             <div
-              className="max-w-6xl mx-auto px-8 text-center"
+              className="max-w-6xl mx-auto px-8 text-center lg:w-[552px] lg:h-[301px] md:w-[500px] md:h-[250px] sm:w-full sm:h-[200px]"
               style={{
                 display: "flex",
                 width: "552px",
@@ -339,7 +343,7 @@ export default function Home() {
               }}
             >
               <h2
-                className="font-dm-sans mb-6"
+                className="font-dm-sans mb-6 lg:text-[42px] md:text-[32px] sm:text-[24px]"
                 style={{
                   color: "#FFFFFF",
                   fontSize: "42px",
@@ -351,7 +355,7 @@ export default function Home() {
                 Ready to kickstart your design journey?
               </h2>
               <p
-                className="font-dm-sans mb-8 max-w-2xl mx-auto"
+                className="font-dm-sans mb-8 max-w-2xl mx-auto lg:text-[16px] md:text-[14px] sm:text-[12px]"
                 style={{
                   color: "#FFF",
                   textAlign: "center",

@@ -125,7 +125,7 @@ const TeamSection: React.FC = () => {
           {/* Cards Container */}
           <div
             className="flex justify-center items-center overflow-hidden ml-20 mr-20"
-            style={{ minHeight: "500px" }}
+            style={{ minHeight: "580px" }}
           >
             <div
               className="flex animate-scroll"
@@ -163,11 +163,11 @@ const TeamSection: React.FC = () => {
                     style={{
                       display: "flex",
                       width: "262px",
-                      height: "460px",
-                      padding: "16px 9px 16px 9px",
+                      height: "520px",
+                      padding: "20px 12px 20px 12px",
                       justifyContent: "center",
-                      alignItems: "flex-start", // Changed from center to flex-start
-                      gap: "1.984px",
+                      alignItems: "flex-start",
+                      gap: "8px",
                       flexShrink: 0,
                       background: "#FFF",
                       borderRadius: "20px",
@@ -177,7 +177,7 @@ const TeamSection: React.FC = () => {
                   >
                     {/* Role Label - Speech Bubble Style positioned relative to white card */}
                     <div
-                      className="relative -top-20 left-1/2 transform -translate-x-1/2"
+                      className="relative -top-16 left-1/2 transform -translate-x-1/2"
                       style={{
                         background: "white",
                         padding: "6px 14px",
@@ -186,6 +186,7 @@ const TeamSection: React.FC = () => {
                         fontWeight: "600",
                         color: "#374151",
                         boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+                        zIndex: 10,
                       }}
                     >
                       {member.role}
@@ -207,7 +208,7 @@ const TeamSection: React.FC = () => {
 
                     {/* Name Label - Speech Bubble Style positioned relative to white card */}
                     <div
-                      className="absolute bottom-180 right-20"
+                      className="absolute bottom-200 right-16"
                       style={{
                         background: "white",
                         padding: "6px 14px",
@@ -216,6 +217,7 @@ const TeamSection: React.FC = () => {
                         fontWeight: "700",
                         color: "#374151",
                         boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+                        zIndex: 10,
                       }}
                     >
                       {member.name}
@@ -240,7 +242,7 @@ const TeamSection: React.FC = () => {
                       className="flex items-center justify-center overflow-hidden"
                       style={{
                         width: "250px",
-                        height: "300px",
+                        height: "280px",
                         flexShrink: 0,
                         borderRadius: "20px",
                         margin: "0 auto",
@@ -250,26 +252,26 @@ const TeamSection: React.FC = () => {
                         src={member.image}
                         alt={`${member.name} - ${member.role}`}
                         width={250}
-                        height={300}
-                        className="w-full h-full object-contain" // Changed from object-cover to object-contain
+                        height={280}
+                        className="w-full h-full object-cover"
                         onError={(e) => {
                           // Fallback to a placeholder if image fails to load
                           const target = e.target as HTMLImageElement;
                           target.src =
-                            "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='300' viewBox='0 0 250 300'%3E%3Crect width='250' height='300' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%239ca3af' font-family='Arial' font-size='16'%3EPhoto%3C/text%3E%3C/svg%3E";
+                            "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='280' viewBox='0 0 250 280'%3E%3Crect width='250' height='280' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%239ca3af' font-family='Arial' font-size='16'%3EPhoto%3C/text%3E%3C/svg%3E";
                         }}
                       />
                     </div>
 
                     {/* Bottom Section - Full width text content */}
                     <div
-                      className="flex w-full mt-2"
+                      className="flex w-full mt-4"
                       style={{
                         display: "flex",
                         flexDirection: "column",
-                        gap: "0px",
+                        gap: "8px",
                         width: "100%",
-                        justifyContent: "center",
+                        justifyContent: "flex-start",
                         alignItems: "stretch",
                         flex: 1,
                       }}
@@ -282,9 +284,9 @@ const TeamSection: React.FC = () => {
                             fontFamily: "Inter",
                             fontSize: "13px",
                             fontStyle: "normal",
-                            fontWeight: "400",
+                            fontWeight: "600",
                             lineHeight: "normal",
-                            marginBottom: "2px",
+                            marginBottom: "4px",
                           }}
                         >
                           About me
@@ -292,13 +294,14 @@ const TeamSection: React.FC = () => {
                         <div
                           style={{
                             display: "flex",
-                            padding: "8px 10px",
-                            alignItems: "center",
+                            padding: "10px 12px",
+                            alignItems: "flex-start",
                             gap: "3.5px",
                             alignSelf: "stretch",
                             border: "1px solid #000",
                             background: "#FFF",
                             borderRadius: "8px",
+                            minHeight: "40px",
                           }}
                         >
                           <p
@@ -323,9 +326,9 @@ const TeamSection: React.FC = () => {
                             fontFamily: "Inter",
                             fontSize: "13px",
                             fontStyle: "normal",
-                            fontWeight: "400",
+                            fontWeight: "600",
                             lineHeight: "normal",
-                            marginBottom: "2px", // Reduced from 3px to 2px
+                            marginBottom: "4px",
                           }}
                         >
                           Fun Fact
@@ -333,13 +336,14 @@ const TeamSection: React.FC = () => {
                         <div
                           style={{
                             display: "flex",
-                            padding: "8px 10px",
-                            alignItems: "center",
+                            padding: "10px 12px",
+                            alignItems: "flex-start",
                             gap: "3.5px",
                             alignSelf: "stretch",
                             border: "1px solid #000",
                             background: "#FFF",
                             borderRadius: "8px",
+                            minHeight: "40px",
                           }}
                         >
                           <p

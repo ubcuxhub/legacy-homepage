@@ -22,7 +22,10 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: 'UX hub',
   description: 'A collaborative whiteboard and design hub',
-  viewport: 'width=device-width, initial-scale=1',
+  viewport: 'width=device-width, initial-scale=1, user-scalable=no',
+  icons: {
+    icon: '/logo.png',
+  },
 };
 
 export default function RootLayout({

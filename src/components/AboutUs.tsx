@@ -6,17 +6,17 @@ const AboutUs: React.FC = () => {
     <div
       className="bg-gray-100"
       style={{
-        paddingLeft: "160px",
-        paddingRight: "160px",
-        paddingTop: "139px",
-        paddingBottom: "139px",
         position: "relative",
         zIndex: 9999,
         backgroundColor: "#f3f4f6",
+        paddingLeft: "80px",
+        paddingRight: "80px",
+        paddingTop: "139px",
+        paddingBottom: "139px",
       }}
     >
       <div className="max-w-8xl mx-auto">
-        <div className="flex items-center gap-12">
+        <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12">
           <div className="flex-1">
             <p
               className="mb-0"
@@ -70,7 +70,9 @@ const AboutUs: React.FC = () => {
             </div>
           </div>
 
-          <AboutImageStack />
+          <div className="lg:flex-shrink-0">
+            <AboutImageStack />
+          </div>
         </div>
       </div>
     </div>

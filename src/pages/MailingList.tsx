@@ -32,7 +32,6 @@ const CTASection = () => {
           gap: "120px",
         }}
       >
-        {/* Left side - Text content */}
         <div className="flex flex-col gap-4">
           <h2
             className="font-dm-sans"
@@ -65,18 +64,17 @@ const CTASection = () => {
           </p>
         </div>
 
-        {/* Right side - Embedded Mailchimp form */}
         <form
           action="https://facebook.us16.list-manage.com/subscribe/post?u=9a26bb1b23b273a2a9f766b4f&id=8faf775ff6"
           method="post"
-          target="_blank" // open MC response in a new tab (optional)
-          noValidate // let Mailchimp handle validation
+          target="_blank" 
+          noValidate 
           className="relative"
           style={{ width: "360px", marginLeft: "auto" }}
         >
           <input
             type="email"
-            name="EMAIL" // Mailchimp expects this exact name
+            name="EMAIL" 
             placeholder="ex: myname@example.com"
             required
             className="outline-none transition-all duration-300 ease-in-out hover:bg-[rgba(242,244,248,0.45)] focus:bg-[rgba(242,244,248,0.45)] w-full hover:scale-[1.02] focus:scale-[1.02]"
@@ -97,7 +95,7 @@ const CTASection = () => {
             }}
           />
 
-          {/* Honeypot field (anti-bot). Keep it off-screen but in the form. */}
+          {/* Honeypot field (anti-bot).  off-screen but in the form. */}
           {/* <div
             style={{ position: "absolute", left: "-5000px" }}
             aria-hidden="true"

@@ -28,7 +28,6 @@ const Navbar = () => {
       style={{ margin: "0 auto", transform: "translateX(-50%)", left: "50%" }}
     >
       <nav className="h-full flex items-center">
-        {/* Left frame with logo */}
         <div className="lg:pl-[70px] md:pl-[50px] sm:pl-[30px]">
           <div className="w-[72px] h-[72px] lg:w-[72px] lg:h-[72px] md:w-[60px] md:h-[60px] sm:w-[50px] sm:h-[50px]">
             <Image
@@ -41,9 +40,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Right frame with nav links and button */}
         <div className="ml-auto lg:pr-[70px] md:pr-[50px] sm:pr-[30px] flex items-center">
-          {/* Navigation Links */}
           <Link
             href="#home"
             className={navLinkStyles}
@@ -80,7 +77,6 @@ const Navbar = () => {
             Contact Us
           </Link>
 
-          {/* Become a Member Button */}
           <Link
             href="/join"
             className={buttonStyles}
@@ -90,6 +86,8 @@ const Navbar = () => {
               textDecoration: "none",
               color: "#FFFFFF",
               marginLeft: "32px",
+              paddingLeft: "12px",
+              paddingRight: "12px",
             }}
           >
             Become a Member

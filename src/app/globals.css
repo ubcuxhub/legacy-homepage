@@ -16,7 +16,7 @@ body {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: white;
   background: rgb(var(--background-rgb));
 }
 

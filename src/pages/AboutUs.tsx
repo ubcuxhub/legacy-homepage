@@ -1,5 +1,5 @@
 import React from "react";
-import AboutImageStack from "./AboutImageStack";
+import AboutImageStack from "../components/AboutImageStack";
 
 const AboutUs: React.FC = () => {
   return (
@@ -33,15 +33,18 @@ const AboutUs: React.FC = () => {
               who we are
             </p>
             <h2
-              className="text-gray-800 mb-6 leading-tight"
-              style={{
-                fontFamily: "DM Sans",
-                fontWeight: 700,
-                fontSize: "38px",
-              }}
-            >
-              Empowering the next generation of UX designers
-            </h2>
+            style={{
+              color: "#383838",
+              fontFamily: "DM Sans",
+              fontSize: "38px",
+              fontStyle: "normal",
+              fontWeight: 700,
+              lineHeight: "normal",
+              alignSelf: "stretch",
+            }}
+          >
+            Empowering the next generation of UX designers
+          </h2>
             <div
               className="space-y-6 text-gray-700"
               style={{

@@ -18,7 +18,6 @@ const EventsSection: React.FC = () => {
           width: "fit-content",
         }}
       >
-        {/* Header */}
         <div className="mb-16">
           <p
             className="mb-0"
@@ -49,9 +48,9 @@ const EventsSection: React.FC = () => {
           </h2>
         </div>
 
-        {/* Event Cards */}
+        {/* event cards */}
         <div className="flex justify-center gap-10 mb-20 ml-20 mr-20">
-          {/* Design Archetypes Card */}
+
           <div
             className="relative overflow-hidden flex-shrink-0"
             style={{
@@ -63,7 +62,6 @@ const EventsSection: React.FC = () => {
               marginRight: "20px",
             }}
           >
-            {/* Content */}
             <div className="relative z-10 h-full flex flex-col justify-between p-6">
               <div className="flex-1 flex items-center justify-center">
                 <Image
@@ -116,7 +114,6 @@ const EventsSection: React.FC = () => {
             </div>
           </div>
 
-          {/* UXATHON 2025 Card */}
           <div
             className="relative overflow-hidden flex-shrink-0"
             style={{
@@ -128,10 +125,8 @@ const EventsSection: React.FC = () => {
               marginLeft: "20px",
             }}
           >
-            {/* Gradient Background */}
             <div className="absolute inset-0 bg-gradient-to-b from-pink-200 to-orange-200"></div>
 
-            {/* Content */}
             <div className="relative z-10 h-full flex flex-col justify-between p-8">
               <div className="flex-1 flex items-center justify-center">
                 <Image
@@ -189,7 +184,6 @@ const EventsSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Call to Action Button */}
         <div className="text-center flex justify-center">
           <button
             className="transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-black/20 transform hover:-translate-y-1 active:scale-95"

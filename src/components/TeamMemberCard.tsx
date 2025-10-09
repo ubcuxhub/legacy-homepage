@@ -25,7 +25,7 @@ const GRADIENTS = [
 const CARD_STYLES = {
   outer: {
     display: "flex",
-    width: "260px",
+    width: "320px",
     padding: "20px",
     flexDirection: "column" as const,
     alignItems: "center",
@@ -36,9 +36,9 @@ const CARD_STYLES = {
   },
   inner: {
     display: "flex",
-    width: "242px",
-    height: "485px",
-    padding: "20px 12px 20px 12px",
+    width: "286px",
+    height: "560px",
+    padding: "12px",
     justifyContent: "center",
     alignItems: "flex-start",
     gap: "8px",
@@ -69,7 +69,7 @@ const CARD_STYLES = {
     zIndex: 10,
   },
   imageContainer: {
-    width: "230px",
+    width: "250px",
     height: "280px",
     flexShrink: 0,
     borderRadius: "20px",
@@ -84,6 +84,7 @@ const CARD_STYLES = {
     border: "1px solid #000",
     background: "#FFF",
     borderRadius: "8px",
+    height: "62px",
     minHeight: "30px",
   },
   infoText: {
@@ -104,14 +105,16 @@ const CARD_STYLES = {
   },
 } as const;
 
-
-export default function TeamMemberCard({ member, gradientIndex }: TeamMemberCardProps) {
+export default function TeamMemberCard({
+  member,
+  gradientIndex,
+}: TeamMemberCardProps) {
   const gradient = GRADIENTS[gradientIndex % GRADIENTS.length];
-
 
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
     const target = e.target as HTMLImageElement;
-    target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='280' viewBox='0 0 250 280'%3E%3Crect width='250' height='280' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%239ca3af' font-family='Arial' font-size='16'%3EPhoto%3C/text%3E%3C/svg%3E";
+    target.src =
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='280' viewBox='0 0 250 280'%3E%3Crect width='250' height='280' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%239ca3af' font-family='Arial' font-size='16'%3EPhoto%3C/text%3E%3C/svg%3E";
   };
 
   return (
@@ -122,10 +125,13 @@ export default function TeamMemberCard({ member, gradientIndex }: TeamMemberCard
         background: gradient,
       }}
     >
-      <div className="relative w-full" style={CARD_STYLES.inner}>
+      <div
+        className="flex flex-col items-center justify-center relative w-full"
+        style={CARD_STYLES.inner}
+      >
         {/* role label */}
         <div
-          className="relative -top-16 left-1/2 transform -translate-x-1/2"
+          className="relative left-1/2 -translate-x-1/2 text-center"
           style={CARD_STYLES.roleLabel}
         >
           {member.role}
@@ -145,10 +151,7 @@ export default function TeamMemberCard({ member, gradientIndex }: TeamMemberCard
         </div>
 
         {/* name label */}
-        <div
-          className="absolute bottom-200 right-16"
-          style={CARD_STYLES.nameLabel}
-        >
+        <div className="absolute" style={CARD_STYLES.nameLabel}>
           {member.name}
           <div
             style={{
@@ -187,13 +190,15 @@ export default function TeamMemberCard({ member, gradientIndex }: TeamMemberCard
             flexDirection: "column",
             gap: "8px",
             width: "100%",
-            justifyContent: "flex-start",
+            justifyContent: "space-between",
             alignItems: "stretch",
             flex: 1,
           }}
         >
           <div>
-            <h4 style={CARD_STYLES.sectionTitle}>About Me</h4>
+            <h4 style={CARD_STYLES.sectionTitle} className="">
+              About Me
+            </h4>
             <div style={CARD_STYLES.infoBox}>
               <p style={CARD_STYLES.infoText}>{member.aboutMe}</p>
             </div>

@@ -109,7 +109,7 @@ export default function TeamSection() {
   return (
     <div className="w-full ">
       <div className="max-w-8xl mx-auto">
-        <div className="mb-16 px-[160px]">
+        <div className="mb-16 px-[20%]">
           <p className="mb-0" style={SECTION_STYLES.subtitle}>
             the team
           </p>

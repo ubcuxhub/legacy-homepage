@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -55,4 +53,8 @@ body {
 #events,
 #team {
   scroll-margin-top: 100px;
+}
+
+.nav_link {
+  @apply text-[#2F2E41] font-['DM_Sans'] text-base font-medium no-underline hover:text-gray-900 transition-colors whitespace-nowrap;
 }

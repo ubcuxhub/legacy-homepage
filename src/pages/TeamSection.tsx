@@ -97,47 +97,52 @@ const SECTION_STYLES = {
 
 const ANIMATION_CONFIG = {
   duration: "70s",
-  cardWidth: 292.2,
-  gap: 53,
+  cardWidth: 320,
+  gap: 45,
 } as const;
 
-
 export default function TeamSection() {
-  const totalWidth = TEAM_MEMBERS.length * (ANIMATION_CONFIG.cardWidth + ANIMATION_CONFIG.gap) - ANIMATION_CONFIG.gap;
+  const totalWidth =
+    TEAM_MEMBERS.length * (ANIMATION_CONFIG.cardWidth + ANIMATION_CONFIG.gap) -
+    ANIMATION_CONFIG.gap;
 
   return (
-    <div className="w-full bg-gray-100">
-      <div className="max-w-8xl mx-auto" style={{ width: "fit-content" }}>
-        <div className="mb-16 px-[160px]">
+    <div className="w-full ">
+      <div className="max-w-8xl mx-auto">
+        <div className="mb-16 px-[20%]">
           <p className="mb-0" style={SECTION_STYLES.subtitle}>
             the team
           </p>
-          <h2 style={SECTION_STYLES.title}>
-            The people behind the process
-          </h2>
+          <h2 style={SECTION_STYLES.title}>The people behind the process</h2>
         </div>
 
         {/* slideshow */}
-        <div className="relative">
-          <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-gray-100 to-transparent z-10" />
-          <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-gray-100 to-transparent z-10" />
+        <div className="relative w-full">
+          <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-gray-100 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-gray-100 to-transparent z-10 pointer-events-none" />
 
           {/* card container */}
-          <div
-            className="flex justify-center items-center overflow-hidden mx-20"
-            style={{ minHeight: "580px" }}
-          >
-            <div
-              className="flex animate-scroll items-center gap-30"
-              style={{ width: `${totalWidth}px`, gap:'25px' }}
-            >
-              {TEAM_MEMBERS.map((member, index) => (
-                <TeamMemberCard
-                  key={`${member.name}-${index}`}
-                  member={member}
-                  gradientIndex={index}
-                />
-              ))}
+          <div className="overflow-hidden">
+            <div className="flex items-center" style={{ minHeight: "580px" }}>
+              <div
+                className="flex animate-scroll items-center"
+                style={{ width: `${totalWidth * 2}px`, gap: "45px" }}
+              >
+                {TEAM_MEMBERS.map((member, index) => (
+                  <TeamMemberCard
+                    key={`${member.name}-${index}`}
+                    member={member}
+                    gradientIndex={index}
+                  />
+                ))}
+                {TEAM_MEMBERS.map((member, index) => (
+                  <TeamMemberCard
+                    key={`${member.name}-duplicate-${index}`}
+                    member={member}
+                    gradientIndex={index}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -150,7 +155,7 @@ export default function TeamSection() {
             transform: translateX(0);
           }
           100% {
-            transform: translateX(calc(-100% + 100vw));
+            transform: translateX(-${totalWidth}px);
           }
         }
 

@@ -3,64 +3,22 @@ import Image from "next/image";
 
 const EventsSection: React.FC = () => {
   return (
-    <div
-      className="w-full bg-gray-100"
-      // style={{
-      //   paddingLeft: "160px",
-      //   paddingRight: "160px",
-      //   paddingTop: "80px",
-      //   paddingBottom: "139px",
-      // }}
-    >
-      <div
-        className="max-w-8xl mx-auto"
-        style={{
-          width: "fit-content",
-        }}
-      >
+    <div className="w-full bg-gray-100">
+      <div className="mx-auto w-fit max-w-8xl">
         <div className="mb-16">
-          <p
-            className="mb-0"
-            style={{
-              color: "#7A7A7A",
-              fontFamily: "Lora",
-              fontSize: "31.871px",
-              fontStyle: "italic",
-              fontWeight: 600,
-              lineHeight: "normal",
-              alignSelf: "stretch",
-            }}
-          >
+          <p className="mb-0 text-[#7A7A7A] font-['Lora'] italic text-[31.871px] font-semibold">
             events
           </p>
-          <h2
-            style={{
-              color: "#383838",
-              fontFamily: "DM Sans",
-              fontSize: "38px",
-              fontStyle: "normal",
-              fontWeight: 700,
-              lineHeight: "normal",
-              alignSelf: "stretch",
-            }}
-          >
+          <h2 className="text-[#383838] font-['DM_Sans'] text-[38px] font-bold">
             Learn by doing, connect by creating
           </h2>
         </div>
 
         {/* event cards */}
-        <div className="flex justify-center gap-10 mb-20 ml-20 mr-20">
-
+        <div className="mb-20 ml-20 mr-20 flex justify-center gap-10">
+          {/* card 1 */}
           <div
-            className="relative overflow-hidden flex-shrink-0"
-            style={{
-              width: "472px",
-              height: "280px",
-              borderRadius: "10.73px",
-              border: "1px solid #C1C7CD",
-              boxShadow: "0px 4px 8px 0px rgba(224, 224, 224, 0.25)",
-              marginRight: "20px",
-            }}
+            className="relative overflow-hidden flex-shrink-0 w-[472px] h-[280px] rounded-[10.73px] border border-[#C1C7CD] shadow-[0px_4px_8px_0px_rgba(224,224,224,0.25)]"
           >
             <div className="relative z-10 h-full flex flex-col justify-between p-6">
               <div className="flex-1 flex items-center justify-center">
@@ -75,23 +33,7 @@ const EventsSection: React.FC = () => {
 
               <div>
                 <button
-                  className="flex items-center gap-2 hover:bg-gray-50 transition-colors"
-                  style={{
-                    display: "flex",
-                    width: "152px",
-                    padding: "8px 10px",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    gap: "10px",
-                    borderRadius: "67.066px",
-                    border: "0.5px solid #FFF",
-                    background:
-                      "linear-gradient(166deg, rgba(251, 248, 255, 0.80) 80.65%, rgba(151, 149, 153, 0.10) 80.65%)",
-                    backdropFilter: "blur(0.5px)",
-                    color: "#383838",
-                    fontSize: "14px",
-                    fontWeight: "500",
-                  }}
+                  className="flex items-center justify-center gap-2 w-[152px] px-[10px] py-2 rounded-[67.066px] border-[0.5px] border-white text-[#383838] text-[14px] font-medium transition-colors hover:bg-gray-50 bg-[linear-gradient(166deg,rgba(251,248,255,0.80)_80.65%,rgba(151,149,153,0.10)_80.65%)] backdrop-blur-[0.5px]"
                 >
                   <svg
                     width="16"
@@ -99,6 +41,7 @@ const EventsSection: React.FC = () => {
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    className="shrink-0"
                   >
                     <path
                       d="M3 21L12 3L21 21H3Z"
@@ -114,18 +57,11 @@ const EventsSection: React.FC = () => {
             </div>
           </div>
 
+          {/* card 2 */}
           <div
-            className="relative overflow-hidden flex-shrink-0"
-            style={{
-              width: "472px",
-              height: "280px",
-              borderRadius: "10.73px",
-              border: "1px solid #C1C7CD",
-              boxShadow: "0px 4px 8px 0px rgba(224, 224, 224, 0.25)",
-              marginLeft: "20px",
-            }}
+            className="relative overflow-hidden flex-shrink-0 w-[472px] h-[280px] rounded-[10.73px] border border-[#C1C7CD] shadow-[0px_4px_8px_0px_rgba(224,224,224,0.25)]"
           >
-            <div className="absolute inset-0 bg-gradient-to-b from-pink-200 to-orange-200"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-pink-200 to-orange-200" />
 
             <div className="relative z-10 h-full flex flex-col justify-between p-8">
               <div className="flex-1 flex items-center justify-center">
@@ -140,23 +76,7 @@ const EventsSection: React.FC = () => {
 
               <div>
                 <button
-                  className="flex items-center gap-4 hover:bg-gray-50 transition-colors"
-                  style={{
-                    display: "flex",
-                    width: "152px",
-                    padding: "8px 10px",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    gap: "10px",
-                    borderRadius: "67.066px",
-                    border: "0.5px solid #FFF",
-                    background:
-                      "linear-gradient(166deg, rgba(251, 248, 255, 0.80) 80.65%, rgba(151, 149, 153, 0.10) 80.65%)",
-                    backdropFilter: "blur(0.5px)",
-                    color: "#383838",
-                    fontSize: "14px",
-                    fontWeight: "500",
-                  }}
+                  className="flex items-center justify-center gap-4 w-[152px] px-[10px] py-2 rounded-[67.066px] border-[0.5px] border-white text-[#383838] text-[14px] font-medium transition-colors hover:bg-gray-50 bg-[linear-gradient(166deg,rgba(251,248,255,0.80)_80.65%,rgba(151,149,153,0.10)_80.65%)] backdrop-blur-[0.5px]"
                 >
                   <svg
                     width="16"
@@ -164,11 +84,9 @@ const EventsSection: React.FC = () => {
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    className="shrink-0"
                   >
-                    <path
-                      d="M6 9H12.5L11 10.5L12.5 12H6V9Z"
-                      fill="currentColor"
-                    />
+                    <path d="M6 9H12.5L11 10.5L12.5 12H6V9Z" fill="currentColor" />
                     <path
                       d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z"
                       stroke="currentColor"
@@ -184,25 +102,10 @@ const EventsSection: React.FC = () => {
           </div>
         </div>
 
+        {/* CTA */}
         <div className="text-center flex justify-center">
           <button
-            className="transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-black/20 transform hover:-translate-y-1 active:scale-95"
-            style={{
-              display: "flex",
-              width: "252px",
-              height: "54px",
-              padding: "8px 10px",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: "12px",
-              borderRadius: "67.066px",
-              background: "#383838",
-              backdropFilter: "blur(0.5px)",
-              color: "white",
-              border: "none",
-              cursor: "pointer",
-              marginTop: "80px",
-            }}
+            className="mx-auto mt-20 flex h-[54px] w-[252px] items-center justify-center gap-3 rounded-[67.066px] bg-[#383838] text-white transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-black/20 active:scale-95"
           >
             SEE MORE EVENTS
             <svg
@@ -211,6 +114,7 @@ const EventsSection: React.FC = () => {
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              className="shrink-0"
             >
               <path
                 d="M7 17L17 7M17 7H7M17 7V17"

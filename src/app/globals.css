@@ -14,9 +14,23 @@ body {
 }
 
 body {
-  color: white;
-  background: rgb(var(--background-rgb));
+  /* color: white; */
+  background: rgb(var(--color-bg));
 }
+
+
+@theme {
+  /* fonts */
+  --font-sans: var(--font-dm-sans), ui-sans-serif;
+  --font-serif: var(--font-lora), ui-serif;
+
+  /* colors */
+  --color-black: #2F2E41;
+  --color-bg: #F0EFF2;
+}
+
+
+
 
 /* Custom scrollbar styles */
 ::-webkit-scrollbar {
@@ -57,4 +71,15 @@ body {
 
 .nav_link {
   @apply text-[#2F2E41] font-['DM_Sans'] text-base font-medium no-underline hover:text-gray-900 transition-colors whitespace-nowrap;
+}
+
+
+@keyframes logo-scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
 }

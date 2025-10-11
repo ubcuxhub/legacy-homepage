@@ -23,38 +23,38 @@ const HeroContent: React.FC = () => {
           className="w-auto h-auto max-w-[150px] sm:max-w-[100px] md:max-w-[120px] lg:max-w-[150px]"
         />
       </div>
-    <h1 className="font-dm-sans font-bold leading-normal flex flex-col gap-8 text-[64px] sm:text-[32px] md:text-[48px] lg:text-[64px] text-[#383838]">
-      <div className="flex items-center gap-6">
-        <span>UBC&apos;s</span>
-        <span
-          className="rounded-[50px] text-[#F5F5F5] font-dm-sans font-bold leading-normal px-4 py-2 ml-1"
-          /* Keep inline, Tailwind doesn't support CSS gradients directly in classes */
-          style={{
-            background: "linear-gradient(133deg, #112B69 18.99%, #B68BC3 83.27%)",
-            fontSize: "inherit", /* Inherits from parent h1 */
-            padding: "8px 16px",
-            marginLeft: "4px",
-          }}
-        >
-          first-ever
-        </span>
-      </div>
-      <div className="flex items-center gap-6">
-        <span>UX</span>&nbsp;
-        <span className="text-[#383838] font-lora italic font-semibold leading-normal mx-1 relative">
-          design
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 300 32"
-            fill="none"
-            className="absolute -left-[5px] -bottom-[13px] w-[240px] h-[25px]"
-            /* Keep inline for complex filter, Tailwind doesn't support drop-shadow filters */
+      <h1 className="font-dm-sans font-bold leading-normal flex flex-col gap-8 text-[64px] sm:text-[32px] md:text-[48px] lg:text-[64px] text-[#383838]">
+        <div className="flex items-center gap-6">
+          <span>UBC&apos;s</span>
+          <span
+            className="rounded-[50px] text-[#F5F5F5] font-dm-sans font-bold leading-normal px-4 py-2 ml-1"
+            /* Keep inline, Tailwind doesn't support CSS gradients directly in classes */
             style={{
-              filter: "drop-shadow(0px 4px 8px rgba(224, 224, 224, 0.25))",
+              background: "linear-gradient(133deg, #112B69 18.99%, #B68BC3 83.27%)",
+              fontSize: "inherit", /* Inherits from parent h1 */
+              padding: "8px 16px",
+              marginLeft: "4px",
             }}
           >
+            first-ever
+          </span>
+        </div>
+        <div className="flex items-center gap-6">
+          <span>UX</span>&nbsp;
+          <span className="text-[#383838] font-serif italic font-semibold leading-normal mx-1 relative">
+            design
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 300 32"
+              fill="none"
+              className="absolute -left-[5px] -bottom-[13px] w-[240px] h-[25px]"
+              /* Keep inline for complex filter, Tailwind doesn't support drop-shadow filters */
+              style={{
+                filter: "drop-shadow(0px 4px 8px rgba(224, 224, 224, 0.25))",
+              }}
+            >
               <g filter="url(#filter0_d_84_128)">
                 <path
                   d="M11 23.3345C11 23.3345 17.943 7.5 32.5 7.5C47.057 7.5 54.5602 23.3345 69.1172 23.3345C83.6743 23.3345 98.443 6.5 113 6.5C127.557 6.5 135.943 26.5 150.5 26.5C165.057 26.5 175.272 10 188 11C200.728 12 206 16.5 206 16.5"
@@ -117,18 +117,18 @@ const HeroContent: React.FC = () => {
               </defs>
             </svg>
           </span>
-        &nbsp;
-        <span>club</span>
-      </div>
-    </h1>
-    <p className="font-dm-sans font-normal leading-normal text-[#000] text-[16px] mt-10 mb-[50px] px-6 sm:px-6 md:px-8 lg:px-12">
-      <span className="block w-full max-w-[900px] mx-auto">
-        UBC UX Hub empowers students through hands-on learning,
-        creative collaboration, and access to the latest in user
-        experience and emerging technology.
-      </span>
-    </p>
-    <div className="mt-8 flex gap-4">
+          &nbsp;
+          <span>club</span>
+        </div>
+      </h1>
+      <p className="font-dm-sans font-normal leading-normal text-[#000] text-[16px] mt-10 mb-[50px] px-6 sm:px-6 md:px-8 lg:px-12">
+        <span className="block w-full max-w-[900px] mx-auto">
+          UBC UX Hub empowers students through hands-on learning,
+          creative collaboration, and access to the latest in user
+          experience and emerging technology.
+        </span>
+      </p>
+      <div className="mt-8 flex gap-4">
         <Button variant="primary" icon={<ArrowUpRight className="w-6 h-6" />}>
           BECOME A MEMBER
         </Button>

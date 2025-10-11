@@ -18,46 +18,30 @@ const CTASection = () => {
       className={`transition-all duration-700 ease-in-out ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
+      /* Keep inline, Tailwind doesn't support complex CSS gradients directly in classes */
       style={{
-        background:
-          "linear-gradient(156deg, #052462 -1.32%, #CA97CE 77.58%, #F09485 97.31%)",
+        background: "linear-gradient(156deg, #052462 -1.32%, #CA97CE 77.58%, #F09485 97.31%)",
       }}
     >
       <div
-        className="flex items-center justify-between"
+        className="flex flex-col lg:flex-row lg:items-center lg:justify-between px-8 py-8 sm:px-12 sm:py-8 md:px-20 md:py-8 gap-8"
+        /* Keep inline for exact desktop padding, Tailwind arbitrary values not working properly */
         style={{
-          padding: "30px 300px",
-          display: "flex",
-          justifyContent: "flex-end",
-          gap: "120px",
+          paddingLeft: "300px",
+          paddingRight: "300px",
+          paddingTop: "50px",
+          paddingBottom: "50px",
         }}
       >
         <div className="flex flex-col gap-4">
-          <h2
-            className="font-dm-sans"
-            style={{
-              color: "#FFFFFF",
-              fontSize: "55px",
-              fontWeight: 700,
-              lineHeight: "normal",
-              marginBottom: "10px",
-              textShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
-            }}
-          >
+          <h2 className="font-dm-sans text-white text-[32px] sm:text-[32px] md:text-[48px] lg:text-[64px] font-bold leading-normal mb-2.5 lg:mb-2.5"
+              /* Keep inline for text shadow, Tailwind doesn't support complex shadows */
+              style={{
+                textShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
+              }}>
             Never miss out
           </h2>
-          <p
-            className="font-dm-sans"
-            style={{
-              color: "#FFFFFF",
-              fontSize: "16px",
-              fontWeight: 400,
-              lineHeight: "1.6",
-              width: "400px",
-              marginBottom: "30px",
-              opacity: 0.9,
-            }}
-          >
+          <p className="font-dm-sans text-white text-[16px] sm:text-[16px] md:text-[16px] lg:text-[16px] font-normal leading-relaxed w-full lg:w-[400px] mb-8 lg:mb-[30px] opacity-90">
             Subscribe to our newsletter to stay updated on all things UX
             Hub—events, design tips, community spotlights, and exclusive
             opportunities.
@@ -67,14 +51,13 @@ const CTASection = () => {
         <form
           action="https://facebook.us16.list-manage.com/subscribe/post?u=9a26bb1b23b273a2a9f766b4f&id=8faf775ff6"
           method="post"
-          target="_blank" 
-          noValidate 
-          className="relative"
-          style={{ width: "360px", marginLeft: "auto" }}
+          target="_blank"
+          noValidate
+          className="relative w-full max-w-[360px] mx-auto"
         >
           <input
             type="email"
-            name="EMAIL" 
+            name="EMAIL"
             placeholder="ex: myname@example.com"
             required
             className="outline-none transition-all duration-300 ease-in-out hover:bg-[rgba(242,244,248,0.45)] focus:bg-[rgba(242,244,248,0.45)] w-full hover:scale-[1.02] focus:scale-[1.02]"

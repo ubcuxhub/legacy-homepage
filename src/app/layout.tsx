@@ -22,7 +22,7 @@ const dmSans = DM_Sans({
 const lora = Lora({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
+  style: ["italic"],
   variable: "--font-lora",
 });
 
@@ -54,7 +54,7 @@ export default function RootLayout({
         <title>UX hub</title>
       </head>
       <body
-        className={`${dmSans.className}`}
+        className={`${dmSans.className} font-sans text-black text-[16px]`}
       >
         {children}
       </body>

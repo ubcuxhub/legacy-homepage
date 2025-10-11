@@ -14,7 +14,7 @@ import HeroContent from '../components/HeroContent';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gray-100 relative">
+    <main className="min-h-screen bg-white relative">
 
       <Navbar />
 

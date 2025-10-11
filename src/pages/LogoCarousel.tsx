@@ -23,15 +23,15 @@ const LogoCarousel: React.FC = () => {
 
   return (
     <div className="w-full overflow-hidden">
-      <p className="mb-12 sm:mb-16 md:mb-20 text-center text-[16px] font-medium">
+      <p className="pb-12 px-[5%] text-center text-[16px] font-medium">
         Proudly partnered with startups, clubs, and companies across UBC and beyond
       </p>
 
       {/* Container with background and relative positioning */}
       <div className="relative">
         {/* Fade edges (uses --bg var or falls back to white) */}
-        <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 sm:w-20 md:w-24 lg:w-28 bg-gradient-to-r from-bg to-transparent" />
-        <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 sm:w-20 md:w-24 lg:w-28 bg-gradient-to-l from-bg to-transparent" />
+        <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 sm:w-20 md:w-24 lg:w-28 bg-gradient-to-r from-white to-transparent" />
+        <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 sm:w-20 md:w-24 lg:w-28 bg-gradient-to-l from-white to-transparent" />
 
         {/* Use group to pause animation on hover */}
         <div className="group overflow-hidden">

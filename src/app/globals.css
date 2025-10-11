@@ -25,8 +25,9 @@ body {
   --font-serif: var(--font-lora), ui-serif;
 
   /* colors */
-  --color-black: #2F2E41;
-  --color-bg: #F0EFF2;
+  --color-black: #383838;
+  --color-white: #F0EFF2;
+  --color-gray: #7A7A7A;
 }
 
 

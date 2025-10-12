@@ -2,6 +2,13 @@
 import React from "react";
 import Button from "./Button";
 import { ArrowUpRight } from "lucide-react";
+import { Lora } from 'next/font/google';
+const lora = Lora({
+  subsets: ['latin'],
+  weight: ['600'],
+  style: ['italic', 'normal'],
+});
+
 
 const HeroContent: React.FC = () => {
   return (
@@ -16,7 +23,7 @@ const HeroContent: React.FC = () => {
       </div>
 
       {/* cursor - "UBC UX Hub" */}
-      <div className="absolute top-150 -right-[120px] sm:top-20 sm:-right-[15px] md:top-[120px] md:-right-20 lg:top-[150px] lg:-right-[120px] z-10">
+      <div className="absolute top-[150px] -right-[120px] lg:top-[150px] lg:-right-[120px] md:top-[120px] md:-right-20 sm:top-20 sm:-right-15px z-10">
         <img
           src="/figma-cursor-chat.png"
           alt="UBC UX Hub"
@@ -41,7 +48,7 @@ const HeroContent: React.FC = () => {
       </div>
       <div className="flex items-center gap-6">
         <span>UX</span>&nbsp;
-        <span className="text-[#383838] font-lora italic font-semibold leading-normal mx-1 relative">
+        <span className={`${lora.className} text-[#383838] text-[64px] font-semibold leading-normal mx-1 relative italic`}>
           design
           <svg
             xmlns="http://www.w3.org/2000/svg"

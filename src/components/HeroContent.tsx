@@ -2,12 +2,6 @@
 import React from "react";
 import Button from "./Button";
 import { ArrowUpRight } from "lucide-react";
-import { Lora } from 'next/font/google';
-const lora = Lora({
-  subsets: ['latin'],
-  weight: ['600'],
-  style: ['italic', 'normal'],
-});
 
 
 const HeroContent: React.FC = () => {
@@ -48,7 +42,7 @@ const HeroContent: React.FC = () => {
       </div>
       <div className="flex items-center gap-6">
         <span>UX</span>&nbsp;
-        <span className={`${lora.className} text-[#383838] text-[64px] font-semibold leading-normal mx-1 relative italic`}>
+        <span className="font-lora text-[#383838] text-[64px] font-semibold leading-normal mx-1 relative italic">
           design
           <svg
             xmlns="http://www.w3.org/2000/svg"

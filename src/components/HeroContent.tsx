@@ -41,7 +41,7 @@ const HeroContent: React.FC = () => {
             height="24"
             viewBox="0 0 300 32"
             fill="none"
-            className="absolute left-1/2 -translate-x-1/2 -bottom-[13px] w-[160px] h-[17px] sm:w-[170px] sm:h-[18px] md:w-[180px] md:h-[19px] lg:w-[200px] lg:h-[21px] ml-[15px] lg:ml-[20px]"
+            className="absolute left-1/2 -translate-x-1/2 -bottom-[13px] w-[190px] h-[20px] sm:w-[200px] sm:h-[21px] md:w-[220px] md:h-[23px] lg:w-[250px] lg:h-[26px] ml-[15px] lg:ml-[30px]"
             /* Keep inline for complex filter, Tailwind doesn't support drop-shadow filters */
             style={{
               filter: "drop-shadow(0px 4px 8px rgba(224, 224, 224, 0.25))",

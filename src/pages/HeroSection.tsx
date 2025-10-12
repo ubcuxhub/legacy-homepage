@@ -6,7 +6,25 @@ interface HeroSectionProps {
 
 export default function HeroSection({ children }: HeroSectionProps) {
   return (
-    <section className="w-full max-w-[1247px] h-auto min-h-[600px] sm:min-h-[650px] md:h-[750px] lg:h-[800px] flex-shrink-0 rounded-[20px] border border-[#C1C7CD] bg-[#f5f5f5] relative overflow-hidden flex flex-col items-center">
+    <section className="w-full max-w-[1247px] h-auto min-h-[600px] sm:min-h-[650px] md:h-[750px] lg:h-[800px] flex-shrink-0 rounded-[20px] border border-[#C1C7CD] bg-[#f5f5f5] relative overflow-visible flex flex-col items-center">
+      {/* cursor - "and largest!" */}
+      <div className="hidden md:block absolute top-[125px] left-[180px] lg:top-[125px] lg:left-[180px] md:top-[100px] md:left-[140px] z-10">
+        <img
+          src="/and largest.png"
+          alt="and largest!"
+          className="max-w-[150px] lg:max-w-[150px] md:max-w-[120px] sm:max-w-[100px] w-auto h-auto"
+        />
+      </div>
+
+      {/* cursor - "UBC UX Hub" */}
+      <div className="hidden md:block absolute top-[480px] right-[175px] lg:top-[480px] lg:right-[145px] md:top-[400px] md:right-[120px] z-10">
+        <img
+          src="/figma-cursor-chat.png"
+          alt="UBC UX Hub"
+          className="max-w-[150px] lg:max-w-[150px] md:max-w-[120px] sm:max-w-[100px] w-auto h-auto"
+        />
+      </div>
+
       {/* Browser window header with colored dots */}
       <div className="w-full h-[58px] flex-shrink-0 rounded-t-[20px] bg-[#f5f5f5] opacity-70 border-b border-[#C1C7CD] inline-flex items-center gap-2.5 py-[18px] pl-4 pr-6 sm:pl-6 sm:pr-10 md:pl-8 md:pr-[60px] lg:pl-10 lg:pr-[18px] justify-start">
         {/* Left circle - gradient */}
@@ -22,7 +40,7 @@ export default function HeroSection({ children }: HeroSectionProps) {
       </div>
 
       {/* Content area */}
-      <div className="flex w-full flex-col items-center justify-center gap-10 sm:gap-10 md:gap-[60px] lg:gap-[80px] flex-1 px-6 py-10 sm:px-10 sm:py-10 md:px-20 md:py-[60px] lg:px-32 lg:pt-20 lg:pb-32">
+      <div className="flex w-full flex-col items-start justify-center gap-10 sm:gap-10 md:gap-[60px] lg:gap-[80px] flex-1 px-6 py-10 sm:px-10 sm:py-10 md:px-20 md:py-[60px] lg:px-32 lg:pt-20 lg:pb-32">
         {children}
       </div>
     </section>

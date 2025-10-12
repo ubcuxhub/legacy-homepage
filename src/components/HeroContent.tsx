@@ -6,24 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 
 const HeroContent: React.FC = () => {
   return (
-    <div className="relative px-4 sm:px-6 md:px-8 lg:px-0">
-      {/* cursor - "and largest!" */}
-      <div className="hidden md:block absolute -top-[80px] left-[50px] lg:-top-[80px] lg:left-[50px] md:-top-[60px] md:left-[40px] z-10">
-        <img
-          src="/and largest.png"
-          alt="and largest!"
-          className="max-w-[150px] lg:max-w-[150px] md:max-w-[120px] sm:max-w-[100px] w-auto h-auto"
-        />
-      </div>
-
-      {/* cursor - "UBC UX Hub" */}
-      <div className="hidden md:block absolute top-[280px] right-[30px] lg:top-[280px] lg:right-[25px] md:top-[220px] md:right-[15px] z-10">
-        <img
-          src="/figma-cursor-chat.png"
-          alt="UBC UX Hub"
-          className="max-w-[150px] lg:max-w-[150px] md:max-w-[120px] sm:max-w-[100px] w-auto h-auto"
-        />
-      </div>
+    <div className="px-4 sm:px-6 md:px-8 lg:px-0">
     <h1
       className="font-dm-sans font-bold leading-normal flex flex-col gap-1 sm:gap-1 md:gap-2 lg:gap-3 text-[#383838]"
       style={{
@@ -124,7 +107,7 @@ const HeroContent: React.FC = () => {
         <span>club</span>
       </div>
     </h1>
-    <p className="font-dm-sans leading-normal text-[#000] text-[16px] mt-10 mb-[50px] max-w-[900px] mx-auto">
+    <p className="font-dm-sans leading-normal text-[#000] text-[16px] mt-10 mb-[50px] max-w-[640px] text-left">
       UBC UX Hub empowers students through hands-on learning, creative collaboration, and access to the latest in user experience and emerging technology.
     </p>
     <div className="mt-8 flex gap-4">

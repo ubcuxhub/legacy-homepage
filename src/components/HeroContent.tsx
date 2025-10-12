@@ -31,7 +31,7 @@ const HeroContent: React.FC = () => {
       </div>
       <div className="flex items-center flex-wrap gap-1 sm:gap-1 md:gap-2 lg:gap-2">
         <span>UX</span>
-        <span className="font-serif italic text-[#383838] leading-normal mx-0.5 relative">
+        <span className="font-lora italic text-[#383838] leading-normal mx-0.5 relative">
           design
           <svg
             xmlns="http://www.w3.org/2000/svg"

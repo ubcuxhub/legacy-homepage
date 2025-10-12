@@ -21,11 +21,11 @@ export default function Home() {
       {/* dot bg */}
       <div className="fixed inset-0 w-full h-full z-0 pointer-events-none">
         <DotGrid
-          dotSize={6} 
-          gap={48} 
-          baseColor="#E5E5E5" 
-          activeColor="#000000" 
-          proximity={120} 
+          dotSize={6}
+          gap={48}
+          baseColor="#E5E5E5"
+          activeColor="#000000"
+          proximity={120}
           className="w-full h-full"
         />
       </div>
@@ -33,7 +33,7 @@ export default function Home() {
       {/* Content Container */}
       <div className="relative z-10 pt-[80px] lg:pt-[80px] md:pt-[70px] sm:pt-[60px]">
         {/* Hero Section */}
-        <div id="home" className="flex justify-center items-start pt-[70px] lg:pt-[70px] md:pt-[50px] sm:pt-[30px]">
+        <div id="home" className="flex justify-center items-start pt-[40px] lg:pt-[40px] md:pt-[30px] sm:pt-[20px]">
           <HeroSection>
             <HeroContent />
           </HeroSection>

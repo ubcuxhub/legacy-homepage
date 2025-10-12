@@ -8,9 +8,9 @@ export default function HeroSection({ children }: HeroSectionProps) {
   return (
     <section className="w-full max-w-[1247px] h-auto min-h-[600px] sm:min-h-[650px] md:h-[750px] lg:h-[800px] flex-shrink-0 rounded-[20px] border border-[#C1C7CD] bg-[#f5f5f5] relative overflow-hidden flex flex-col items-center">
       {/* Browser window header with colored dots */}
-      <div className="w-full h-[58px] flex-shrink-0 rounded-t-[20px] bg-[#f5f5f5] opacity-70 border-b border-[#C1C7CD] inline-flex items-center gap-2.5 py-[18px] px-6 sm:px-10 md:px-[60px] lg:pl-[80px] lg:pr-[18px] justify-start">
+      <div className="w-full h-[58px] flex-shrink-0 rounded-t-[20px] bg-[#f5f5f5] opacity-70 border-b border-[#C1C7CD] inline-flex items-center gap-2.5 py-[18px] pl-4 pr-6 sm:pl-6 sm:pr-10 md:pl-8 md:pr-[60px] lg:pl-10 lg:pr-[18px] justify-start">
         {/* Left circle - gradient */}
-        <div className="w-[21px] h-[21px] rounded-full border border-[#C1C7CD] ml-[19px]"
+        <div className="w-[21px] h-[21px] rounded-full border border-[#C1C7CD]"
              /* Keep inline, Tailwind doesn't support CSS gradients directly in classes" */
              style={{ background: "linear-gradient(156deg, rgba(0, 24, 59, 0.70) -1.32%, rgba(39, 86, 157, 0.70) 41.2%, rgba(243, 197, 255, 0.70) 104.29%)" }} />
 

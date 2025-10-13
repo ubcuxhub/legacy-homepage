@@ -13,13 +13,15 @@ const HeroContent: React.FC = () => {
           fontSize: "clamp(42px, 8vw, 48px)"
         }}
       >
-        <div className="flex items-center flex-wrap gap-1 sm:gap-1 md:gap-2 lg:gap-2">
+        <div className="flex items-center flex-nowrap gap-2 sm:gap-2 md:gap-2 lg:gap-2">
           <span>UBC&apos;s</span>
           <span
             className="rounded-[80px] text-[#F5F5F5] font-dm-sans font-bold px-2 sm:px-4 md:px-6 lg:px-6"
             /* Keep inline, Tailwind doesn't support CSS gradients directly in classes */
             style={{
-              background: "linear-gradient(133deg, #052462 -1.32%, #CA97CE 77.58%, #F09485 97.31%)",
+              background: "linear-gradient(156deg, #052462 -1.32%, #CA97CE 77.58%, #F09485 97.31%)",
+              fontSize: "clamp(40px, 6vw, 48px)",
+              padding: "8px 16px",
               marginLeft: "4px",
               lineHeight: "1",
               paddingTop: "4px",
@@ -29,9 +31,9 @@ const HeroContent: React.FC = () => {
             first-ever
           </span>
         </div>
-        <div className="flex items-center flex-wrap gap-1 sm:gap-1 md:gap-2 lg:gap-2">
+        <div className="flex items-center flex-wrap gap-2 sm:gap-2 md:gap-2 lg:gap-2">
           <span>UX</span>
-          <span className="font-lora italic leading-normal mx-0.5 relative">
+          <span className="font-serif italic text-[#383838] leading-normal relative">
             design
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -39,7 +41,7 @@ const HeroContent: React.FC = () => {
               height="24"
               viewBox="0 0 300 32"
               fill="none"
-              className="absolute left-1/2 -translate-x-1/2 -bottom-[13px] w-[180px] h-[19px] sm:w-[200px] sm:h-[21px] md:w-[220px] md:h-[23px] lg:w-[240px] lg:h-[25px] ml-[20px] lg:ml-[30px]"
+              className="absolute left-1/2 -translate-x-1/2 -bottom-[13px] w-[190px] h-[20px] sm:w-[200px] sm:h-[21px] md:w-[220px] md:h-[23px] lg:w-[250px] lg:h-[26px] ml-[15px] lg:ml-[30px]"
               /* Keep inline for complex filter, Tailwind doesn't support drop-shadow filters */
               style={{
                 filter: "drop-shadow(0px 4px 8px rgba(224, 224, 224, 0.25))",

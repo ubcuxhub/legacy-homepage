@@ -21,8 +21,8 @@ const dmSans = DM_Sans({
 
 const lora = Lora({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["italic"],
+  weight: ["600"],
+  style: ["italic", "normal"],
   variable: "--font-lora",
 });
 
@@ -48,7 +48,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${dmSans.variable} ${lora.variable} antialiased`}
+      className={`$${dmSans.variable} ${lora.variable} antialiased`}
     >
       <head>
         <title>UX hub</title>

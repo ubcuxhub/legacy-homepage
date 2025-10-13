@@ -3,39 +3,53 @@ import React from "react";
 import Button from "./Button";
 import { ArrowUpRight } from "lucide-react";
 
+
 const HeroContent: React.FC = () => {
   return (
-    <div className="relative">
-      {/* cursor - "and largest!" */}
-      <div className="absolute -top-5 left-[200px] sm:-top-2.5 sm:left-[100px] md:-top-[15px] md:left-[150px] lg:-top-5 lg:left-[200px] z-10">
-        <img
-          src="/and largest.png"
-          alt="and largest!"
-          className="w-auto h-auto max-w-[150px] sm:max-w-[100px] md:max-w-[120px] lg:max-w-[150px]"
-        />
-      </div>
-
-      {/* cursor - "UBC UX Hub" */}
-      <div className="absolute top-150 -right-[120px] sm:top-20 sm:-right-[15px] md:top-[120px] md:-right-20 lg:top-[150px] lg:-right-[120px] z-10">
-        <img
-          src="/figma-cursor-chat.png"
-          alt="UBC UX Hub"
-          className="w-auto h-auto max-w-[150px] sm:max-w-[100px] md:max-w-[120px] lg:max-w-[150px]"
-        />
-      </div>
-      <h1 className="font-dm-sans font-bold leading-normal flex flex-col gap-8 text-[64px] sm:text-[32px] md:text-[48px] lg:text-[64px] text-[#383838]">
-        <div className="flex items-center gap-6">
+    <div className="px-4 sm:px-6 md:px-8 lg:px-0">
+      <h1
+        className="font-dm-sans font-bold leading-normal flex flex-col gap-0 sm:gap-0 md:gap-1 lg:gap-1 text-[#383838] mt-4 sm:mt-5 md:mt-6 lg:mt-8"
+        style={{
+          fontSize: "clamp(42px, 8vw, 48px)"
+        }}
+      >
+        <div className="flex items-center flex-nowrap gap-2 sm:gap-2 md:gap-2 lg:gap-2">
           <span>UBC&apos;s</span>
           <span
-            className="rounded-[50px] text-[#F5F5F5] font-dm-sans font-bold leading-normal px-4 py-2 ml-1"
+            className="rounded-[80px] text-[#F5F5F5] font-dm-sans font-bold px-2 sm:px-4 md:px-6 lg:px-6"
             /* Keep inline, Tailwind doesn't support CSS gradients directly in classes */
             style={{
-              background: "linear-gradient(133deg, #112B69 18.99%, #B68BC3 83.27%)",
-              fontSize: "inherit", /* Inherits from parent h1 */
+              background: "linear-gradient(156deg, #052462 -1.32%, #CA97CE 77.58%, #F09485 97.31%)",
+              fontSize: "clamp(40px, 6vw, 48px)",
               padding: "8px 16px",
               marginLeft: "4px",
+              lineHeight: "1",
+              paddingTop: "4px",
+              paddingBottom: "4px",
             }}
           >
+            first-ever
+          </span>
+        </div>
+        <div className="flex items-center flex-wrap gap-2 sm:gap-2 md:gap-2 lg:gap-2">
+          <span>UX</span>
+          <span className="font-serif italic text-[#383838] leading-normal relative">
+            design
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 300 32"
+              fill="none"
+              className="absolute left-1/2 -translate-x-1/2 -bottom-[13px] w-[190px] h-[20px] sm:w-[200px] sm:h-[21px] md:w-[220px] md:h-[23px] lg:w-[250px] lg:h-[26px] ml-[15px] lg:ml-[30px]"
+              /* Keep inline for complex filter, Tailwind doesn't support drop-shadow filters */
+              style={{
+                background: "linear-gradient(133deg, #112B69 18.99%, #B68BC3 83.27%)",
+                fontSize: "inherit", /* Inherits from parent h1 */
+                padding: "8px 16px",
+                marginLeft: "4px",
+              }}
+            />
             first-ever
           </span>
         </div>
@@ -117,19 +131,14 @@ const HeroContent: React.FC = () => {
               </defs>
             </svg>
           </span>
-          &nbsp;
           <span>club</span>
         </div>
       </h1>
-      <p className="font-dm-sans font-normal leading-normal text-[#000] text-[16px] mt-10 mb-[50px] px-6 sm:px-6 md:px-8 lg:px-12">
-        <span className="block w-full max-w-[900px] mx-auto">
-          UBC UX Hub empowers students through hands-on learning,
-          creative collaboration, and access to the latest in user
-          experience and emerging technology.
-        </span>
+      <p className="font-dm-sans leading-normal text-[#000] text-[14px] mt-6 mb-[30px] max-w-[600px] text-left">
+        UBC UX Hub empowers students through hands-on learning, creative collaboration, and access to the latest in user experience and emerging technology.
       </p>
-      <div className="mt-8 flex gap-4">
-        <Button variant="primary" icon={<ArrowUpRight className="w-6 h-6" />}>
+      <div className="mt-16 flex gap-4">
+        <Button variant="primary" icon={<ArrowUpRight className="w-5 h-5" />}>
           BECOME A MEMBER
         </Button>
       </div>

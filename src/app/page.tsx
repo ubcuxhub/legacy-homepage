@@ -33,7 +33,7 @@ export default function Home() {
       {/* Content Container */}
       <div className="relative z-10 pt-[80px] lg:pt-[80px] md:pt-[70px] sm:pt-[60px]">
         {/* Hero Section */}
-        <div id="home" className="flex justify-center items-start pt-[70px] lg:pt-[70px] md:pt-[50px] sm:pt-[30px]">
+        <div id="home" className="flex justify-center items-start pt-[40px] lg:pt-[40px] md:pt-[30px] sm:pt-[20px]">
           <HeroSection>
             <HeroContent />
           </HeroSection>

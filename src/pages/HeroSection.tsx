@@ -29,8 +29,8 @@ export default function HeroSection({ children }: HeroSectionProps) {
       <div className="w-full h-[58px] flex-shrink-0 rounded-t-[20px] bg-[#f5f5f5] opacity-70 border-b border-[#C1C7CD] inline-flex items-center gap-2 py-[18px] pl-4 pr-6 sm:pl-6 sm:pr-10 md:pl-4 md:pr-[20px] lg:pl-4 lg:pr-[20px] justify-start">
         {/* Left circle - gradient */}
         <div className="w-[16px] h-[16px] rounded-full border border-[#C1C7CD] ml-[10px]"
-             /* Keep inline, Tailwind doesn't support CSS gradients directly in classes" */
-             style={{ background: "linear-gradient(156deg, #052462 -1.32%, #CA97CE 77.58%, #F09485 97.31%)" }} />
+          /* Keep inline, Tailwind doesn't support CSS gradients directly in classes" */
+          style={{ background: "linear-gradient(156deg, #052462 -1.32%, #CA97CE 77.58%, #F09485 97.31%)" }} />
 
         {/* Middle circle - white */}
         <div className="w-[16px] h-[16px] rounded-full border border-[#C1C7CD] bg-white" />

@@ -7,46 +7,46 @@ import { ArrowUpRight } from "lucide-react";
 const HeroContent: React.FC = () => {
   return (
     <div className="px-4 sm:px-6 md:px-8 lg:px-0">
-    <h1
-      className="font-dm-sans font-bold leading-normal flex flex-col gap-0 sm:gap-0 md:gap-1 lg:gap-1 text-[#383838] mt-4 sm:mt-5 md:mt-6 lg:mt-8"
-      style={{
-        fontSize: "clamp(42px, 8vw, 48px)"
-      }}
-    >
-      <div className="flex items-center flex-nowrap gap-2 sm:gap-2 md:gap-2 lg:gap-2">
-        <span>UBC&apos;s</span>
-        <span
-          className="rounded-[80px] text-[#F5F5F5] font-dm-sans font-bold px-2 sm:px-4 md:px-6 lg:px-6"
-          /* Keep inline, Tailwind doesn't support CSS gradients directly in classes */
-          style={{
-            background: "linear-gradient(156deg, #052462 -1.32%, #CA97CE 77.58%, #F09485 97.31%)",
-            fontSize: "clamp(40px, 6vw, 48px)",
-            padding: "8px 16px",
-            marginLeft: "4px",
-            lineHeight: "1",
-            paddingTop: "4px",
-            paddingBottom: "4px",
-          }}
-        >
-          first-ever
-        </span>
-      </div>
-      <div className="flex items-center flex-wrap gap-2 sm:gap-2 md:gap-2 lg:gap-2">
-        <span>UX</span>
-        <span className="font-serif italic text-[#383838] leading-normal relative">
-          design
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 300 32"
-            fill="none"
-            className="absolute left-1/2 -translate-x-1/2 -bottom-[13px] w-[190px] h-[20px] sm:w-[200px] sm:h-[21px] md:w-[220px] md:h-[23px] lg:w-[250px] lg:h-[26px] ml-[15px] lg:ml-[30px]"
-            /* Keep inline for complex filter, Tailwind doesn't support drop-shadow filters */
+      <h1
+        className="font-dm-sans font-bold leading-normal flex flex-col gap-0 sm:gap-0 md:gap-1 lg:gap-1 text-[#383838] mt-4 sm:mt-5 md:mt-6 lg:mt-8"
+        style={{
+          fontSize: "clamp(42px, 8vw, 48px)"
+        }}
+      >
+        <div className="flex items-center flex-nowrap gap-2 sm:gap-2 md:gap-2 lg:gap-2">
+          <span>UBC&apos;s</span>
+          <span
+            className="rounded-[80px] text-[#F5F5F5] font-dm-sans font-bold px-2 sm:px-4 md:px-6 lg:px-6"
+            /* Keep inline, Tailwind doesn't support CSS gradients directly in classes */
             style={{
-              filter: "drop-shadow(0px 4px 8px rgba(224, 224, 224, 0.25))",
+              background: "linear-gradient(156deg, #052462 -1.32%, #CA97CE 77.58%, #F09485 97.31%)",
+              fontSize: "clamp(40px, 6vw, 48px)",
+              padding: "8px 16px",
+              marginLeft: "4px",
+              lineHeight: "1",
+              paddingTop: "4px",
+              paddingBottom: "4px",
             }}
           >
+            first-ever
+          </span>
+        </div>
+        <div className="flex items-center flex-wrap gap-2 sm:gap-2 md:gap-2 lg:gap-2">
+          <span>UX</span>
+          <span className="font-serif italic text-[#383838] leading-normal relative">
+            design
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 300 32"
+              fill="none"
+              className="absolute left-1/2 -translate-x-1/2 -bottom-[13px] w-[190px] h-[20px] sm:w-[200px] sm:h-[21px] md:w-[220px] md:h-[23px] lg:w-[250px] lg:h-[26px] ml-[15px] lg:ml-[30px]"
+              /* Keep inline for complex filter, Tailwind doesn't support drop-shadow filters */
+              style={{
+                filter: "drop-shadow(0px 4px 8px rgba(224, 224, 224, 0.25))",
+              }}
+            >
               <g filter="url(#filter0_d_84_128)">
                 <path
                   d="M11 23.3345C11 23.3345 17.943 7.5 32.5 7.5C47.057 7.5 54.5602 23.3345 69.1172 23.3345C83.6743 23.3345 98.443 6.5 113 6.5C127.557 6.5 135.943 26.5 150.5 26.5C165.057 26.5 175.272 10 188 11C200.728 12 206 16.5 206 16.5"
@@ -109,13 +109,13 @@ const HeroContent: React.FC = () => {
               </defs>
             </svg>
           </span>
-        <span>club</span>
-      </div>
-    </h1>
-    <p className="font-dm-sans leading-normal text-[#000] text-[14px] mt-6 mb-[30px] max-w-[600px] text-left">
-      UBC UX Hub empowers students through hands-on learning, creative collaboration, and access to the latest in user experience and emerging technology.
-    </p>
-    <div className="mt-16 flex gap-4">
+          <span>club</span>
+        </div>
+      </h1>
+      <p className="font-dm-sans leading-normal text-[#000] text-[14px] mt-6 mb-[30px] max-w-[600px] text-left">
+        UBC UX Hub empowers students through hands-on learning, creative collaboration, and access to the latest in user experience and emerging technology.
+      </p>
+      <div className="mt-16 flex gap-4">
         <Button variant="primary" icon={<ArrowUpRight className="w-5 h-5" />}>
           BECOME A MEMBER
         </Button>

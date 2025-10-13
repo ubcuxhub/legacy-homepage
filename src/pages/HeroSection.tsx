@@ -30,13 +30,13 @@ export default function HeroSection({ children }: HeroSectionProps) {
         {/* Left circle - gradient */}
         <div className="w-[21px] h-[21px] rounded-full border border-[#C1C7CD]"
           /* Keep inline, Tailwind doesn't support CSS gradients directly in classes" */
-          style={{ background: "linear-gradient(156deg, #052462 -1.32%, #CA97CE 77.58%, #F09485 97.31%)" }} />
+          style={{ background: "linear-gradient(156deg, rgba(0, 24, 59, 0.70) -1.32%, rgba(39, 86, 157, 0.70) 41.2%, rgba(243, 197, 255, 0.70) 104.29%)" }} />
 
         {/* Middle circle - white */}
-        <div className="w-[16px] h-[16px] rounded-full border border-[#C1C7CD] bg-white" />
+        <div className="w-[21px] h-[21px] rounded-full border border-[#C1C7CD] bg-white" />
 
         {/* Right circle - gray */}
-        <div className="w-[16px] h-[16px] rounded-full border border-[rgb(214,216,218)] bg-[#C1C7CD]" />
+        <div className="w-[21px] h-[21px] rounded-full border border-[rgb(214,216,218)] bg-[#C1C7CD]" />
       </div>
 
       {/* Content area */}

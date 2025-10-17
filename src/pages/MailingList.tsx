@@ -24,19 +24,19 @@ const CTASection = () => {
       }}
     >
       <div
-        className="px-8 py-8 sm:px-12 sm:py-12 md:px-20 md:py-14 lg:px-32 lg:py-12 xl:px-[300px] xl:py-[50px]"
+        className="px-8 py-8 sm:px-12 sm:py-12 md:px-20 md:py-14 lg:px-32 lg:py-12 xl:px-[150px] xl:py-[50px]"
       >
-        <div className="flex flex-col md:flex-row md:items-center">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-center md:gap-6">
           {/* Text Container */}
-          <div className="md:w-1/2 md:pr-8 mb-8 md:mb-0">
-            <h2 className="font-dm-sans text-white text-[32px] sm:text-[32px] md:text-[48px] lg:text-[48px] font-bold leading-normal mb-2.5 lg:mb-2.5"
+          <div className="md:pl-32 md:pr-3 mb-6 sm:mb-7 md:mb-0 text-center md:text-left">
+            <h2 className="font-dm-sans text-white text-[20px] sm:text-[24px] md:text-[32px] lg:text-[36px] font-bold leading-normal mb-2 sm:mb-2.5 lg:mb-2.5"
               /* Keep inline for text shadow, Tailwind doesn't support complex shadows */
               style={{
                 textShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
               }}>
             Never miss out
           </h2>
-          <p className="font-dm-sans text-white text-[16px] font-normal leading-relaxed w-full mb-[30px] opacity-90 text-left">
+          <p className="font-dm-sans text-white text-[11px] sm:text-xs md:text-sm font-normal leading-relaxed max-w-[350px] mb-4 sm:mb-6 md:mb-0 opacity-90 mx-auto md:mx-0">
             Subscribe to our newsletter to stay updated on all things UX
             Hub—events, design tips, community spotlights, and exclusive
             opportunities.
@@ -44,30 +44,28 @@ const CTASection = () => {
         </div>
 
         {/* Email Form Container */}
-          <div className="md:w-1/2 md:pl-8">
+          <div className="w-full md:pl-3 flex-1 flex justify-center md:justify-start">
           <form
             action="https://facebook.us16.list-manage.com/subscribe/post?u=9a26bb1b23b273a2a9f766b4f&id=8faf775ff6"
             method="post"
             target="_blank"
             noValidate
-            className="relative w-full max-w-[400px] md:max-w-[450px]"
+            className="relative w-full max-w-[350px] sm:max-w-[400px] md:max-w-[500px]"
           >
             <input
               type="email"
               name="EMAIL"
               placeholder="ex: myname@example.com"
               required
-              className="outline-none transition-all duration-300 ease-in-out hover:bg-[rgba(242,244,248,0.45)] focus:bg-[rgba(242,244,248,0.45)] w-full hover:scale-[1.02] focus:scale-[1.02]"
+              className="outline-none transition-all duration-300 ease-in-out hover:bg-[rgba(242,244,248,0.45)] focus:bg-[rgba(242,244,248,0.45)] w-full hover:scale-[1.02] focus:scale-[1.02] h-[45px] sm:h-[48px] md:h-[50px] text-xs sm:text-sm"
               style={{
                 display: "flex",
-                height: "50px",
-                padding: "15px 20px 15px 20px",
+                padding: "12px 16px 12px 16px",
                 alignItems: "center",
                 gap: "0px",
                 borderRadius: "42342px",
                 background: "rgba(242, 244, 248, 0.40)",
                 color: "#FFFFFF",
-                fontSize: "14px",
                 fontFamily: "DM Sans",
                 backdropFilter: "blur(10px)",
                 boxShadow: "0 4px 6px rgba(0, 0, 0, 0.05)",
@@ -98,14 +96,11 @@ const CTASection = () => {
             >
               <button
                 type="submit"
-                className="rounded-full bg-white text-black font-dm-sans transition-all duration-300 ease-in-out hover:bg-opacity-95 hover:transform hover:scale-[1.05] hover:shadow-lg hover:shadow-black/20 active:scale-[0.98] transform hover:-translate-y-1"
+                className="rounded-full bg-white text-black font-dm-sans transition-all duration-300 ease-in-out hover:bg-opacity-95 hover:transform hover:scale-[1.05] hover:shadow-lg hover:shadow-black/20 active:scale-[0.98] transform hover:-translate-y-1 h-[30px] sm:h-[32px] md:h-[33px] text-[10px] sm:text-[11px] md:text-xs px-4 sm:px-5 md:px-6"
                 style={{
                   display: "flex",
-                  height: "33px",
-                  padding: "10px 25px",
                   justifyContent: "center",
                   alignItems: "center",
-                  fontSize: "12px",
                   fontWeight: 500,
                   border: "none",
                   outline: "none",

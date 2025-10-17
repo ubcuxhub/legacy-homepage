@@ -48,11 +48,8 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`$${dmSans.variable} ${lora.variable} antialiased`}
+      className={`${dmSans.variable} ${lora.variable} antialiased`}
     >
-      <head>
-        <title>UX hub</title>
-      </head>
       <body
         className={`${dmSans.className} font-sans text-black text-[16px]`}
       >

@@ -10,7 +10,7 @@ const HeroContent: React.FC = () => {
       <h1
         className="font-dm-sans font-bold leading-normal flex flex-col gap-0 sm:gap-0 md:gap-1 lg:gap-1 text-[#383838] mt-4 sm:mt-5 md:mt-6 lg:mt-8"
         style={{
-          fontSize: "clamp(42px, 8vw, 48px)"
+          fontSize: "clamp(48px, 9vw, 58px)"
         }}
       >
         <div className="flex items-center flex-nowrap gap-2 sm:gap-2 md:gap-2 lg:gap-2">
@@ -20,7 +20,7 @@ const HeroContent: React.FC = () => {
             /* Keep inline, Tailwind doesn't support CSS gradients directly in classes */
             style={{
               background: "linear-gradient(156deg, #052462 -1.32%, #CA97CE 77.58%, #F09485 97.31%)",
-              fontSize: "clamp(40px, 6vw, 48px)",
+              fontSize: "clamp(46px, 8vw, 56px)",
               lineHeight: "1",
             }}
           >
@@ -29,7 +29,7 @@ const HeroContent: React.FC = () => {
         </div>
         <div className="flex items-center flex-wrap gap-2 sm:gap-2 md:gap-2 lg:gap-2">
           <span>UX</span>
-          <span className="font-serif italic text-[#383838] leading-normal relative">
+          <span className="font-serif italic text-[#383838] leading-normal relative inline-block">
             design
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -37,10 +37,11 @@ const HeroContent: React.FC = () => {
               height="24"
               viewBox="0 0 300 32"
               fill="none"
-              className="absolute left-[55%] -translate-x-1/2 -bottom-[13px] w-[190px] h-[20px] sm:w-[200px] sm:h-[21px] md:w-[220px] md:h-[23px] lg:w-[250px] lg:h-[26px]"
+              className="absolute left-1/2 -bottom-[13px] w-[190px] h-[20px] sm:w-[200px] sm:h-[21px] md:w-[220px] md:h-[23px] lg:w-[250px] lg:h-[26px]"
               /* Keep inline for complex filter, Tailwind doesn't support drop-shadow filters */
               style={{
                 filter: "drop-shadow(0px 4px 8px rgba(224, 224, 224, 0.25))",
+                transform: "translateX(-40%)",
               }}
             >
               <g filter="url(#filter0_d_84_128)">
@@ -108,10 +109,10 @@ const HeroContent: React.FC = () => {
           <span>club</span>
         </div>
       </h1>
-      <p className="font-dm-sans leading-normal text-[#000] text-sm sm:text-base md:text-base mt-6 mb-[30px] max-w-[600px] text-left">
+      <p className="font-dm-sans leading-normal text-[#000] text-[11px] sm:text-xs md:text-sm mt-8 mb-[30px] max-w-[600px] text-left">
         UBC UX Hub empowers students through hands-on learning, creative collaboration, and access to the latest in user experience and emerging technology.
       </p>
-      <div className="mt-8 sm:mt-10 md:mt-12 lg:mt-16 flex gap-4">
+      <div className="mt-10 sm:mt-12 md:mt-14 lg:mt-18 flex gap-4">
         <Button variant="primary" icon={<ArrowUpRight className="w-5 h-5" />}>
           BECOME A MEMBER
         </Button>

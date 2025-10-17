@@ -107,7 +107,7 @@ export default function TeamSection() {
     ANIMATION_CONFIG.gap;
 
   return (
-    <div className="w-full ">
+    <div className="w-full" style={{ backgroundColor: "#f3f4f6", paddingTop: "80px", paddingBottom: "80px" }}>
       <div className="max-w-8xl mx-auto">
         <div className="mb-16 px-[20%]">
           <p className="mb-0" style={SECTION_STYLES.subtitle}>
@@ -118,8 +118,8 @@ export default function TeamSection() {
 
         {/* slideshow */}
         <div className="relative w-full">
-          <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-gray-100 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-gray-100 to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 w-20 h-full z-10 pointer-events-none" style={{ background: "linear-gradient(to right, #f3f4f6, transparent)" }} />
+          <div className="absolute right-0 top-0 w-20 h-full z-10 pointer-events-none" style={{ background: "linear-gradient(to left, #f3f4f6, transparent)" }} />
 
           {/* card container */}
           <div className="overflow-hidden">

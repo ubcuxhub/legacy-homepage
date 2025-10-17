@@ -10,18 +10,18 @@ const HeroContent: React.FC = () => {
       <h1
         className="font-dm-sans font-bold leading-normal flex flex-col gap-0 sm:gap-0 md:gap-1 lg:gap-1 text-[#383838] mt-4 sm:mt-5 md:mt-6 lg:mt-8"
         style={{
-          fontSize: "clamp(48px, 9vw, 58px)"
+          fontSize: "clamp(32px, 9vw, 58px)"
         }}
       >
-        <div className="flex items-center flex-nowrap gap-2 sm:gap-2 md:gap-2 lg:gap-2">
+        <div className="flex items-center flex-wrap gap-2 sm:gap-2 md:gap-2 lg:gap-2">
           <span>UBC&apos;s</span>
           <span
-            className="rounded-[80px] text-[#F5F5F5] font-dm-sans font-bold px-2 sm:px-4 md:px-6 lg:px-6 py-1 ml-1"
+            className="rounded-[80px] text-[#F5F5F5] font-dm-sans font-bold px-3 sm:px-4 md:px-6 lg:px-6 py-1.5 ml-1"
             /* Keep inline, Tailwind doesn't support CSS gradients directly in classes */
             style={{
               background: "linear-gradient(156deg, #052462 -1.32%, #CA97CE 77.58%, #F09485 97.31%)",
-              fontSize: "clamp(46px, 8vw, 56px)",
-              lineHeight: "1",
+              fontSize: "clamp(30px, 8vw, 56px)",
+              lineHeight: "1.1",
             }}
           >
             first-ever

@@ -33,7 +33,7 @@ export default function Home() {
       {/* Content Container */}
       <div className="relative z-10 pt-[80px] lg:pt-[80px] md:pt-[70px] sm:pt-[60px]">
         {/* Hero Section */}
-        <div id="home" className="flex justify-center items-start pt-[40px] lg:pt-[40px] md:pt-[30px] sm:pt-[20px]">
+        <div id="home" className="flex justify-center items-start pt-[15px] lg:pt-[15px] md:pt-[12px] sm:pt-[10px]">
           <HeroSection>
             <HeroContent />
           </HeroSection>
@@ -55,19 +55,21 @@ export default function Home() {
           <EventsSection />
         </div>
 
-        <div id="team" className="mt-[70px] lg:mt-[70px] md:mt-[50px] sm:mt-[30px]">
-          <TeamSection />
-        </div>
+        <div style={{ backgroundColor: "#f3f4f6", paddingBottom: "40px" }}>
+          <div id="team" className="mt-[70px] lg:mt-[70px] md:mt-[50px] sm:mt-[30px]">
+            <TeamSection />
+          </div>
 
-        <div className="mt-[70px] lg:mt-[70px] md:mt-[50px] sm:mt-[30px]">
-          <FooterContent
-            title="Ready to kickstart your design journey?"
-            description="Join hundreds of student designers at UX Hub learning, building, and supporting each other on their journey to better UI and better design."
-            showContactButton
-          />
-        </div>
-        <div className="mt-[60px]">
-          <Footer />
+          <div className="mt-[70px] lg:mt-[70px] md:mt-[50px] sm:mt-[30px]">
+            <FooterContent
+              title="Ready to kickstart your design journey?"
+              description="Join hundreds of student designers at UX Hub learning, building, and supporting each other on their journey to better UI and better design."
+              showContactButton
+            />
+          </div>
+          <div className="mt-[60px]">
+            <Footer />
+          </div>
         </div>
       </div>
     </main>

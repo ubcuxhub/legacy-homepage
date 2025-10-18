@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 interface HeroSectionProps {
   children?: React.ReactNode;
@@ -9,18 +10,22 @@ export default function HeroSection({ children }: HeroSectionProps) {
     <section className="w-[90%] max-w-[1100px] min-h-[calc(100vh-140px)] flex-shrink-0 rounded-[20px] border border-[#C1C7CD] bg-[#f5f5f5] relative overflow-visible flex flex-col items-center">
       {/* cursor - "and largest!" */}
       <div className="hidden md:block absolute top-[100px] left-[170px] lg:top-[100px] lg:left-[160px] md:top-[100px] md:left-[100px] z-10">
-        <img
+        <Image
           src="/and largest.png"
           alt="and largest!"
+          width={120}
+          height={120}
           className="max-w-[120px] lg:max-w-[120px] md:max-w-[100px] sm:max-w-[80px] w-auto h-auto"
         />
       </div>
 
       {/* cursor - "UBC UX Hub" */}
-      <div className="hidden md:block absolute top-[360px] right-[150px] lg:top-[360px] lg:right-[120px] md:top-[300px] md:right-[95px] z-10">
-        <img
+      <div className="hidden md:block absolute top-[390px] right-[150px] lg:top-[390px] lg:right-[120px] md:top-[330px] md:right-[95px] z-10">
+        <Image
           src="/figma-cursor-chat.png"
           alt="UBC UX Hub"
+          width={120}
+          height={120}
           className="max-w-[120px] lg:max-w-[120px] md:max-w-[100px] sm:max-w-[80px] w-auto h-auto"
         />
       </div>

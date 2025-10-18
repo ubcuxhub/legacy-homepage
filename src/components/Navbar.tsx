@@ -24,8 +24,8 @@ const buttonStyles = `
 const Navbar = () => {
   return (
     <div
-      className="w-full max-w-[1512px] h-[80px] lg:h-[80px] md:h-[70px] sm:h-[60px] bg-[#f5f5f5] fixed top-0 left-0 right-0 z-50 mx-auto"
-      style={{ margin: "0 auto", transform: "translateX(-50%)", left: "50%" }}
+      className="w-full max-w-[1512px] h-[80px] lg:h-[80px] md:h-[70px] sm:h-[60px] fixed top-0 left-0 right-0 z-50 mx-auto"
+      style={{ margin: "0 auto", transform: "translateX(-50%)", left: "50%", backgroundColor: "#f3f4f6" }}
     >
       <nav className="h-full flex items-center">
         <div className="lg:pl-[70px] md:pl-[50px] sm:pl-[30px]">

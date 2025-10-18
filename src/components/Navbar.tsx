@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 const navLinkStyles =
-  "text-[#000000] no-underline font-dm-sans lg:text-[16px] md:text-[14px] sm:text-[12px] font-medium leading-normal hover:text-gray-600 whitespace-nowrap decoration-transparent transition-all duration-300 ease-in-out hover:scale-105 hover:translate-y-[-1px]";
+  "text-black no-underline font-dm-sans lg:text-[16px] md:text-[14px] sm:text-[12px] font-medium leading-normal hover:text-gray-600 whitespace-nowrap decoration-transparent transition-all duration-300 ease-in-out hover:scale-105 hover:translate-y-[-1px]";
 
 const buttonStyles = `
   flex justify-center items-center

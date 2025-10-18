@@ -1,5 +1,6 @@
 import React from "react";
 import EventCard from "../components/EventCard";
+import Button from "@/components/Button";
 
 const EventsSection: React.FC = () => {
   const triangleIcon = (
@@ -73,9 +74,10 @@ const EventsSection: React.FC = () => {
 
       {/* CTA */}
       <div className="text-center flex justify-center">
-        <button
-          onClick={() => window.location.href = "/under-construction"}
-          className="mx-auto mt-20 flex h-[54px] w-[252px] items-center justify-center gap-3 rounded-[67.066px] bg-black text-white transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-black/20 active:scale-95">
+        <Button
+          onClick={() => (window.location.href = "/under-construction")}
+          className="mt-20"
+        >
           SEE MORE EVENTS
           <svg
             width="20"
@@ -93,9 +95,8 @@ const EventsSection: React.FC = () => {
               strokeLinejoin="round"
             />
           </svg>
-        </button>
+        </Button>
       </div>
-
     </div>
   );
 };

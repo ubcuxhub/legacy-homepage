@@ -107,9 +107,9 @@ export default function TeamSection() {
     ANIMATION_CONFIG.gap;
 
   return (
-    <div className="w-full" style={{ backgroundColor: "#f3f4f6", paddingTop: "80px", paddingBottom: "80px" }}>
+    <div className="w-full" style={{ paddingTop: "80px", paddingBottom: "80px" }}>
       <div className="max-w-8xl mx-auto">
-        <div className="mb-16 px-[20%]">
+        <div className="mb-16 md:px-[20%] px-[5%]">
           <p className="mb-0" style={SECTION_STYLES.subtitle}>
             the team
           </p>

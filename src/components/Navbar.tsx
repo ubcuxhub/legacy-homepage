@@ -1,101 +1,122 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Menu } from "lucide-react";
 
-const navLinkStyles =
-  "text-black no-underline font-dm-sans lg:text-[16px] md:text-[14px] sm:text-[12px] font-medium leading-normal hover:text-gray-600 whitespace-nowrap decoration-transparent transition-all duration-300 ease-in-out hover:scale-105 hover:translate-y-[-1px]";
+const navLink =
+  "text-black no-underline font-dm-sans font-medium leading-normal whitespace-nowrap decoration-transparent transition-all duration-200 hover:text-gray-600";
 
-const buttonStyles = `
-  flex justify-center items-center
-  lg:w-[180px] lg:h-[45px] md:w-[160px] md:h-[40px] sm:w-[140px] sm:h-[35px]
-  px-[10px] py-[8px]
-  gap-[12px]
-  flex-shrink-0
-  rounded-[67.066px]
-  text-[#FFFFFF]
-  font-dm-sans lg:text-[15px] md:text-[14px] sm:text-[12px] font-medium leading-normal
-  hover:opacity-90 transition-all duration-300 ease-in-out
-  hover:scale-105 hover:shadow-lg hover:shadow-black/20
-  backdrop-blur-[0.5px]
-  no-underline decoration-transparent
-  visited:text-white hover:text-white
-  transform hover:-translate-y-1
-`;
+const ctaBtn =
+  "flex justify-center items-center rounded-[67.066px] text-white font-dm-sans font-medium leading-normal " +
+  "px-[12px] py-[8px] gap-[12px] " +
+  "md:w-[190px] md:h-[45px] sm:w-[140px] sm:h-[35px] " +
+  "transition-all duration-200 hover:opacity-90 hover:shadow-lg hover:shadow-black/20 backdrop-blur-[0.5px]";
 
-const Navbar = () => {
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
+  const close = () => setOpen(false);
+
   return (
-    <div
-      className="w-full max-w-[1512px] h-[80px] lg:h-[80px] md:h-[70px] sm:h-[60px] fixed top-0 left-0 right-0 z-50 mx-auto"
-      style={{ margin: "0 auto", transform: "translateX(-50%)", left: "50%", backgroundColor: "#f3f4f6" }}
-    >
-      <nav className="h-full flex items-center">
-        <div className="lg:pl-[70px] md:pl-[50px] sm:pl-[30px]">
-          <div className="w-[72px] h-[72px] lg:w-[72px] lg:h-[72px] md:w-[60px] md:h-[60px] sm:w-[50px] sm:h-[50px]">
+    <div className="fixed inset-x-0 top-0 z-50 bg-white py-1">
+      <nav className="flex h-20 items-center md:px-[5%] px-[5%]">
+        {/* Logo */}
+        <Link href="#home" className="block" onClick={close}>
+          <div className="w-[60px] h-[60px]">
             <Image
               src="/logo.png"
               alt="UBC UX HUB"
-              width={72}
-              height={72}
-              className="w-full h-full"
+              width={100}
+              height={100}
+              className="h-full w-full"
+              priority
             />
           </div>
-        </div>
+        </Link>
 
-        <div className="ml-auto lg:pr-[70px] md:pr-[50px] sm:pr-[30px] flex items-center">
-          <Link
-            href="#home"
-            className={navLinkStyles}
-            style={{ textDecoration: "none", marginRight: "32px" }}
-          >
-            Home
-          </Link>
-          <Link
-            href="#about-us"
-            className={navLinkStyles}
-            style={{ textDecoration: "none", marginRight: "32px" }}
-          >
-            About Us
-          </Link>
-          <Link
-            href="#events"
-            className={navLinkStyles}
-            style={{ textDecoration: "none", marginRight: "32px" }}
-          >
-            Events
-          </Link>
-          <Link
-            href="#team"
-            className={navLinkStyles}
-            style={{ textDecoration: "none", marginRight: "32px" }}
-          >
-            Meet the Team
-          </Link>
-          <Link
-            href="mailto:ubcuxhub@gmail.com"
-            className={navLinkStyles}
-            style={{ textDecoration: "none", marginRight: "32px" }}
-          >
-            Contact Us
-          </Link>
-
+        {/* Desktop links */}
+        <div className="ml-auto hidden md:flex items-center">
+          <div className="flex items-center gap-8">
+            <Link href="#home" className={navLink}>
+              Home
+            </Link>
+            <Link href="#about-us" className={navLink}>
+              About Us
+            </Link>
+            <Link href="#events" className={navLink}>
+              Events
+            </Link>
+            <Link href="#team" className={navLink}>
+              Meet the Team
+            </Link>
+            <Link href="mailto:ubcuxhub@gmail.com" className={navLink}>
+              Contact Us
+            </Link>
+          </div>
           <Link
             href="/join"
-            className={buttonStyles}
-            style={{
-              background:
-                "linear-gradient(156deg, #00183B -1.32%, #9478B1 42.98%, #E89595 121.99%)",
-              textDecoration: "none",
-              color: "#FFFFFF",
-              marginLeft: "32px",
-              paddingLeft: "12px",
-              paddingRight: "12px",
-            }}
+            className={`${ctaBtn} ml-8 bg-gradient-to-br from-[#00183B] via-[#9478B1] to-[#E89595]`}
           >
             Become a Member
           </Link>
         </div>
+
+        {/* Mobile menu button */}
+        <button
+          aria-label="Open menu"
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+          className="ml-auto inline-flex items-center justify-center rounded-md p-2 hover:bg-gray-100 md:hidden"
+        >
+          <Menu className="h-6 w-6" />
+        </button>
+
+        {/* Background blur overlay */}
+        {open && (
+          <div
+            className="fixed inset-0 bg-black/10 backdrop-blur-sm md:hidden"
+            onClick={close}
+          />
+        )}
+
+        {/* Mobile dropdown */}
+        {open && (
+          <div
+            className="absolute right-[5%] top-full w-[70%] rounded-xl bg-white shadow-lg backdrop-blur-md md:hidden"
+            role="menu"
+          >
+            <div className="flex flex-col p-3">
+              <Link href="#home" className={`${navLink} px-3 py-2`} onClick={close}>
+                Home
+              </Link>
+              <Link href="#about-us" className={`${navLink} px-3 py-2`} onClick={close}>
+                About Us
+              </Link>
+              <Link href="#events" className={`${navLink} px-3 py-2`} onClick={close}>
+                Events
+              </Link>
+              <Link href="#team" className={`${navLink} px-3 py-2`} onClick={close}>
+                Meet the Team
+              </Link>
+              <Link
+                href="mailto:ubcuxhub@gmail.com"
+                className={`${navLink} px-3 py-2`}
+                onClick={close}
+              >
+                Contact Us
+              </Link>
+            </div>
+          </div>
+        )}
       </nav>
     </div>
   );
-};
-
-export default Navbar;
+}

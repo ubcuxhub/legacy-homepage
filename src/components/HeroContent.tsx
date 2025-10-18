@@ -6,9 +6,9 @@ import { ArrowUpRight } from "lucide-react";
 
 const HeroContent: React.FC = () => {
   return (
-    <div className="px-4 sm:px-6 md:px-8 lg:px-0">
+    <div className="">
       <h1
-        className="font-dm-sans font-bold leading-normal flex flex-col gap-0 sm:gap-0 md:gap-1 lg:gap-1 text-[#383838] mt-4 sm:mt-5 md:mt-6 lg:mt-8"
+        className="font-dm-sans font-bold leading-normal flex flex-col gap-0 sm:gap-0 md:gap-1 lg:gap-1 mt-4 sm:mt-5 md:mt-6 lg:mt-8"
         style={{
           fontSize: "clamp(32px, 9vw, 58px)"
         }}

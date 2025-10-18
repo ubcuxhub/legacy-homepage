@@ -3,79 +3,40 @@ import AboutImageStack from "../components/AboutImageStack";
 
 const AboutUs: React.FC = () => {
   return (
-    <div
-      className="bg-gray-100"
-      style={{
-        position: "relative",
-        zIndex: 9999,
-        backgroundColor: "#f3f4f6",
-        paddingLeft: "80px",
-        paddingRight: "80px",
-        paddingTop: "139px",
-        paddingBottom: "139px",
-      }}
-    >
-      <div className="max-w-8xl mx-auto">
-        <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12">
-          <div className="flex-1">
-            <p
-              className="mb-0"
-              style={{
-                color: "#7A7A7A",
-                fontFamily: "Lora",
-                fontSize: "31.871px",
-                fontStyle: "italic",
-                fontWeight: 600,
-                lineHeight: "normal",
-                alignSelf: "stretch",
-              }}
-            >
-              who we are
-            </p>
-            <h2
-            style={{
-              color: "#383838",
-              fontFamily: "DM Sans",
-              fontSize: "38px",
-              fontStyle: "normal",
-              fontWeight: 700,
-              lineHeight: "normal",
-              alignSelf: "stretch",
-            }}
-          >
+    <div className="relative z-[9999] py-[139px]">
+      <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12">
+        {/* Left text section */}
+        <div className="flex-1">
+          <p className="mb-0 font-serif italic font-semibold text-[31.871px]">
+            who we are
+          </p>
+          <h2 className="font-sans text-[38px] font-bold leading-normal">
             Empowering the next generation of UX designers
           </h2>
-            <div
-              className="space-y-6 text-gray-700"
-              style={{
-                fontFamily: "DM Sans",
-                fontWeight: 400,
-                fontSize: "18px",
-                color: "#383838",
-              }}
-            >
-              <p>
-                Founded in February 2017 as UBC&apos;s{" "}
-                <strong>first and only user experience club</strong>, UBC UX Hub
-                is a growing collective of{" "}
-                <strong>design-passionate students</strong>. We empower emerging
-                designers through hands-on workshops, industry talks, and
-                networking events that help bridge the gap between classroom
-                learning and real-world practice.
-              </p>
-              <p>
-                Our mission is to <strong>foster growth and community</strong>{" "}
-                within the design field. Whether you&apos;re an aspiring
-                designer or a seasoned expert, we invite you to join us on our
-                journey to <strong>fully explore the world of UX design</strong>
-                .
-              </p>
-            </div>
-          </div>
 
-          <div className="lg:flex-shrink-0">
-            <AboutImageStack />
+          <div className="space-y-6 text-[#383838] font-sans text-[18px] font-normal">
+            <p>
+              Founded in February 2017 as UBC&apos;s{" "}
+              <strong>first and only user experience club</strong>, UBC UX Hub
+              is a growing collective of{" "}
+              <strong>design-passionate students</strong>. We empower emerging
+              designers through hands-on workshops, industry talks, and
+              networking events that help bridge the gap between classroom
+              learning and real-world practice.
+            </p>
+            <p>
+              Our mission is to <strong>foster growth and community</strong>{" "}
+              within the design field. Whether you&apos;re an aspiring
+              designer or a seasoned expert, we invite you to join us on our
+              journey to{" "}
+              <strong>fully explore the world of UX design</strong>.
+            </p>
           </div>
+        </div>
+
+        {/* Right image stack */}
+        <div className="lg:flex-shrink-0">
+          <AboutImageStack />
         </div>
       </div>
     </div>

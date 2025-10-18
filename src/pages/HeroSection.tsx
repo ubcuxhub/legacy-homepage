@@ -7,7 +7,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({ children }: HeroSectionProps) {
   return (
-    <section className="w-[90%] max-w-[1100px] min-h-[calc(100vh-140px)] flex-shrink-0 rounded-[20px] border border-[#C1C7CD] bg-[#f5f5f5] relative overflow-visible flex flex-col items-center">
+    <section className="min-h-[calc(100vh-140px)] flex-shrink-0 rounded-[20px] border border-[#C1C7CD] bg-[#f5f5f5] relative overflow-visible flex flex-col items-center">
       {/* cursor - "and largest!" */}
       <div className="hidden md:block absolute top-[100px] left-[170px] lg:top-[100px] lg:left-[160px] md:top-[100px] md:left-[100px] z-10">
         <Image

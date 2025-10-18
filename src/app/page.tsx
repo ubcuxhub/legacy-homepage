@@ -60,15 +60,17 @@ export default function Home() {
           <TeamSection />
         </div>
 
-        <div className="mt-[70px] lg:mt-[70px] md:mt-[50px] sm:mt-[30px] md:px-[20%] px-[5%]">
-          <FooterContent
-            title="Ready to kickstart your design journey?"
-            description="Join hundreds of student designers at UX Hub learning, building, and supporting each other on their journey to better UI and better design."
-            showContactButton
-          />
-        </div>
-        <div className="mt-[60px]">
-          <Footer />
+        <div className="bg-white">
+          <div className="md:px-[20%] px-[5%]">
+            <FooterContent
+              title="Ready to kickstart your design journey?"
+              description="Join hundreds of student designers at UX Hub learning, building, and supporting each other on their journey to better UI and better design."
+              showContactButton
+            />
+          </div>
+          <div className="mt-[60px]">
+            <Footer />
+          </div>
         </div>
       </div>
     </main>

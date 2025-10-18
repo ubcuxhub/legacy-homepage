@@ -6,7 +6,7 @@ import FooterLogo from "./footer_components/FooterLogo";
 
 const Footer = () => {
   return (
-    <footer className="my-[60px] w-full relative z-9999">
+    <footer className="w-full relative z-9999 pb-10">
       <div className="flex flex-col max-w-6xl mx-auto px-8 items-center gap-y-8 lg:w-[992px]">
         <FooterLogo />
         <NavigationLinks />

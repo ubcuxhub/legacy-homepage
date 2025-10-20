@@ -1,5 +1,7 @@
-import React from "react";
-import TeamMemberCard, { TeamMember } from "../components/TeamMemberCard";
+"use-client";
+import React, { useState, useRef, useEffect } from "react";
+import { TeamMember } from "../components/TeamMemberCard";
+import Image from "next/image";
 
 const TEAM_MEMBERS: TeamMember[] = [
   {
@@ -95,74 +97,105 @@ const SECTION_STYLES = {
   },
 } as const;
 
-const ANIMATION_CONFIG = {
-  duration: "70s",
-  cardWidth: 320,
-  gap: 45,
-} as const;
+const duplicatedMembers = [...TEAM_MEMBERS, ...TEAM_MEMBERS];
 
 export default function TeamSection() {
-  const totalWidth =
-    TEAM_MEMBERS.length * (ANIMATION_CONFIG.cardWidth + ANIMATION_CONFIG.gap) -
-    ANIMATION_CONFIG.gap;
+  const [hoveredMember, setHoveredMember] = useState<TeamMember | null>(null);
+
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    let animationId: number;
+    let position = 0;
+    let speed = 0.5;
+
+    const cardWidth = 155 + 44;
+    const resetPoint = cardWidth * TEAM_MEMBERS.length;
+
+    const animate = () => {
+      position += speed;
+
+      if (position >= resetPoint) {
+        position -= resetPoint;
+      }
+
+      el.style.transform = `translateX(-${position}px)`;
+      animationId = requestAnimationFrame(animate);
+    };
+
+    animationId = requestAnimationFrame(animate);
+
+    const slowDown = () => (speed = 0.25);
+    const speedUp = () => (speed = 0.5);
+
+    el.addEventListener("mouseenter", slowDown);
+    el.addEventListener("mouseleave", speedUp);
+
+    return () => {
+      cancelAnimationFrame(animationId);
+      el.removeEventListener("mouseenter", slowDown);
+      el.removeEventListener("mouseleave", speedUp);
+    };
+  }, []);
 
   return (
-    <div className="w-full" style={{ backgroundColor: "#f3f4f6", paddingTop: "80px", paddingBottom: "80px" }}>
-      <div className="max-w-8xl mx-auto">
-        <div className="mb-16 px-[20%]">
+    <div className="w-full bg-[#f3f4f6] py-20">
+      <div className="max-w-8xl mx-auto relative">
+        <div className="mb-8 px-[20%]">
           <p className="mb-0" style={SECTION_STYLES.subtitle}>
             the team
           </p>
           <h2 style={SECTION_STYLES.title}>The people behind the process</h2>
         </div>
 
-        {/* slideshow */}
         <div className="relative w-full">
-          <div className="absolute left-0 top-0 w-20 h-full z-10 pointer-events-none" style={{ background: "linear-gradient(to right, #f3f4f6, transparent)" }} />
-          <div className="absolute right-0 top-0 w-20 h-full z-10 pointer-events-none" style={{ background: "linear-gradient(to left, #f3f4f6, transparent)" }} />
+          <div
+            className="absolute left-0 top-0 w-20 h-full z-10 pointer-events-none"
+            style={{
+              background: "linear-gradient(to right, #f3f4f6, transparent)",
+            }}
+          />
+          <div
+            className="absolute right-0 top-0 w-20 h-full z-10 pointer-events-none"
+            style={{
+              background: "linear-gradient(to left, #f3f4f6, transparent)",
+            }}
+          />
+
+          <div className="justify-self-center font-bold h-4 mb-8">
+            {hoveredMember
+              ? hoveredMember.name + " ⭐ " + hoveredMember.role
+              : ""}
+          </div>
 
           {/* card container */}
           <div className="overflow-hidden">
-            <div className="flex items-center" style={{ minHeight: "580px" }}>
-              <div
-                className="flex animate-scroll items-center"
-                style={{ width: `${totalWidth * 2}px`, gap: "45px" }}
-              >
-                {TEAM_MEMBERS.map((member, index) => (
-                  <TeamMemberCard
-                    key={`${member.name}-${index}`}
-                    member={member}
-                    gradientIndex={index}
+            <div
+              ref={scrollRef}
+              className="flex w-max items-center gap-11 will-change-transform"
+            >
+              {duplicatedMembers.map((member, index) => (
+                <div
+                  key={`${member.name}-${index}`}
+                  className="relative h-[155px] w-[155px] flex-shrink-0 overflow-hidden rounded-2xl"
+                  onMouseEnter={() => setHoveredMember(member)}
+                  onMouseLeave={() => setHoveredMember(null)}
+                >
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill={true}
+                    className="object-cover object-top"
                   />
-                ))}
-                {TEAM_MEMBERS.map((member, index) => (
-                  <TeamMemberCard
-                    key={`${member.name}-duplicate-${index}`}
-                    member={member}
-                    gradientIndex={index}
-                  />
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
-
-      {/* animate scroll! */}
-      <style jsx global>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-${totalWidth}px);
-          }
-        }
-
-        .animate-scroll {
-          animation: scroll 70s linear infinite;
-        }
-      `}</style>
     </div>
   );
 }

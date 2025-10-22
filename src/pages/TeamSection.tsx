@@ -10,6 +10,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     aboutMe: "I love Costco Hotdogs!",
     funFact: "I dream in black and white",
     image: "/martin.png",
+    roleEmoji: "🎨",
   },
   {
     name: "Aurora",
@@ -17,6 +18,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     aboutMe: "I'm studying CS and I love UX design!",
     funFact: "My MBTI is ISTJ and I like cafe hopping",
     image: "/aurora.png",
+    roleEmoji: "⭐",
   },
   {
     name: "Aubrey",
@@ -24,6 +26,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     aboutMe: "Hi! I'm a 3rd year Media Studies student 🐰",
     funFact: "I like collecting k-pop photocards",
     image: "/aubrey.png",
+    roleEmoji: "🎨",
   },
   {
     name: "Iris",
@@ -31,6 +34,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     aboutMe: "I'm a product designer, filmmaker, and denim skirt enthusiast!",
     funFact: "I got lost in Ottawa once and walked to Quebec.",
     image: "/iris.png",
+    roleEmoji: "🎬",
   },
   {
     name: "Mia",
@@ -38,6 +42,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     aboutMe: "I'm studying cs but I love learning about design!",
     funFact: "I learned a bit of asl in high school",
     image: "/Mia.png",
+    roleEmoji: "💡",
   },
   {
     name: "Kat",
@@ -45,6 +50,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     aboutMe: "I'm Kat! I'm a 3rd year BUCS student",
     funFact: "I love collecting useless but cute things",
     image: "/Kat.png",
+    roleEmoji: "🤝",
   },
   {
     name: "Mason",
@@ -52,6 +58,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     aboutMe: "I'm Mason! I'm a 5th year Marketing student.",
     funFact: "I run a Tiktok food account",
     image: "/mason.png",
+    roleEmoji: "🎬",
   },
   {
     name: "Cherry",
@@ -59,6 +66,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     aboutMe: "I'm Cherry and I'm doing BMS + cpsc ;)",
     funFact: "I sleeptalk multilingual",
     image: "/cherry.png",
+    roleEmoji: "🎬",
   },
   {
     name: "Elisabeth",
@@ -66,6 +74,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     aboutMe: "I love badminton, calligraphy, kr&b, and cafe hopping",
     funFact: "I've lived on campus since I was 5 years old",
     image: "/Elisabeth.png",
+    roleEmoji: "⭐",
   },
   {
     name: "Chhavi",
@@ -73,6 +82,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     aboutMe: "I am in my fourth year studying CS",
     funFact: "I love the moon 🌙",
     image: "/chhavi.jpeg",
+    roleEmoji: "🎨",
   },
 ];
 
@@ -167,7 +177,11 @@ export default function TeamSection() {
 
           <div className="justify-self-center font-bold h-4 mb-8">
             {hoveredMember
-              ? hoveredMember.name + " ⭐ " + hoveredMember.role
+              ? hoveredMember.name +
+                " " +
+                hoveredMember.roleEmoji +
+                " " +
+                hoveredMember.role
               : ""}
           </div>
 

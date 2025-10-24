@@ -7,7 +7,7 @@ import FooterCallout from "@/components/FooterCallout";
 
 export default function Footer() {
   return (
-    <div className="w-full relative pb-10 mx-auto flex max-w-6xl flex-col items-center gap-8 px-8 lg:w-[992px]">
+    <div className="w-full bg-white flex flex-col items-center gap-8 py-4">
 
       <FooterCallout />
 

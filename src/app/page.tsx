@@ -31,36 +31,15 @@ export default function Home() {
       {/* Content Container */}
       <div className="relative z-10 pt-[80px] lg:pt-[80px] md:pt-[70px] sm:pt-[60px]">
         {/* Hero Section */}
-        <div id="home" className="pt-[15px] md:px-[10%] px-[5%]">
-          <HeroSection />
-        </div>
 
-        <div className="mt-[70px] lg:mt-[70px] md:mt-[50px] sm:mt-[30px]">
-          <MailingList />
-        </div>
+        <HeroSection />
+        <MailingList />
+        <AboutUsSection />
+        <LogoCarousel />
+        <EventsSection />
+        <TeamSection />
+        <Footer />
 
-        <div id="about-us" className="mt-[70px] lg:mt-[70px] md:mt-[50px] sm:mt-[30px] md:px-[10%] px-[5%]">
-          <AboutUsSection />
-        </div>
-
-        <div className="lg:pt-[100px] lg:pb-[100px] md:pt-[80px] md:pb-[80px] sm:pt-[60px] sm:pb-[60px]">
-          <LogoCarousel />
-        </div>
-
-        <div id="events" className="mt-[70px] lg:mt-[70px] md:mt-[50px] sm:mt-[30px] md:px-[20%] px-[5%]">
-          <EventsSection />
-        </div>
-
-
-        <div id="team" className="mt-[70px] lg:mt-[70px] md:mt-[50px] sm:mt-[30px]">
-          <TeamSection />
-        </div>
-
-        <div className="bg-white">
-          <div className="pt-10">
-            <Footer />
-          </div>
-        </div>
       </div>
     </main>
   );

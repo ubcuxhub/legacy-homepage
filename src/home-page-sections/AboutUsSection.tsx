@@ -1,7 +1,7 @@
 import React from "react";
 import AboutImageStack from "../components/AboutImageStack";
 
-const AboutUs: React.FC = () => {
+function AboutUsSection() {
   return (
     <div className="relative z-[9999] py-[139px]">
       <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12">
@@ -41,6 +41,6 @@ const AboutUs: React.FC = () => {
       </div>
     </div>
   );
-};
+}
 
-export default AboutUs;
+export default AboutUsSection;

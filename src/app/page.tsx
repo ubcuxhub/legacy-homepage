@@ -1,16 +1,14 @@
 "use client";
 
 import DotGrid from "@/components/DotGrid";
-import HeroSection from "@/pages/HeroSection";
-import MailingList from "@/pages/MailingList";
-import Navbar from "@/components/Navbar";
-import AboutUs from "@/pages/AboutUs";
-import LogoCarousel from "@/pages/LogoCarousel";
-import EventsSection from "@/pages/EventsSection";
-import TeamSection from "@/pages/TeamSection";
-import Footer from "@/components/Footer";
-import FooterContent from '../components/FooterContent';
-import HeroContent from '../components/HeroContent';
+import HeroSection from "@/home-page-sections/HeroSection";
+import MailingList from "@/home-page-sections/MailingListSection";
+import Navbar from "@/home-page-sections/Navbar";
+import AboutUsSection from "@/home-page-sections/AboutUsSection";
+import LogoCarousel from "@/home-page-sections/LogoCarousel";
+import EventsSection from "@/home-page-sections/EventsSection";
+import TeamSection from "@/home-page-sections/TeamSection";
+import Footer from "@/home-page-sections/Footer";
 
 export default function Home() {
   return (
@@ -34,9 +32,7 @@ export default function Home() {
       <div className="relative z-10 pt-[80px] lg:pt-[80px] md:pt-[70px] sm:pt-[60px]">
         {/* Hero Section */}
         <div id="home" className="pt-[15px] md:px-[10%] px-[5%]">
-          <HeroSection>
-            <HeroContent />
-          </HeroSection>
+          <HeroSection />
         </div>
 
         <div className="mt-[70px] lg:mt-[70px] md:mt-[50px] sm:mt-[30px]">
@@ -44,7 +40,7 @@ export default function Home() {
         </div>
 
         <div id="about-us" className="mt-[70px] lg:mt-[70px] md:mt-[50px] sm:mt-[30px] md:px-[10%] px-[5%]">
-          <AboutUs />
+          <AboutUsSection />
         </div>
 
         <div className="lg:pt-[100px] lg:pb-[100px] md:pt-[80px] md:pb-[80px] sm:pt-[60px] sm:pb-[60px]">
@@ -61,14 +57,7 @@ export default function Home() {
         </div>
 
         <div className="bg-white">
-          <div className="md:px-[20%] px-[5%]">
-            <FooterContent
-              title="Ready to kickstart your design journey?"
-              description="Join hundreds of student designers at UX Hub learning, building, and supporting each other on their journey to better UI and better design."
-              showContactButton
-            />
-          </div>
-          <div className="mt-[60px]">
+          <div className="pt-10">
             <Footer />
           </div>
         </div>

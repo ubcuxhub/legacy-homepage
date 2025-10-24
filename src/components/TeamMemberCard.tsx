@@ -9,6 +9,7 @@ export interface TeamMember {
   aboutMe: string;
   funFact: string;
   image: string;
+  roleEmoji: string;
 }
 
 interface TeamMemberCardProps {

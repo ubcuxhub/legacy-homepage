@@ -50,7 +50,7 @@ export default function MailingListSection() {
               method="post"
               target="_blank"
               noValidate
-              className="relative w-full max-w-[350px] sm:max-w-[400px] md:max-w-[500px]"
+              className="relative w-full"
             >
               <label htmlFor="mce-EMAIL" className="sr-only">
                 Email address
@@ -62,8 +62,8 @@ export default function MailingListSection() {
                 placeholder="ex: myname@example.com"
                 required
                 className={[
-                  "w-full h-[45px] sm:h-[48px] md:h-[50px]",
-                  "rounded-full px-4 py-3",
+                  "w-full h-17",
+                  "rounded-full px-8 py-3",
                   "bg-white/40 text-white placeholder-white/70",
                   "backdrop-blur-md shadow-md outline-none ring-0 border-none",
                   "text-xs sm:text-sm",
@@ -84,14 +84,14 @@ export default function MailingListSection() {
                 />
               </div> */}
 
-              <div className="absolute right-[10px] top-1/2 -translate-y-1/2">
+              <div className="absolute right-2 top-1/2 -translate-y-1/2">
                 <button
                   type="submit"
                   className={[
                     "flex items-center justify-center",
                     "rounded-full bg-white text-black font-dm-sans",
-                    "h-[30px] sm:h-[32px] md:h-[33px] px-4 sm:px-5 md:px-6",
-                    "text-[10px] sm:text-[11px] md:text-xs font-medium",
+                    "h-13 px-6",
+                    "sm:text-[11px] md:text-xs font-medium",
                     "transition-all duration-300 ease-in-out",
                     "hover:bg-opacity-95 hover:scale-105 hover:shadow-lg hover:shadow-black/20",
                     "active:scale-95 hover:-translate-y-1",

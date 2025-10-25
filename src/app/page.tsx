@@ -12,11 +12,9 @@ import Footer from "@/home-page-sections/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white relative">
-
+    <main className="bg-white">
       <Navbar />
 
-      {/* dot bg */}
       <div className="fixed inset-0 w-full h-full z-0 pointer-events-none">
         <DotGrid
           dotSize={6}
@@ -28,19 +26,19 @@ export default function Home() {
         />
       </div>
 
-      {/* Content Container */}
-      <div className="relative z-10 pt-[80px] lg:pt-[80px] md:pt-[70px] sm:pt-[60px]">
-        {/* Hero Section */}
-
+      <div className="relative z-10 flex flex-col gap-40">
         <HeroSection />
         <MailingList />
         <AboutUsSection />
         <LogoCarousel />
         <EventsSection />
         <TeamSection />
-        <Footer />
-
       </div>
+
+      <div className="relative z-10 pt-24">
+        <Footer />
+      </div>
+
     </main>
   );
 }

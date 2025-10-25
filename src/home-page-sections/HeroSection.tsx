@@ -7,7 +7,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function Hero() {
   return (
-    <div className="pt-24 md:px-[10%] px-[5%]">
+    <div id="home" className="pt-24 md:px-[10%] px-[5%]">
       <section className="relative flex min-h-[calc(100vh-140px)] flex-shrink-0 flex-col items-center overflow-visible rounded-[20px] border border-[#C1C7CD] bg-[#f5f5f5]">
         {/* cursor - "and largest!" */}
         <div className="absolute z-10 hidden md:block md:top-[100px] md:left-[100px] lg:top-[100px] lg:left-[160px]">

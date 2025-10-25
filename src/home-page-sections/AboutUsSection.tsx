@@ -3,7 +3,7 @@ import AboutImageStack from "../components/AboutImageStack";
 
 function AboutUsSection() {
   return (
-    <div className="md:px-[10%] px-[5%]">
+    <div id="about-us" className="md:px-[10%] px-[5%]">
       <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12">
         {/* Left text section */}
         <div className="flex-1">

@@ -152,7 +152,7 @@ export default function TeamSection() {
   }, []);
 
   return (
-    <div className="w-full">
+    <div id="team" className="w-full">
       <div className="mb-12 md:px-[20%] px-[5%]">
         <p className="mb-0" style={SECTION_STYLES.subtitle}>
           the team

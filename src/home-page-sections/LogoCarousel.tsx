@@ -10,14 +10,14 @@ interface Logo {
 
 const LogoCarousel: React.FC = () => {
   const logos: Logo[] = [
-    { name: "Steve's Poke Bar", src: "/stevespoke.png", alt: "Steve's Poke Bar" },
-    { name: "Google Cloud", src: "/googlecloud.png", alt: "Google Cloud" },
-    { name: "Microsoft", src: "/microsoft.png", alt: "Microsoft", padding_y: "py-2" },
-    { name: "Willowtree", src: "/willowtree.png", alt: "Willowtree" },
-    { name: "Notion", src: "/notion.png", alt: "Notion" },
-    { name: "TD Bank", src: "/td.png", alt: "TD Bank" },
-    { name: "Red Bull", src: "/redbull.png", alt: "Red Bull" },
-    { name: "Rain Shine", src: "/rainorshine.png", alt: "Rain Shine" },
+    { name: "Steve's Poke Bar", src: "/logos/stevespoke.png", alt: "Steve's Poke Bar" },
+    { name: "Google Cloud", src: "/logos/googlecloud.png", alt: "Google Cloud" },
+    { name: "Microsoft", src: "/logos/microsoft.png", alt: "Microsoft", padding_y: "py-2" },
+    { name: "Willowtree", src: "/logos/willowtree.png", alt: "Willowtree" },
+    { name: "Notion", src: "/logos/notion.png", alt: "Notion" },
+    { name: "TD Bank", src: "/logos/td.png", alt: "TD Bank" },
+    { name: "Red Bull", src: "/logos/redbull.png", alt: "Red Bull" },
+    { name: "Rain Shine", src: "/logos/rainorshine.png", alt: "Rain Shine" },
   ];
 
 

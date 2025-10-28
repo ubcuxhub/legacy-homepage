@@ -9,7 +9,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     role: "Design",
     aboutMe: "I love Costco Hotdogs!",
     funFact: "I dream in black and white",
-    image: "/martin.png",
+    image: "/people/martin.png",
     roleEmoji: "🎨",
   },
   {
@@ -17,7 +17,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     role: "VP Marketing Design",
     aboutMe: "I'm studying CS and I love UX design!",
     funFact: "My MBTI is ISTJ and I like cafe hopping",
-    image: "/aurora.png",
+    image: "/people/aurora.png",
     roleEmoji: "⭐",
   },
   {
@@ -25,7 +25,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     role: "Design Director",
     aboutMe: "Hi! I'm a 3rd year Media Studies student 🐰",
     funFact: "I like collecting k-pop photocards",
-    image: "/aubrey.png",
+    image: "/people/aubrey.png",
     roleEmoji: "🎨",
   },
   {
@@ -33,7 +33,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     role: "Media Director",
     aboutMe: "I'm a product designer, filmmaker, and denim skirt enthusiast!",
     funFact: "I got lost in Ottawa once and walked to Quebec.",
-    image: "/iris.png",
+    image: "/people/iris.png",
     roleEmoji: "🎬",
   },
   {
@@ -41,7 +41,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     role: "Logistics Director",
     aboutMe: "I'm studying cs but I love learning about design!",
     funFact: "I learned a bit of asl in high school",
-    image: "/Mia.png",
+    image: "/people/Mia.png",
     roleEmoji: "💡",
   },
   {
@@ -49,7 +49,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     role: "Partnerships Director",
     aboutMe: "I'm Kat! I'm a 3rd year BUCS student",
     funFact: "I love collecting useless but cute things",
-    image: "/Kat.png",
+    image: "/people/Kat.png",
     roleEmoji: "🤝",
   },
   {
@@ -57,7 +57,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     role: "Media Director",
     aboutMe: "I'm Mason! I'm a 5th year Marketing student.",
     funFact: "I run a Tiktok food account",
-    image: "/mason.png",
+    image: "/people/mason.png",
     roleEmoji: "🎬",
   },
   {
@@ -65,7 +65,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     role: "Media Director",
     aboutMe: "I'm Cherry and I'm doing BMS + cpsc ;)",
     funFact: "I sleeptalk multilingual",
-    image: "/cherry.png",
+    image: "/people/cherry.png",
     roleEmoji: "🎬",
   },
   {
@@ -73,7 +73,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     role: "VP Logistics",
     aboutMe: "I love badminton, calligraphy, kr&b, and cafe hopping",
     funFact: "I've lived on campus since I was 5 years old",
-    image: "/Elisabeth.png",
+    image: "/people/Elisabeth.png",
     roleEmoji: "⭐",
   },
   {
@@ -81,7 +81,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     role: "Design Director",
     aboutMe: "I am in my fourth year studying CS",
     funFact: "I love the moon 🌙",
-    image: "/chhavi.jpeg",
+    image: "/people/chhavi.jpeg",
     roleEmoji: "🎨",
   },
 ];
@@ -152,61 +152,59 @@ export default function TeamSection() {
   }, []);
 
   return (
-    <div className="w-full bg-[#f3f4f6] py-20">
-      <div className="max-w-8xl mx-auto relative">
-        <div className="mb-8 px-[20%]">
-          <p className="mb-0" style={SECTION_STYLES.subtitle}>
-            the team
-          </p>
-          <h2 style={SECTION_STYLES.title}>The people behind the process</h2>
+    <div id="team" className="w-full">
+      <div className="mb-12 md:px-[20%] px-[5%]">
+        <p className="mb-0" style={SECTION_STYLES.subtitle}>
+          the team
+        </p>
+        <h2 style={SECTION_STYLES.title}>The people behind the process</h2>
+      </div>
+
+      <div className="relative w-full">
+        <div
+          className="absolute left-0 top-0 w-20 h-full z-10 pointer-events-none"
+          style={{
+            background: "linear-gradient(to right, #f3f4f6, transparent)",
+          }}
+        />
+        <div
+          className="absolute right-0 top-0 w-20 h-full z-10 pointer-events-none"
+          style={{
+            background: "linear-gradient(to left, #f3f4f6, transparent)",
+          }}
+        />
+
+        <div className="justify-self-center font-bold h-4 mb-8">
+          {hoveredMember
+            ? hoveredMember.name +
+            " " +
+            hoveredMember.roleEmoji +
+            " " +
+            hoveredMember.role
+            : ""}
         </div>
 
-        <div className="relative w-full">
+        {/* card container */}
+        <div className="overflow-hidden">
           <div
-            className="absolute left-0 top-0 w-20 h-full z-10 pointer-events-none"
-            style={{
-              background: "linear-gradient(to right, #f3f4f6, transparent)",
-            }}
-          />
-          <div
-            className="absolute right-0 top-0 w-20 h-full z-10 pointer-events-none"
-            style={{
-              background: "linear-gradient(to left, #f3f4f6, transparent)",
-            }}
-          />
-
-          <div className="justify-self-center font-bold h-4 mb-8">
-            {hoveredMember
-              ? hoveredMember.name +
-                " " +
-                hoveredMember.roleEmoji +
-                " " +
-                hoveredMember.role
-              : ""}
-          </div>
-
-          {/* card container */}
-          <div className="overflow-hidden">
-            <div
-              ref={scrollRef}
-              className="flex w-max items-center gap-11 will-change-transform"
-            >
-              {duplicatedMembers.map((member, index) => (
-                <div
-                  key={`${member.name}-${index}`}
-                  className="relative h-[155px] w-[155px] flex-shrink-0 overflow-hidden rounded-2xl"
-                  onMouseEnter={() => setHoveredMember(member)}
-                  onMouseLeave={() => setHoveredMember(null)}
-                >
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill={true}
-                    className="object-cover object-top"
-                  />
-                </div>
-              ))}
-            </div>
+            ref={scrollRef}
+            className="flex w-max items-center gap-11 will-change-transform"
+          >
+            {duplicatedMembers.map((member, index) => (
+              <div
+                key={`${member.name}-${index}`}
+                className="relative h-[155px] w-[155px] flex-shrink-0 overflow-hidden rounded-2xl"
+                onMouseEnter={() => setHoveredMember(member)}
+                onMouseLeave={() => setHoveredMember(null)}
+              >
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  fill={true}
+                  className="object-cover object-top"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>

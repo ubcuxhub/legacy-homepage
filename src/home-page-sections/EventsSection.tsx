@@ -43,7 +43,7 @@ const EventsSection: React.FC = () => {
   );
 
   return (
-    <div className="max-w-8xl md:px-[15%] px-[5%]">
+    <div id="events" className="md:px-[20%] px-[5%]">
       <div className="mb-8">
         <p className="mb-0 text-gray font-serif italic font-semibold text-[32px]">
           events
@@ -56,7 +56,7 @@ const EventsSection: React.FC = () => {
       {/* event cards */}
       <div className="flex flex-col md:flex-row">
         <EventCard
-          imageSrc="/event1.png"
+          imageSrc="/events/event1.png"
           imageAlt="Design Archetypes Event"
           buttonText="office tour"
           buttonIcon={triangleIcon}
@@ -65,7 +65,7 @@ const EventsSection: React.FC = () => {
         <div className="md:w-[5%] h-8"></div>
 
         <EventCard
-          imageSrc="/event2.png"
+          imageSrc="/events/event2.png"
           imageAlt="UXATHON 2025 Event"
           buttonText="competition"
           buttonIcon={starIcon}

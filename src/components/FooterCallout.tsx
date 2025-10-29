@@ -21,14 +21,15 @@ export default function FooterCallout() {
           </p>
 
           <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button variant="primary" icon={<ArrowUpRight className="h-6 w-6" />}>
+            <Button variant="primary" className="group border-[2px] border-[#383838]" icon={<ArrowUpRight className="h-6 w-6 transition-all duration-300 ease-in-out group-hover:rotate-45 group-hover:text-[#383838]" />}>
               BECOME A MEMBER
             </Button>
 
             <Button
               variant="secondary"
               onClick={handleContactClick}
-              icon={<ArrowUpRight className="h-6 w-6" />}
+              className="group border-[2px] border-[#383838]"
+              icon={<ArrowUpRight className="h-6 w-6 transition-all duration-300 ease-in-out group-hover:rotate-45 group-hover:text-white" />}
             >
               CONTACT US
             </Button>

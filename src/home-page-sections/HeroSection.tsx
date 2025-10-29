@@ -10,7 +10,7 @@ export default function Hero() {
     <div id="home" className="pt-24 md:px-[10%] px-[5%]">
       <section className="relative flex min-h-[calc(100vh-140px)] flex-shrink-0 flex-col items-center overflow-visible rounded-[20px] border border-[#C1C7CD] bg-[#f5f5f5]">
         {/* cursor - "and largest!" */}
-        <div className="absolute z-10 hidden md:block md:top-[100px] md:left-[100px] lg:top-[100px] lg:left-[160px] transition-transform duration-300 ease-in-out hover:scale-115">
+        <div className="absolute z-10 hidden md:block md:top-[100px] md:left-[100px] lg:top-[100px] lg:left-[180px] transition-transform duration-300 ease-in-out hover:scale-115">
           <Image
             src="/and largest.png"
             alt="and largest!"
@@ -19,6 +19,30 @@ export default function Hero() {
             className="h-auto w-auto max-w-[80px] md:max-w-[100px] lg:max-w-[120px]"
             priority
           />
+        </div>
+
+        {/* cursor - "since 2017" with hover swap */}
+        <div className="group absolute z-10 hidden md:block md:top-[150px] md:right-[250px] lg:top-[110px] lg:right-[475px] transition-transform duration-300 ease-in-out hover:scale-115">
+          <div className="relative h-auto w-auto">
+            {/* default image */}
+            <Image
+              src="/since-2017.png"
+              alt="since 2017"
+              width={120}
+              height={120}
+              className="h-auto w-auto max-w-[80px] md:max-w-[100px] lg:max-w-[120px] transition-opacity duration-200 ease-in-out group-hover:opacity-0"
+              priority
+            />
+            {/* hover image */}
+            <Image
+              src="/since-2017-2.png"
+              alt="since 2017 hover"
+              width={120}
+              height={120}
+              className="absolute left-0 top-0 h-auto w-auto max-w-[80px] md:max-w-[100px] lg:max-w-[120px] opacity-0 transition-opacity duration-200 ease-in-out group-hover:opacity-100"
+              priority
+            />
+          </div>
         </div>
 
         {/* cursor - "UBC UX Hub" */}
@@ -134,7 +158,7 @@ export default function Hero() {
             </p>
 
             <div className="mt-10 flex gap-4 sm:mt-12 md:mt-14">
-              <Button variant="primary" icon={<ArrowUpRight className="h-5 w-5" />}>
+              <Button variant="primary" className="border-[2px] border-[#383838]" icon={<ArrowUpRight className="h-5 w-5" />}>
                 BECOME A MEMBER
               </Button>
             </div>

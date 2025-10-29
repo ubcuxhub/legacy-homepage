@@ -29,14 +29,14 @@ export default function MailingListSection() {
         "bg-[linear-gradient(156deg,#052462_-1.32%,#CA97CE_77.58%,#F09485_97.31%)]",
       ].join(" ")}
     >
-      <div className="px-[5%] py-8 md:px-[20%]">
+      <div className="px-[5%] py-25 md:px-[20%] md:py-24">
         <div className="flex flex-col md:flex-row md:items-center md:justify-center md:gap-6">
           {/* Text */}
           <div className="mb-6 text-center md:mb-0 md:pr-3 md:text-left">
             <h2 className="font-dm-sans mb-2 text-[40px] font-bold leading-normal text-white drop-shadow-md">
               Never miss out
             </h2>
-            <p className="font-dm-sans mx-auto mb-4 max-w-[350px] text-[11px] font-normal leading-relaxed text-white/90 sm:mb-6 sm:text-xs md:mb-0 md:mx-0 md:text-sm">
+            <p className="font-dm-sans mx-auto mb-4 max-w-[350px] text-[11px] font-normal leading-relaxed text-white/90 sm:mb-8 sm:text-xs md:mb-0 md:mx-0 md:text-sm">
               Subscribe to our newsletter to stay updated on all things UX
               Hub—events, design tips, community spotlights, and exclusive
               opportunities.

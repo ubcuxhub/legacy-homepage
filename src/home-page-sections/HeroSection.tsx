@@ -10,7 +10,7 @@ export default function Hero() {
     <div id="home" className="pt-24 md:px-[10%] px-[5%]">
       <section className="relative flex min-h-[calc(100vh-140px)] flex-shrink-0 flex-col items-center overflow-visible rounded-[20px] border border-[#C1C7CD] bg-[#f5f5f5]">
         {/* cursor - "and largest!" */}
-        <div className="absolute z-10 hidden md:block md:top-[100px] md:left-[100px] lg:top-[100px] lg:left-[160px]">
+        <div className="absolute z-10 hidden md:block md:top-[100px] md:left-[100px] lg:top-[100px] lg:left-[160px] transition-transform duration-300 ease-in-out hover:scale-115">
           <Image
             src="/and largest.png"
             alt="and largest!"
@@ -22,7 +22,7 @@ export default function Hero() {
         </div>
 
         {/* cursor - "UBC UX Hub" */}
-        <div className="absolute z-10 hidden md:block md:top-[330px] md:right-[95px] lg:top-[390px] lg:right-[120px]">
+        <div className="absolute z-10 hidden md:block md:top-[330px] md:right-[95px] lg:top-[390px] lg:right-[120px] transition-transform duration-300 ease-in-out hover:scale-115">
           <Image
             src="/figma-cursor-chat.png"
             alt="UBC UX Hub"

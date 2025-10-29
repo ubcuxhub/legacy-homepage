@@ -26,10 +26,10 @@ export default function MailingListSection() {
       className={[
         "transition-all duration-700 ease-in-out",
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10",
-        "bg-[linear-gradient(156deg,#052462_-1.32%,#CA97CE_77.58%,#F09485_97.31%)]",
+        "bg-[linear-gradient(156deg,#102A68_-1.32%,#9578B1_77.58%,#EE9489_97.31%)]",
       ].join(" ")}
     >
-      <div className="px-[5%] py-25 md:px-[20%] md:py-24">
+      <div className="px-[5%] md:px-[10%] xl:px-[20%] py-25 md:py-24">
         <div className="flex flex-col md:flex-row md:items-center md:justify-center md:gap-6">
           {/* Text */}
           <div className="mb-6 text-center md:mb-0 md:pr-3 md:text-left">

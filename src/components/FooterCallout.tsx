@@ -9,7 +9,7 @@ export default function FooterCallout() {
 
   return (
     <section className="w-full px-[5%] md:px-[20%]">
-      <div className="mx-auto max-h-[500px] rounded-[20px] bg-gradient-to-r from-[#052462] via-[#CA97CE] to-[#F09485] px-10 py-20 sm:py-12 md:py-16 lg:py-20">
+      <div className="mx-auto max-h-[720px] rounded-[20px] bg-gradient-to-br from-[#102A68] via-[#9578B1] to-[#EE9489] px-10 py-28 sm:py-16 md:py-24 lg:py-30">
         <div className="mx-auto flex max-w-[552px] flex-col items-center justify-center gap-5 text-center">
           <h2 className="font-dm-sans text-2xl md:text-[32px] lg:text-[42px] font-bold leading-normal text-white drop-shadow-sm">
             Ready to kickstart your design journey?

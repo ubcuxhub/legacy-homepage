@@ -8,7 +8,7 @@ const AboutImageStack = () => {
     <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
 
       {/* Image stack container */}
-      <div className="relative w-[450px] h-[300px] group">
+      <div className="relative w-[450px] h-[300px] group mt-10 md:mt-0">
         {/* Invisible container for positioning reference */}
         <div className="absolute inset-0">
           {/* Image 1 - Bottom left angle of triangle */}
@@ -42,7 +42,7 @@ const AboutImageStack = () => {
           {/* Image 3 - Top center (overlapped by others) */}
           <div className="absolute transition-all duration-700 ease-out transform
                           left-1/2 top-[-50] -translate-x-1/2 z-10
-                          group-hover:translate-x-[0px] group-hover:translate-y-[-10px]">
+                          group-hover:translate-x-[10px] md:group-hover:translate-x-[5px] group-hover:translate-y-[-10px]">
             <Image
               src="/about-us-3.png"
               alt="About us 3"

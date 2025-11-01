@@ -61,7 +61,7 @@ export default function Hero() {
         {/* Browser window header with colored dots */}
         <div className="inline-flex h-[58px] w-full items-center justify-start gap-2 border-b border-[#C1C7CD] bg-[#f5f5f5]/70 py-[18px] pl-4 pr-6 sm:pl-6 sm:pr-10 md:pl-4 md:pr-[20px] lg:pl-4 lg:pr-[20px] rounded-t-[20px]">
           {/* Left circle - gradient */}
-          <div className="ml-[10px] h-4 w-4 rounded-full border border-[#C1C7CD] bg-[linear-gradient(156deg,#102A68_-1.32%,#9578B1_77.58%,#EE9489_97.31%)]" />
+          <div className="ml-[10px] h-4 w-4 rounded-full border border-[#C1C7CD] bg-[linear-gradient(156deg,#3A5A8A_-1.32%,#B899D1_77.58%,#F5B4AB_97.31%)]" />
           {/* Middle circle - white */}
           <div className="h-4 w-4 rounded-full border border-[#C1C7CD] bg-white" />
           {/* Right circle - gray */}
@@ -74,7 +74,7 @@ export default function Hero() {
             <h1 className="font-dm-sans mt-4 flex flex-col gap-0 font-bold leading-normal sm:mt-5 md:mt-6 md:gap-1 lg:mt-8 lg:gap-1 text-[clamp(32px,9vw,58px)]">
               <div className="flex flex-wrap items-center gap-2">
                 <span>UBC&apos;s</span>
-                <span className="ml-1 rounded-[80px] px-3 py-1.5 text-[#F5F5F5] sm:px-4 md:px-6 lg:px-6 bg-[linear-gradient(156deg,#102A68_-1.32%,#9578B1_77.58%,#EE9489_97.31%)] text-[clamp(30px,8vw,56px)] leading-[1.1]">
+                <span className="ml-1 rounded-[80px] px-3 py-1.5 text-[#F5F5F5] sm:px-4 md:px-6 lg:px-6 bg-[linear-gradient(156deg,#3A5A8A_-1.32%,#B899D1_77.58%,#F5B4AB_97.31%)] text-[clamp(30px,8vw,56px)] leading-[1.1]">
                   first-ever
                 </span>
               </div>

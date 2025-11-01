@@ -12,12 +12,12 @@ export default function Footer() {
       <FooterCallout />
 
       {/* Logo */}
-      <div className="h-[120px] w-[120px]">
+      <div className="h-[96px] w-[96px]">
         <Image
-          src="/logo.png"
+          src="/3x3-logo.png"
           alt="UBC UX HUB"
-          width={120}
-          height={120}
+          width={96}
+          height={96}
           className="h-full w-full"
           priority
         />

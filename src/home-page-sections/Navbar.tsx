@@ -30,12 +30,12 @@ export default function Navbar() {
       <nav className="flex h-20 items-center md:px-[5%] px-[5%]">
         {/* Logo */}
         <Link href="#home" className="block" onClick={close}>
-          <div className="w-[60px] h-[60px]">
+          <div className="w-[48px] h-[48px]">
             <Image
               src="/logo.png"
               alt="UBC UX HUB"
-              width={100}
-              height={100}
+              width={80}
+              height={80}
               className="h-full w-full"
               priority
             />

@@ -8,9 +8,10 @@ import { ArrowUpRight } from "lucide-react";
 export default function Hero() {
   return (
     <div id="home" className="pt-24 md:px-[10%] px-[5%]">
-      <section className="relative flex min-h-[calc(100vh-140px)] flex-shrink-0 flex-col items-center overflow-visible rounded-[20px] border border-[#C1C7CD] bg-[#f5f5f5]">
+
+      <section className="relative flex min-h-[calc(100vh-100px)] flex-shrink-0 flex-col items-center overflow-visible rounded-[20px] border border-[#C1C7CD] bg-[#f5f5f5]">
         {/* cursor - "and largest!" */}
-        <div className="absolute z-10 hidden md:block md:top-[100px] md:left-[100px] lg:top-[100px] lg:left-[160px]">
+        <div className="absolute z-10 hidden md:block md:top-[100px] md:left-[100px] lg:top-[100px] lg:left-[180px] transition-transform duration-300 ease-in-out hover:scale-115">
           <Image
             src="/and largest.png"
             alt="and largest!"
@@ -21,8 +22,32 @@ export default function Hero() {
           />
         </div>
 
+        {/* cursor - "since 2017" with hover swap */}
+        <div className="group absolute z-10 hidden md:block md:top-[150px] md:right-[250px] lg:top-[110px] lg:right-[475px] transition-transform duration-300 ease-in-out hover:scale-115">
+          <div className="relative h-auto w-auto">
+            {/* default image */}
+            <Image
+              src="/since-2017.png"
+              alt="since 2017"
+              width={120}
+              height={120}
+              className="h-auto w-auto max-w-[80px] md:max-w-[100px] lg:max-w-[120px] transition-opacity duration-200 ease-in-out group-hover:opacity-0"
+              priority
+            />
+            {/* hover image */}
+            <Image
+              src="/since-2017-2.png"
+              alt="since 2017 hover"
+              width={120}
+              height={120}
+              className="absolute left-0 top-0 h-auto w-auto max-w-[80px] md:max-w-[100px] lg:max-w-[120px] opacity-0 transition-opacity duration-200 ease-in-out group-hover:opacity-100"
+              priority
+            />
+          </div>
+        </div>
+
         {/* cursor - "UBC UX Hub" */}
-        <div className="absolute z-10 hidden md:block md:top-[330px] md:right-[95px] lg:top-[390px] lg:right-[120px]">
+        <div className="absolute z-10 hidden md:block md:top-[330px] md:right-[95px] lg:top-[425px] lg:right-[120px] transition-transform duration-300 ease-in-out hover:scale-115">
           <Image
             src="/figma-cursor-chat.png"
             alt="UBC UX Hub"
@@ -36,7 +61,7 @@ export default function Hero() {
         {/* Browser window header with colored dots */}
         <div className="inline-flex h-[58px] w-full items-center justify-start gap-2 border-b border-[#C1C7CD] bg-[#f5f5f5]/70 py-[18px] pl-4 pr-6 sm:pl-6 sm:pr-10 md:pl-4 md:pr-[20px] lg:pl-4 lg:pr-[20px] rounded-t-[20px]">
           {/* Left circle - gradient */}
-          <div className="ml-[10px] h-4 w-4 rounded-full border border-[#C1C7CD] bg-[linear-gradient(156deg,#052462_-1.32%,#CA97CE_77.58%,#F09485_97.31%)]" />
+          <div className="ml-[10px] h-4 w-4 rounded-full border border-[#C1C7CD] bg-[linear-gradient(156deg,#3A5A8A_-1.32%,#B899D1_77.58%,#F5B4AB_97.31%)]" />
           {/* Middle circle - white */}
           <div className="h-4 w-4 rounded-full border border-[#C1C7CD] bg-white" />
           {/* Right circle - gray */}
@@ -49,7 +74,7 @@ export default function Hero() {
             <h1 className="font-dm-sans mt-4 flex flex-col gap-0 font-bold leading-normal sm:mt-5 md:mt-6 md:gap-1 lg:mt-8 lg:gap-1 text-[clamp(32px,9vw,58px)]">
               <div className="flex flex-wrap items-center gap-2">
                 <span>UBC&apos;s</span>
-                <span className="ml-1 rounded-[80px] px-3 py-1.5 text-[#F5F5F5] sm:px-4 md:px-6 lg:px-6 bg-[linear-gradient(156deg,#052462_-1.32%,#CA97CE_77.58%,#F09485_97.31%)] text-[clamp(30px,8vw,56px)] leading-[1.1]">
+                <span className="ml-1 rounded-[80px] px-3 py-1.5 text-[#F5F5F5] sm:px-4 md:px-6 lg:px-6 bg-[linear-gradient(156deg,#3A5A8A_-1.32%,#B899D1_77.58%,#F5B4AB_97.31%)] text-[clamp(30px,8vw,56px)] leading-[1.1]">
                   first-ever
                 </span>
               </div>
@@ -134,7 +159,7 @@ export default function Hero() {
             </p>
 
             <div className="mt-10 flex gap-4 sm:mt-12 md:mt-14">
-              <Button variant="primary" icon={<ArrowUpRight className="h-5 w-5" />}>
+              <Button variant="primary" className="border-[2px] border-[#383838]" icon={<ArrowUpRight className="h-5 w-5" />}>
                 BECOME A MEMBER
               </Button>
             </div>

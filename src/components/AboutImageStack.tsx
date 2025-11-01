@@ -5,46 +5,50 @@ import Image from "next/image";
 
 const AboutImageStack = () => {
   return (
-    <div className="relative w-[600px] h-[500px] flex justify-end items-center group mx-auto">
-      {/* Container for the horizontal stack - moved more to the right */}
-      <div className="relative w-[500px] h-[400px] flex items-center" style={{ marginRight: '-100px' }}>
-        {/* Left Image (Back) */}
-        <div className="absolute left-0 transition-all duration-600 ease-out transform group-hover:translate-x-[-180px] group-hover:rotate-[-12deg] z-10">
-          <div className="w-64 h-80 rounded-lg shadow-2xl overflow-hidden bg-white p-3">
+    <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
+
+      {/* Image stack container */}
+      <div className="relative w-[450px] h-[300px] group mt-10 md:mt-0">
+        {/* Invisible container for positioning reference */}
+        <div className="absolute inset-0">
+          {/* Image 1 - Bottom left angle of triangle */}
+          <div className="absolute transition-all duration-700 ease-out transform
+                          left-8 bottom-0] z-30
+                          group-hover:translate-x-[-30px] group-hover:translate-y-[-30px] group-hover:rotate-[-3deg]">
             <Image
-              src="/aboutus1.png"
+              src="/about-us-1.png"
               alt="About us 1"
-              width={256}
-              height={320}
-              className="w-full h-full object-cover rounded"
+              width={300}
+              height={375}
+              className="h-auto w-auto max-w-[250px] max-h-[300px]"
               priority
             />
           </div>
-        </div>
 
-        {/* Center Image (Middle) */}
-        <div className="absolute left-16 transition-all duration-600 ease-out transform group-hover:translate-x-0 group-hover:rotate-0 z-20">
-          <div className="w-72 h-88 rounded-lg shadow-2xl overflow-hidden bg-white p-3">
+          {/* Image 2 - Bottom right angle of triangle */}
+          <div className="absolute transition-all duration-700 ease-out transform
+                          right-15 top-30 z-20
+                          group-hover:translate-x-[50px] group-hover:translate-y-[20px]">
             <Image
-              src="/aboutus2.jpg"
+              src="/about-us-2.png"
               alt="About us 2"
-              width={288}
-              height={352}
-              className="w-full h-full object-cover rounded"
+              width={300}
+              height={375}
+              className="h-auto w-auto max-w-[250px] max-h-[300px]"
               priority
             />
           </div>
-        </div>
 
-        {/* Right Image (Front) */}
-        <div className="absolute left-32 transition-all duration-600 ease-out transform group-hover:translate-x-[180px] group-hover:rotate-[12deg] z-30">
-          <div className="w-64 h-80 rounded-lg shadow-2xl overflow-hidden bg-white p-3">
+          {/* Image 3 - Top center (overlapped by others) */}
+          <div className="absolute transition-all duration-700 ease-out transform
+                          left-1/2 top-[-50] -translate-x-1/2 z-10
+                          group-hover:translate-x-[10px] md:group-hover:translate-x-[5px] group-hover:translate-y-[-10px]">
             <Image
-              src="/aboutus3.png"
+              src="/about-us-3.png"
               alt="About us 3"
-              width={256}
-              height={320}
-              className="w-full h-full object-cover rounded"
+              width={400}
+              height={475}
+              className="h-auto w-auto max-w-[350px] max-h-[400px]"
               priority
             />
           </div>

@@ -43,7 +43,7 @@ const EventsSection: React.FC = () => {
   );
 
   return (
-    <div id="events" className="px-[5%] md:px-[10%] xl:px-[20%]">
+    <div id="events" className="px-[5%] md:px-[20%]">
       <div className="mb-8">
         <p className="mb-0 text-gray font-serif italic font-semibold text-[32px]">
           events

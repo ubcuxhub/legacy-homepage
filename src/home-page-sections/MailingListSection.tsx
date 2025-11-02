@@ -30,7 +30,7 @@ export default function MailingListSection() {
         "bg-[linear-gradient(156deg,#102A68_-1.32%,#9578B1_77.58%,#EE9489_97.31%)]",
       ].join(" ")}
     >
-      <div className="px-[5%] md:px-[10%] xl:px-[20%] py-16 sm:py-20 md:py-24 lg:py-28">
+      <div className="px-[5%] md:px-[10%] xl:px-[20%] py-20">
         <div className="flex flex-col lg:flex-row items-center justify-center">
           {/* Text */}
           <div className="flex-shrink-0 text-center lg:pr-12 lg:text-left lg:max-w-[400px]">

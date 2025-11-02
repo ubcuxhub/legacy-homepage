@@ -7,6 +7,7 @@ interface ButtonProps {
   children: React.ReactNode;
   onClick?: () => void;
   withArrow?: boolean;
+  shorterHeight?: boolean;
   className?: string;
 }
 
@@ -15,10 +16,13 @@ const Button: React.FC<ButtonProps> = ({
   children,
   onClick,
   withArrow = true,
+  shorterHeight = false,
   className = "",
 }) => {
   const baseStyles =
-    "flex items-center justify-center gap-3 rounded-full px-6 h-13 transition-all duration-300 ease-in-out cursor-pointer";
+    "flex items-center justify-center gap-3 rounded-full px-6 transition-all duration-300 ease-in-out cursor-pointer";
+
+  const height = shorterHeight ? "h-11" : "h-13";
 
   const variants = {
     primary: "border-[2px] border-black bg-black hover:bg-white text-white hover:text-black",
@@ -34,9 +38,9 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <button
       onClick={onClick}
-      className={`${baseStyles} ${variants[variant]} ${className} group`}
+      className={`${baseStyles} ${height} ${variants[variant]} ${className} group`}
     >
-      {children}
+      <b>{children}</b>
       {withArrow ? arrowIcon : null}
     </button>
   );

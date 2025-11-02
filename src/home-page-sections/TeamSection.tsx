@@ -84,6 +84,7 @@ const TEAM_MEMBERS: TeamMember[] = [
     image: "/people/chhavi.jpeg",
     roleEmoji: "🎨",
   },
+  
 ];
 
 const SECTION_STYLES = {

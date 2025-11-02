@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import Button from "./Button";
-import { ArrowUpRight } from "lucide-react";
 
 export default function FooterCallout() {
   const handleContactClick = () => {
@@ -36,7 +35,7 @@ export default function FooterCallout() {
         </div>
 
         <div className="mx-auto flex max-w-[552px] flex-col items-center justify-center gap-5 text-center">
-          <h2 className="font-dm-sans text-2xl md:text-[32px] lg:text-[42px] font-bold leading-normal text-white drop-shadow-sm">
+          <h2 className="text-[40px] font-bold leading-tight text-white">
             Ready to kickstart your design journey?
           </h2>
 
@@ -45,7 +44,7 @@ export default function FooterCallout() {
             supporting each other on their journey to better UI and better design.
           </p>
 
-          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row pt-4">
             <Button variant="primary">
               BECOME A MEMBER
             </Button>

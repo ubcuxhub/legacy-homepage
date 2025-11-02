@@ -6,9 +6,9 @@ import Button from "@/components/Button";
 
 export default function Hero() {
   return (
-    <div id="home" className="pt-24 md:px-[10%] px-[5%]">
+    <div id="home" className="pt-36 md:px-[10%] px-[5%]">
 
-      <section className="relative flex min-h-[calc(100vh-100px)] flex-shrink-0 flex-col items-center overflow-visible rounded-[20px] border border-[#C1C7CD] bg-[#f5f5f5]">
+      <section className="relative flex flex-shrink-0 flex-col items-center overflow-visible rounded-[20px] border border-[#C1C7CD] bg-white">
         {/* cursor - "and largest!" */}
         <div className="absolute z-10 hidden md:block md:top-[100px] md:left-[100px] lg:top-[100px] lg:left-[180px] transition-transform duration-300 ease-in-out hover:scale-115">
           <Image
@@ -58,17 +58,17 @@ export default function Hero() {
         </div>
 
         {/* Browser window header with colored dots */}
-        <div className="inline-flex h-[58px] w-full items-center justify-start gap-2 border-b border-[#C1C7CD] bg-[#f5f5f5]/70 py-[18px] pl-4 pr-6 sm:pl-6 sm:pr-10 md:pl-4 md:pr-[20px] lg:pl-4 lg:pr-[20px] rounded-t-[20px]">
+        <div className="inline-flex h-[58px] w-full items-center justify-start gap-2 border-b border-[#C1C7CD] white py-[18px] pl-4 pr-6 sm:pl-6 sm:pr-10 md:pl-4 md:pr-[20px] lg:pl-4 lg:pr-[20px] rounded-t-[20px]">
           {/* Left circle - gradient */}
-          <div className="ml-[10px] h-4 w-4 rounded-full border border-[#C1C7CD] bg-[linear-gradient(156deg,#3A5A8A_-1.32%,#B899D1_77.58%,#F5B4AB_97.31%)]" />
+          <div className="ml-[10px] h-5 w-5 rounded-full border border-[#C1C7CD] bg-[linear-gradient(156deg,#3A5A8A_-1.32%,#B899D1_77.58%,#F5B4AB_97.31%)]" />
           {/* Middle circle - white */}
-          <div className="h-4 w-4 rounded-full border border-[#C1C7CD] bg-white" />
+          <div className="h-5 w-5 rounded-full border border-[#C1C7CD] bg-white" />
           {/* Right circle - gray */}
-          <div className="h-4 w-4 rounded-full border border-[rgb(214,216,218)] bg-[#C1C7CD]" />
+          <div className="h-5 w-5 rounded-full border border-[rgb(214,216,218)] bg-[#C1C7CD]" />
         </div>
 
         {/* Content */}
-        <div className="flex w-full flex-1 flex-col items-start justify-center gap-10 sm:gap-10 md:gap-[60px] lg:gap-[80px] px-6 pt-10 pb-10 sm:px-10 sm:pt-10 sm:pb-10 md:px-20 md:pt-[60px] md:pb-[60px] lg:px-32 lg:pt-20 lg:pb-32">
+        <div className="flex w-full flex-1 flex-col items-start justify-center gap-10 sm:gap-10 md:gap-[60px] lg:gap-[80px] px-6 pt-10 pb-10 sm:px-10 sm:pt-10 sm:pb-10 md:px-20 md:pt-[60px] md:pb-[60px] lg:px-32 lg:pt-28 lg:pb-24">
           <div>
             <h1 className="font-dm-sans mt-4 flex flex-col gap-0 font-bold leading-normal sm:mt-5 md:mt-6 md:gap-1 lg:mt-8 lg:gap-1 text-[clamp(32px,9vw,58px)]">
               <div className="flex flex-wrap items-center gap-2">
@@ -151,7 +151,7 @@ export default function Hero() {
               </div>
             </h1>
 
-            <p className="font-dm-sans mt-8 mb-[30px] max-w-[600px] text-left text-[11px] leading-normal text-black sm:text-xs md:text-sm">
+            <p className="font-dm-sans mt-8 mb-[30px] max-w-[630px] text-left leading-normal">
               UBC UX Hub empowers students through hands-on learning, creative
               collaboration, and access to the latest in user experience and
               emerging technology.

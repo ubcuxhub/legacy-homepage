@@ -76,32 +76,7 @@ export default function MailingListSection() {
                 ].join(" ")}
               />
 
-              {/* Honeypot (optional) */}
-              {/* <div className="absolute -left-[5000px]" aria-hidden="true">
-                <input
-                  type="text"
-                  name="b_9a26bb1b23b273a2a9f766b4f_8faf775ff6"
-                  tabIndex={-1}
-                  defaultValue=""
-                />
-              </div> */}
-
               <div className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2">
-                {/* <button
-                  type="submit"
-                  className={[
-                    "flex items-center justify-center",
-                    "rounded-full bg-white text-black font-dm-sans",
-                    "h-10 sm:h-12 md:h-13 px-5 sm:px-6",
-                    "text-xs sm:text-sm md:text-base font-medium",
-                    "transition-all duration-300 ease-in-out",
-                    "hover:bg-opacity-95 hover:scale-105 hover:shadow-lg hover:shadow-black/20",
-                    "active:scale-95 hover:-translate-y-1",
-                    "outline-none border-none",
-                  ].join(" ")}
-                >
-                  SUBMIT
-                </button> */}
                 <Button variant="noBorder" withArrow={false}>
                   SUBMIT
                 </Button>

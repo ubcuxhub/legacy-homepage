@@ -151,7 +151,7 @@ export default function Hero() {
               </div>
             </h1>
 
-            <p className="font-dm-sans mt-8 mb-[30px] max-w-[600px] text-left text-[11px] leading-normal text-black sm:text-xs md:text-sm">
+            <p className="font-dm-sans mt-8 mb-[30px] max-w-[630px] text-left leading-normal">
               UBC UX Hub empowers students through hands-on learning, creative
               collaboration, and access to the latest in user experience and
               emerging technology.

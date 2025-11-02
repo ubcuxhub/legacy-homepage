@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import Button from "./Button";
-import { ArrowUpRight } from "lucide-react";
 
 export default function FooterCallout() {
   const handleContactClick = () => {

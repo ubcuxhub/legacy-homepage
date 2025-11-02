@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   description: "A collaborative whiteboard and design hub",
   icons: {
     icon: [
-      { url: "/logo.png", media: "(prefers-color-scheme: light)" },
+      { url: "/icon-dark.svg", media: "(prefers-color-scheme: light)" },
       { url: "/icon-light.svg", media: "(prefers-color-scheme: dark)" },
     ],
   },

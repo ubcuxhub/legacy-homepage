@@ -1,6 +1,90 @@
-"use client";
-import React, { useRef, useEffect, useState } from "react";
-import TeamMemberCard, { TeamMember } from "../components/TeamMemberCard";
+"use-client";
+import React, { useState, useRef, useEffect } from "react";
+import { TeamMember } from "../components/TeamMemberCard";
+import Image from "next/image";
+
+const TEAM_MEMBERS: TeamMember[] = [
+  {
+    name: "Martin",
+    role: "Design",
+    aboutMe: "I love Costco Hotdogs!",
+    funFact: "I dream in black and white",
+    image: "/people/martin.png",
+    roleEmoji: "🎨",
+  },
+  {
+    name: "Aurora",
+    role: "VP Marketing Design",
+    aboutMe: "I'm studying CS and I love UX design!",
+    funFact: "My MBTI is ISTJ and I like cafe hopping",
+    image: "/people/aurora.png",
+    roleEmoji: "⭐",
+  },
+  {
+    name: "Aubrey",
+    role: "Design Director",
+    aboutMe: "Hi! I'm a 3rd year Media Studies student 🐰",
+    funFact: "I like collecting k-pop photocards",
+    image: "/people/aubrey.png",
+    roleEmoji: "🎨",
+  },
+  {
+    name: "Iris",
+    role: "Media Director",
+    aboutMe: "I'm a product designer, filmmaker, and denim skirt enthusiast!",
+    funFact: "I got lost in Ottawa once and walked to Quebec.",
+    image: "/people/iris.png",
+    roleEmoji: "🎬",
+  },
+  {
+    name: "Mia",
+    role: "Logistics Director",
+    aboutMe: "I'm studying cs but I love learning about design!",
+    funFact: "I learned a bit of asl in high school",
+    image: "/people/Mia.png",
+    roleEmoji: "💡",
+  },
+  {
+    name: "Kat",
+    role: "Partnerships Director",
+    aboutMe: "I'm Kat! I'm a 3rd year BUCS student",
+    funFact: "I love collecting useless but cute things",
+    image: "/people/Kat.png",
+    roleEmoji: "🤝",
+  },
+  {
+    name: "Mason",
+    role: "Media Director",
+    aboutMe: "I'm Mason! I'm a 5th year Marketing student.",
+    funFact: "I run a Tiktok food account",
+    image: "/people/mason.png",
+    roleEmoji: "🎬",
+  },
+  {
+    name: "Cherry",
+    role: "Media Director",
+    aboutMe: "I'm Cherry and I'm doing BMS + cpsc ;)",
+    funFact: "I sleeptalk multilingual",
+    image: "/people/cherry.png",
+    roleEmoji: "🎬",
+  },
+  {
+    name: "Elisabeth",
+    role: "VP Logistics",
+    aboutMe: "I love badminton, calligraphy, kr&b, and cafe hopping",
+    funFact: "I've lived on campus since I was 5 years old",
+    image: "/people/Elisabeth.png",
+    roleEmoji: "⭐",
+  },
+  {
+    name: "Chhavi",
+    role: "Design Director",
+    aboutMe: "I am in my fourth year studying CS",
+    funFact: "I love the moon 🌙",
+    image: "/people/chhavi.jpeg",
+    roleEmoji: "🎨",
+  },
+];
 
 const SECTION_STYLES = {
   subtitle: {
@@ -23,29 +107,23 @@ const SECTION_STYLES = {
   },
 } as const;
 
-export default function TeamSection() {
-  const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
-  const scrollRef = useRef<HTMLDivElement>(null);
+const duplicatedMembers = [...TEAM_MEMBERS, ...TEAM_MEMBERS];
 
-  // Load team data from JSON file
-  useEffect(() => {
-    fetch("/team.json")
-      .then((res) => res.json())
-      .then((data: TeamMember[]) => setTeamMembers(data))
-      .catch((err) => console.error("Failed to load team data:", err));
-  }, []);
+export default function TeamSection() {
+  const [hoveredMember, setHoveredMember] = useState<TeamMember | null>(null);
+
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = scrollRef.current;
-    if (!el || teamMembers.length === 0) return;
+    if (!el) return;
 
     let animationId: number;
     let position = 0;
-    let speed = 1; // Increased from 0.5 to move faster
+    let speed = 0.5;
 
-    // Card width: 320px (card) + gap: 44px = 364px per card
-    const cardWidth = 364;
-    const resetPoint = cardWidth * teamMembers.length;
+    const cardWidth = 155 + 44;
+    const resetPoint = cardWidth * TEAM_MEMBERS.length;
 
     const animate = () => {
       position += speed;
@@ -60,8 +138,8 @@ export default function TeamSection() {
 
     animationId = requestAnimationFrame(animate);
 
-    const slowDown = () => (speed = 0.1); // Reduced from 0.25 to slow down more on hover
-    const speedUp = () => (speed = 0.8); // Updated to match new default speed
+    const slowDown = () => (speed = 0.25);
+    const speedUp = () => (speed = 0.5);
 
     el.addEventListener("mouseenter", slowDown);
     el.addEventListener("mouseleave", speedUp);
@@ -71,14 +149,11 @@ export default function TeamSection() {
       el.removeEventListener("mouseenter", slowDown);
       el.removeEventListener("mouseleave", speedUp);
     };
-  }, [teamMembers]);
-
-  // Duplicate members for seamless infinite scroll
-  const duplicatedMembers = [...teamMembers, ...teamMembers];
+  }, []);
 
   return (
-    <div id="team" className="w-full py-12">
-      <div className="mb-12 px-[5%] md:px-[10%] xl:px-[20%]">
+    <div id="team" className="w-full">
+      <div className="mb-12 md:px-[20%] px-[5%]">
         <p className="mb-0" style={SECTION_STYLES.subtitle}>
           the team
         </p>
@@ -86,38 +161,52 @@ export default function TeamSection() {
       </div>
 
       <div className="relative w-full">
-        {/* Gradient overlays for fade effect */}
         <div
-          className="absolute left-0 top-0 w-32 h-full z-10 pointer-events-none"
+          className="absolute left-0 top-0 w-20 h-full z-10 pointer-events-none"
           style={{
-            background: "linear-gradient(to right, #fff, transparent)",
+            background: "linear-gradient(to right, #f3f4f6, transparent)",
           }}
         />
         <div
-          className="absolute right-0 top-0 w-32 h-full z-10 pointer-events-none"
+          className="absolute right-0 top-0 w-20 h-full z-10 pointer-events-none"
           style={{
-            background: "linear-gradient(to left, #fff, transparent)",
+            background: "linear-gradient(to left, #f3f4f6, transparent)",
           }}
         />
 
-        {/* Carousel container - only render when data is loaded */}
-        {teamMembers.length > 0 && (
-          <div className="overflow-hidden">
-            <div
-              ref={scrollRef}
-              className="flex w-max items-center gap-11 will-change-transform"
-              style={{ paddingLeft: "20px" }}
-            >
-              {duplicatedMembers.map((member, index) => (
-                <TeamMemberCard
-                  key={`${member.name}-${index}`}
-                  member={member}
-                  gradientIndex={index}
+        <div className="justify-self-center font-bold h-4 mb-8">
+          {hoveredMember
+            ? hoveredMember.name +
+            " " +
+            hoveredMember.roleEmoji +
+            " " +
+            hoveredMember.role
+            : ""}
+        </div>
+
+        {/* card container */}
+        <div className="overflow-hidden">
+          <div
+            ref={scrollRef}
+            className="flex w-max items-center gap-11 will-change-transform"
+          >
+            {duplicatedMembers.map((member, index) => (
+              <div
+                key={`${member.name}-${index}`}
+                className="relative h-[155px] w-[155px] flex-shrink-0 overflow-hidden rounded-2xl"
+                onMouseEnter={() => setHoveredMember(member)}
+                onMouseLeave={() => setHoveredMember(null)}
+              >
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  fill={true}
+                  className="object-cover object-top"
                 />
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
-        )}
+        </div>
       </div>
     </div>
   );

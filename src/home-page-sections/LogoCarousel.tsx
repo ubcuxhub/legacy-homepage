@@ -33,16 +33,15 @@ const LogoCarousel: React.FC = () => {
         <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 sm:w-20 md:w-24 lg:w-28 bg-gradient-to-r from-white to-transparent" />
         <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 sm:w-20 md:w-24 lg:w-28 bg-gradient-to-l from-white to-transparent" />
 
-        {/* Use group to pause animation on hover */}
-        <div className="group overflow-hidden">
+        {/* Carousel container */}
+        <div className="overflow-hidden">
           {/* Animated track - wraps two identical sets for seamless loop */}
           <div className="flex">
             <div
               className="
                 flex items-center md:gap-20 md:px-10 gap-6 px-3 shrink-0
-                md:animate-[logo-scroll_50s_linear_infinite]
-                animate-[logo-scroll_30s_linear_infinite]
-                group-hover:[animation-play-state:paused]
+                md:animate-[logo-scroll_80s_linear_infinite]
+                animate-[logo-scroll_60s_linear_infinite]
                 motion-reduce:animate-none
               "
             >
@@ -66,9 +65,8 @@ const LogoCarousel: React.FC = () => {
             <div
               className="
                 flex items-center md:gap-20 md:px-10 gap-6 px-3 shrink-0
-                md:animate-[logo-scroll_50s_linear_infinite]
-                animate-[logo-scroll_30s_linear_infinite]
-                group-hover:[animation-play-state:paused]
+                md:animate-[logo-scroll_80s_linear_infinite]
+                animate-[logo-scroll_60s_linear_infinite]
                 motion-reduce:animate-none
               "
               aria-hidden="true"

@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Martin",
+    "role": "Designer",
+    "image": "/people/martin.png",
+    "aboutMe": "I love Costco Hotdogs!",
+    "funFact": "I dream in black and white",
+    "radarChart": {
+      "organization": 0.7,
+      "speed": 0.6,
+      "visual": 0.9,
+      "creative": 0.95,
+      "coding": 0.85
+    }
+  },
+  {
+    "name": "Aurora",
+    "role": "VP Marketing/Design",
+    "image": "/people/aurora.png",
+    "aboutMe": "I'm this years VP marketing and design!",
+    "funFact": "My MBTI is ISTJ and I like cafe hopping",
+    "radarChart": {
+      "organization": 0.9,
+      "speed": 0.8,
+      "visual": 0.85,
+      "creative": 0.9,
+      "coding": 0.75
+    }
+  }
+]

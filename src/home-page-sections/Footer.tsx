@@ -12,9 +12,9 @@ export default function Footer() {
       <FooterCallout />
 
       {/* Logo */}
-      <div className="h-[96px] w-[96px]">
+      <div className="h-[96px] w-[96px] mt-4">
         <Image
-          src="/3x3-logo.png"
+          src="/logo.png"
           alt="UBC UX HUB"
           width={96}
           height={96}

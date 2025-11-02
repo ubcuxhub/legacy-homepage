@@ -1,11 +1,12 @@
 
 import React from "react";
+import {ArrowUpRight} from "lucide-react";
 
 interface ButtonProps {
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "noBorder";
   children: React.ReactNode;
   onClick?: () => void;
-  icon?: React.ReactNode;
+  withArrow?: boolean;
   className?: string;
 }
 
@@ -13,27 +14,30 @@ const Button: React.FC<ButtonProps> = ({
   variant = "primary",
   children,
   onClick,
-  icon,
+  withArrow = true,
   className = "",
 }) => {
   const baseStyles =
-    "flex items-center justify-center gap-3 rounded-full px-6 h-13 font-medium transition-all duration-300 ease-in-out cursor-pointer";
+    "flex items-center justify-center gap-3 rounded-full px-6 h-13 transition-all duration-300 ease-in-out cursor-pointer";
 
   const variants = {
-    primary: "bg-[#383838] hover:bg-white",
-    secondary:
-      "bg-white text-[#383838] hover:bg-[#383838] hover:text-white",
+    primary: "border-[2px] border-black bg-black hover:bg-white text-white hover:text-black",
+    secondary: "border-[2px] border-black bg-white hover:bg-black text-black hover:text-white",
+    noBorder: "bg-white hover:bg-black text-black hover:text-white"
   };
+
+  const arrowIcon = <ArrowUpRight size={24} className={
+    `transition-all duration-300 ease-in-out group-hover:rotate-45
+    ${variant == "primary" ? "group-hover:text-black" : "group-hover:text-white"}`
+  } />
 
   return (
     <button
       onClick={onClick}
-      className={`${baseStyles} ${variants[variant]} ${className} ${
-        variant === "primary" ? "text-white hover:text-[#383838]" : ""
-      }`}
+      className={`${baseStyles} ${variants[variant]} ${className} group`}
     >
       {children}
-      {icon && icon}
+      {withArrow ? arrowIcon : null}
     </button>
   );
 };

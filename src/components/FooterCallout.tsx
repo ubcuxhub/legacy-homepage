@@ -46,7 +46,7 @@ export default function FooterCallout() {
           </p>
 
           <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button variant="primary" className="" icon={<ArrowUpRight className="h-6 w-6 transition-all duration-300 ease-in-out group-hover:rotate-45 group-hover:text-[#383838]" />}>
+            <Button variant="primary">
               BECOME A MEMBER
             </Button>
 
@@ -54,7 +54,6 @@ export default function FooterCallout() {
               variant="secondary"
               onClick={handleContactClick}
               className="group border-[2px] border-[#383838]"
-              icon={<ArrowUpRight className="h-6 w-6 transition-all duration-300 ease-in-out group-hover:rotate-45 group-hover:text-white" />}
             >
               CONTACT US
             </Button>

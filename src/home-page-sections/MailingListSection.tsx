@@ -2,6 +2,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Button from "@/components/Button";
 
 export default function MailingListSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -86,7 +87,7 @@ export default function MailingListSection() {
               </div> */}
 
               <div className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2">
-                <button
+                {/* <button
                   type="submit"
                   className={[
                     "flex items-center justify-center",
@@ -100,7 +101,10 @@ export default function MailingListSection() {
                   ].join(" ")}
                 >
                   SUBMIT
-                </button>
+                </button> */}
+                <Button variant="noBorder" withArrow={false}>
+                  SUBMIT
+                </Button>
               </div>
             </form>
           </div>

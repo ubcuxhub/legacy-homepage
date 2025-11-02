@@ -3,7 +3,6 @@
 
 import Image from "next/image";
 import Button from "@/components/Button";
-import { ArrowUpRight } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -159,7 +158,7 @@ export default function Hero() {
             </p>
 
             <div className="mt-10 flex gap-4 sm:mt-12 md:mt-14">
-              <Button variant="primary" className="border-[2px] border-[#383838]" icon={<ArrowUpRight className="h-5 w-5" />}>
+              <Button variant="primary">
                 BECOME A MEMBER
               </Button>
             </div>

@@ -158,7 +158,7 @@ export default function Hero() {
             </p>
 
             <div className="mt-10 flex gap-4 sm:mt-12 md:mt-14">
-              <Button variant="primary">
+              <Button variant="primary" onClick={() => {window.location.href = "https://linktr.ee/ubcuxhub?fbclid=PAZXh0bgNhZW0CMTEAAaf0yjegrtGiSXfSFyHbl76u5TnYyGoUSImwqeW6vbKvy74Cz_NmVY6_HVuUdw_aem_gG2KbQMNO5Yidm2tSQOltA"}}>
                 BECOME A MEMBER
               </Button>
             </div>

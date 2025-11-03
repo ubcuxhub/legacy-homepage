@@ -2,7 +2,8 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { FaInstagram, FaLinkedin, FaFacebook } from "react-icons/fa6";
+import { FaInstagram, FaLinkedin } from "react-icons/fa6";
+import { SiLinktree } from "react-icons/si";
 import FooterCallout from "@/components/FooterCallout";
 
 export default function Footer() {
@@ -69,12 +70,12 @@ export default function Footer() {
         </a>
 
         <a
-          href="https://facebook.com/ubcuxhub"
+          href="https://linktr.ee/ubcuxhub?fbclid=PAZXh0bgNhZW0CMTEAAaf0yjegrtGiSXfSFyHbl76u5TnYyGoUSImwqeW6vbKvy74Cz_NmVY6_HVuUdw_aem_gG2KbQMNO5Yidm2tSQOltA"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="UBC UX Hub on Facebook"
         >
-          <FaFacebook size={35} />
+          <SiLinktree size={35} />
         </a>
       </div>
 

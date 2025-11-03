@@ -55,7 +55,9 @@ export default function Navbar() {
               Contact Us
             </Link>
 
-            <Button variant="primary" withArrow={false} shorterHeight={true}>BECOME A MEMBER</Button>
+            <Button variant="primary" withArrow={false} shorterHeight={true}  onClick={() => {window.location.href = "https://linktr.ee/ubcuxhub?fbclid=PAZXh0bgNhZW0CMTEAAaf0yjegrtGiSXfSFyHbl76u5TnYyGoUSImwqeW6vbKvy74Cz_NmVY6_HVuUdw_aem_gG2KbQMNO5Yidm2tSQOltA"}}>
+              BECOME A MEMBER
+            </Button>
           </div>
         </div>
 

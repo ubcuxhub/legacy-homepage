@@ -3,16 +3,6 @@ import type { Metadata, Viewport } from "next";
 import { DM_Sans, Lora } from "next/font/google";
 import "./globals.css";
 
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
-
 const dmSans = DM_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
@@ -27,10 +17,13 @@ const lora = Lora({
 });
 
 export const metadata: Metadata = {
-  title: "UX hub",
+  title: "UBC UX Hub",
   description: "A collaborative whiteboard and design hub",
   icons: {
-    icon: "/logo.png",
+    icon: [
+      { url: "/icon-dark.svg", media: "(prefers-color-scheme: light)" },
+      { url: "/icon-light.svg", media: "(prefers-color-scheme: dark)" },
+    ],
   },
 };
 

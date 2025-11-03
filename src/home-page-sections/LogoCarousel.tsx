@@ -42,7 +42,6 @@ const LogoCarousel: React.FC = () => {
                 flex items-center md:gap-20 md:px-10 gap-6 px-3 shrink-0
                 md:animate-[logo-scroll_50s_linear_infinite]
                 animate-[logo-scroll_30s_linear_infinite]
-                group-hover:[animation-play-state:paused]
                 motion-reduce:animate-none
               "
             >
@@ -68,7 +67,6 @@ const LogoCarousel: React.FC = () => {
                 flex items-center md:gap-20 md:px-10 gap-6 px-3 shrink-0
                 md:animate-[logo-scroll_50s_linear_infinite]
                 animate-[logo-scroll_30s_linear_infinite]
-                group-hover:[animation-play-state:paused]
                 motion-reduce:animate-none
               "
               aria-hidden="true"
@@ -97,3 +95,5 @@ const LogoCarousel: React.FC = () => {
 };
 
 export default LogoCarousel;
+
+// group-hover:[animation-play-state:paused]

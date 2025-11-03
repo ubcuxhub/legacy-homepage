@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import Button from "./Button";
-import { ArrowUpRight } from "lucide-react";
 
 export default function FooterCallout() {
   const handleContactClick = () => {
@@ -36,7 +35,7 @@ export default function FooterCallout() {
         </div>
 
         <div className="mx-auto flex max-w-[552px] flex-col items-center justify-center gap-5 text-center">
-          <h2 className="font-dm-sans text-2xl md:text-[32px] lg:text-[42px] font-bold leading-normal text-white drop-shadow-sm">
+          <h2 className="text-[40px] font-bold leading-tight text-white">
             Ready to kickstart your design journey?
           </h2>
 
@@ -45,8 +44,8 @@ export default function FooterCallout() {
             supporting each other on their journey to better UI and better design.
           </p>
 
-          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button variant="primary" className="group border-[2px] border-[#383838]" icon={<ArrowUpRight className="h-6 w-6 transition-all duration-300 ease-in-out group-hover:rotate-45 group-hover:text-[#383838]" />}>
+          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row pt-4">
+            <Button variant="primary" onClick={() => {window.location.href = "https://linktr.ee/ubcuxhub?fbclid=PAZXh0bgNhZW0CMTEAAaf0yjegrtGiSXfSFyHbl76u5TnYyGoUSImwqeW6vbKvy74Cz_NmVY6_HVuUdw_aem_gG2KbQMNO5Yidm2tSQOltA"}}>
               BECOME A MEMBER
             </Button>
 
@@ -54,7 +53,6 @@ export default function FooterCallout() {
               variant="secondary"
               onClick={handleContactClick}
               className="group border-[2px] border-[#383838]"
-              icon={<ArrowUpRight className="h-6 w-6 transition-all duration-300 ease-in-out group-hover:rotate-45 group-hover:text-white" />}
             >
               CONTACT US
             </Button>

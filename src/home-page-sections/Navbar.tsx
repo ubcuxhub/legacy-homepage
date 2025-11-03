@@ -4,15 +4,10 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu } from "lucide-react";
+import Button from "@/components/Button";
 
 const navLink =
   "text-black no-underline font-dm-sans font-medium leading-normal whitespace-nowrap decoration-transparent transition-all duration-200 hover:text-gray-600";
-
-const ctaBtn =
-  "flex justify-center items-center rounded-[67.066px] text-white font-dm-sans font-medium leading-normal " +
-  "px-[12px] py-[8px] gap-[12px] " +
-  "md:w-[190px] md:h-[45px] sm:w-[140px] sm:h-[35px] " +
-  "transition-all duration-200 hover:opacity-90 hover:shadow-lg hover:shadow-black/20 backdrop-blur-[0.5px]";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -42,7 +37,6 @@ export default function Navbar() {
           </div>
         </Link>
 
-        {/* Desktop links */}
         <div className="ml-auto hidden md:flex items-center">
           <div className="flex items-center gap-8">
             <Link href="#home" className={navLink}>
@@ -60,13 +54,11 @@ export default function Navbar() {
             <Link href="mailto:ubcuxhub@gmail.com" className={navLink}>
               Contact Us
             </Link>
+
+            <Button variant="primary" withArrow={false} shorterHeight={true}  onClick={() => {window.location.href = "https://linktr.ee/ubcuxhub?fbclid=PAZXh0bgNhZW0CMTEAAaf0yjegrtGiSXfSFyHbl76u5TnYyGoUSImwqeW6vbKvy74Cz_NmVY6_HVuUdw_aem_gG2KbQMNO5Yidm2tSQOltA"}}>
+              BECOME A MEMBER
+            </Button>
           </div>
-          <Link
-            href="/join"
-            className={`${ctaBtn} ml-8 bg-gradient-to-br from-[#00183B] via-[#9478B1] to-[#E89595]`}
-          >
-            Become a Member
-          </Link>
         </div>
 
         {/* Mobile menu button */}

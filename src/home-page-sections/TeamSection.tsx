@@ -3,90 +3,6 @@ import React, { useState, useRef, useEffect } from "react";
 import { TeamMember } from "../components/TeamMemberCard";
 import Image from "next/image";
 
-const TEAM_MEMBERS: TeamMember[] = [
-  {
-    name: "Martin",
-    role: "Design",
-    aboutMe: "I love Costco Hotdogs!",
-    funFact: "I dream in black and white",
-    image: "/people/martin.png",
-    roleEmoji: "🎨",
-  },
-  {
-    name: "Aurora",
-    role: "VP Marketing Design",
-    aboutMe: "I'm studying CS and I love UX design!",
-    funFact: "My MBTI is ISTJ and I like cafe hopping",
-    image: "/people/aurora.png",
-    roleEmoji: "⭐",
-  },
-  {
-    name: "Aubrey",
-    role: "Design Director",
-    aboutMe: "Hi! I'm a 3rd year Media Studies student 🐰",
-    funFact: "I like collecting k-pop photocards",
-    image: "/people/aubrey.png",
-    roleEmoji: "🎨",
-  },
-  {
-    name: "Iris",
-    role: "Media Director",
-    aboutMe: "I'm a product designer, filmmaker, and denim skirt enthusiast!",
-    funFact: "I got lost in Ottawa once and walked to Quebec.",
-    image: "/people/iris.png",
-    roleEmoji: "🎬",
-  },
-  {
-    name: "Mia",
-    role: "Logistics Director",
-    aboutMe: "I'm studying cs but I love learning about design!",
-    funFact: "I learned a bit of asl in high school",
-    image: "/people/Mia.png",
-    roleEmoji: "💡",
-  },
-  {
-    name: "Kat",
-    role: "Partnerships Director",
-    aboutMe: "I'm Kat! I'm a 3rd year BUCS student",
-    funFact: "I love collecting useless but cute things",
-    image: "/people/Kat.png",
-    roleEmoji: "🤝",
-  },
-  {
-    name: "Mason",
-    role: "Media Director",
-    aboutMe: "I'm Mason! I'm a 5th year Marketing student.",
-    funFact: "I run a Tiktok food account",
-    image: "/people/mason.png",
-    roleEmoji: "🎬",
-  },
-  {
-    name: "Cherry",
-    role: "Media Director",
-    aboutMe: "I'm Cherry and I'm doing BMS + cpsc ;)",
-    funFact: "I sleeptalk multilingual",
-    image: "/people/cherry.png",
-    roleEmoji: "🎬",
-  },
-  {
-    name: "Elisabeth",
-    role: "VP Logistics",
-    aboutMe: "I love badminton, calligraphy, kr&b, and cafe hopping",
-    funFact: "I've lived on campus since I was 5 years old",
-    image: "/people/Elisabeth.png",
-    roleEmoji: "⭐",
-  },
-  {
-    name: "Chhavi",
-    role: "Design Director",
-    aboutMe: "I am in my fourth year studying CS",
-    funFact: "I love the moon 🌙",
-    image: "/people/chhavi.jpeg",
-    roleEmoji: "🎨",
-  },
-  
-];
-
 const SECTION_STYLES = {
   subtitle: {
     color: "#7A7A7A",
@@ -108,23 +24,31 @@ const SECTION_STYLES = {
   },
 } as const;
 
-const duplicatedMembers = [...TEAM_MEMBERS, ...TEAM_MEMBERS];
-
 export default function TeamSection() {
+  const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
   const [hoveredMember, setHoveredMember] = useState<TeamMember | null>(null);
-
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    fetch("/team.json")
+      .then((res) => res.json())
+      .then((data) => {
+        const filtered = (data as TeamMember[]).filter(member => member.image && member.image.trim() !== "");
+        setTeamMembers(filtered);
+      })
+      .catch((err) => console.error("Error loading team data:", err));
+  }, []);
+
+  useEffect(() => {
     const el = scrollRef.current;
-    if (!el) return;
+    if (!el || teamMembers.length === 0) return;
 
     let animationId: number;
     let position = 0;
     let speed = 0.5;
 
     const cardWidth = 155 + 44;
-    const resetPoint = cardWidth * TEAM_MEMBERS.length;
+    const resetPoint = cardWidth * teamMembers.length;
 
     const animate = () => {
       position += speed;
@@ -150,7 +74,9 @@ export default function TeamSection() {
       el.removeEventListener("mouseenter", slowDown);
       el.removeEventListener("mouseleave", speedUp);
     };
-  }, []);
+  }, [teamMembers]);
+
+  const duplicatedMembers = [...teamMembers, ...teamMembers];
 
   return (
     <div id="team" className="w-full">
@@ -192,19 +118,21 @@ export default function TeamSection() {
             className="flex w-max items-center gap-11 will-change-transform"
           >
             {duplicatedMembers.map((member, index) => (
-              <div
-                key={`${member.name}-${index}`}
-                className="relative h-[155px] w-[155px] flex-shrink-0 overflow-hidden rounded-2xl"
-                onMouseEnter={() => setHoveredMember(member)}
-                onMouseLeave={() => setHoveredMember(null)}
-              >
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  fill={true}
-                  className="object-cover object-top"
-                />
-              </div>
+              member.image ? (
+                <div
+                  key={`${member.name}-${index}`}
+                  className="relative h-[155px] w-[155px] flex-shrink-0 overflow-hidden rounded-2xl"
+                  onMouseEnter={() => setHoveredMember(member)}
+                  onMouseLeave={() => setHoveredMember(null)}
+                >
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill={true}
+                    className="object-cover object-top"
+                  />
+                </div>
+              ) : null
             ))}
           </div>
         </div>

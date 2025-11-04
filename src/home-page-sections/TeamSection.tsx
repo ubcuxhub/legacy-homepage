@@ -13,7 +13,7 @@ const TEAM_MEMBERS: TeamMember[] = [
   {
     name: "Brian Yang",
     role: "Co-President",
-    image: "/people/Brian.png",
+    image: "/people/brian.png",
     roleEmoji: "⭐",
   },
   {
@@ -43,13 +43,13 @@ const TEAM_MEMBERS: TeamMember[] = [
   {
     name: "Erin Chiu",
     role: "Co-Treasurer",
-    image: "/people/erin.jpeg",
+    image: "/people/erin.png",
     roleEmoji: "💵",
   },
   {
     name: "Owen Li",
     role: "Co-Treasurer",
-    image: "/people/owen.jpeg",
+    image: "/people/owen.png",
     roleEmoji: "💵",
   },
   {
@@ -77,6 +77,12 @@ const TEAM_MEMBERS: TeamMember[] = [
     roleEmoji: "🎨",
   },
   {
+    name: "Chhavi",
+    role: "Design Director",
+    image: "/people/chhavi.jpeg",
+    roleEmoji: "🎨",
+  },
+  {
     name: "Iris Liu",
     role: "Media Director",
     image: "/people/iris.png",
@@ -95,9 +101,15 @@ const TEAM_MEMBERS: TeamMember[] = [
     roleEmoji: "🎬",
   },
   {
+    name: "Marina Yu",
+    role: "Media Director",
+    image: "/people/marina.png",
+    roleEmoji: "🎬",
+  },
+  {
     name: "Eric Yan",
     role: "Logistics Director",
-    image: "/people/eric.jpeg",
+    image: "/people/eric.png",
     roleEmoji: "💡",
   },
   {
@@ -119,6 +131,18 @@ const TEAM_MEMBERS: TeamMember[] = [
     roleEmoji: "💡",
   },
   {
+    name: "Carys Fong",
+    role: "Logistics Director",
+    image: "/people/carys.png",
+    roleEmoji: "💡",
+  },
+  {
+    name: "Raksha Zunnuru",
+    role: "Logistics Director",
+    image: "/people/raksha.png",
+    roleEmoji: "💡",
+  },
+  {
     name: "Katrina Wei",
     role: "Partnerships Director",
     image: "/people/Kat.png",
@@ -129,6 +153,12 @@ const TEAM_MEMBERS: TeamMember[] = [
     role: "Partnerships Director",
     image: "/people/quang.jpeg",
     roleEmoji: "🤝",
+  },
+  {
+    name: "Johnny Dong",
+    role: "Developer",
+    image: "/people/johnny.png",
+    roleEmoji: "💻",
   },
 ];
 
@@ -153,12 +183,11 @@ const SECTION_STYLES = {
   },
 } as const;
 
-const duplicatedMembers = [...TEAM_MEMBERS, ...TEAM_MEMBERS];
-
 export default function TeamSection() {
   const [hoveredMember, setHoveredMember] = useState<TeamMember | null>(null);
-
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  const duplicatedMembers = [...TEAM_MEMBERS, ...TEAM_MEMBERS];
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -174,11 +203,10 @@ export default function TeamSection() {
     const animate = () => {
       position += speed;
 
-      if (position >= resetPoint) {
-        position -= resetPoint;
-      }
+      // Use modulo to create seamless loop without reset jumps
+      const currentPosition = position % resetPoint;
 
-      el.style.transform = `translateX(-${position}px)`;
+      el.style.transform = `translateX(-${currentPosition}px)`;
       animationId = requestAnimationFrame(animate);
     };
 

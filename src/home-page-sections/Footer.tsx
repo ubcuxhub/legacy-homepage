@@ -15,7 +15,7 @@ export default function Footer() {
       {/* Logo */}
       <div className="h-[96px] w-[96px] mt-4">
         <Image
-          src="/logo.png"
+          src="/square-logo.png"
           alt="UBC UX HUB"
           width={96}
           height={96}

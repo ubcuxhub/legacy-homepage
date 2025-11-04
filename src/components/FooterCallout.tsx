@@ -8,8 +8,8 @@ export default function FooterCallout() {
   };
 
   return (
-    <section className="w-full px-[5%] md:px-[20%]">
-      <div className="relative mx-auto max-h-[820px] rounded-[20px] bg-gradient-to-br from-[#102A68] via-[#9578B1] to-[#EE9489] px-15 py-28 sm:py-16 md:py-35 lg:py-30">
+    <section className="w-full md:px-[20%]">
+      <div className="relative mx-auto max-h-[820px] md:rounded-[20px] rounded-none bg-gradient-to-br from-[#102A68] via-[#9578B1] to-[#EE9489] md:px-15 px-5 py-28 sm:py-16 md:py-35 lg:py-30">
         {/* cursor - top left */}
         <div className="absolute z-10 hidden md:block md:top-[40px] md:left-[40px] lg:top-[50px] lg:left-[60px] transition-transform duration-300 ease-in-out hover:scale-[1.15]">
           <Image
@@ -34,7 +34,7 @@ export default function FooterCallout() {
           />
         </div>
 
-        <div className="mx-auto flex max-w-[552px] flex-col items-center justify-center gap-5 text-center">
+        <div className="mx-auto flex flex-col items-center justify-center gap-5 text-center">
           <h2 className="text-[40px] font-bold leading-tight text-white">
             Ready to kickstart your design journey?
           </h2>
@@ -52,7 +52,7 @@ export default function FooterCallout() {
             <Button
               variant="secondary"
               onClick={handleContactClick}
-              className="group border-[2px] border-[#383838]"
+              className="w-[243px] md:w-auto"
             >
               CONTACT US
             </Button>

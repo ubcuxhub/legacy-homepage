@@ -5,86 +5,131 @@ import Image from "next/image";
 
 const TEAM_MEMBERS: TeamMember[] = [
   {
-    name: "Martin",
-    role: "Design",
-    aboutMe: "I love Costco Hotdogs!",
-    funFact: "I dream in black and white",
-    image: "/people/martin.png",
-    roleEmoji: "🎨",
+    name: "Zelalem Araya",
+    role: "Advisor",
+    image: "/people/zela.png",
+    roleEmoji: "💭",
   },
   {
-    name: "Aurora",
-    role: "VP Marketing Design",
-    aboutMe: "I'm studying CS and I love UX design!",
-    funFact: "My MBTI is ISTJ and I like cafe hopping",
-    image: "/people/aurora.png",
+    name: "Brian Yang",
+    role: "Co-President",
+    image: "/people/Brian.png",
     roleEmoji: "⭐",
   },
   {
-    name: "Aubrey",
-    role: "Design Director",
-    aboutMe: "Hi! I'm a 3rd year Media Studies student 🐰",
-    funFact: "I like collecting k-pop photocards",
-    image: "/people/aubrey.png",
-    roleEmoji: "🎨",
+    name: "Jackie Crowley",
+    role: "Co-President",
+    image: "/people/jackie.png",
+    roleEmoji: "⭐",
   },
   {
-    name: "Iris",
-    role: "Media Director",
-    aboutMe: "I'm a product designer, filmmaker, and denim skirt enthusiast!",
-    funFact: "I got lost in Ottawa once and walked to Quebec.",
-    image: "/people/iris.png",
-    roleEmoji: "🎬",
-  },
-  {
-    name: "Mia",
-    role: "Logistics Director",
-    aboutMe: "I'm studying cs but I love learning about design!",
-    funFact: "I learned a bit of asl in high school",
-    image: "/people/Mia.png",
-    roleEmoji: "💡",
-  },
-  {
-    name: "Kat",
-    role: "Partnerships Director",
-    aboutMe: "I'm Kat! I'm a 3rd year BUCS student",
-    funFact: "I love collecting useless but cute things",
-    image: "/people/Kat.png",
-    roleEmoji: "🤝",
-  },
-  {
-    name: "Mason",
-    role: "Media Director",
-    aboutMe: "I'm Mason! I'm a 5th year Marketing student.",
-    funFact: "I run a Tiktok food account",
-    image: "/people/mason.png",
-    roleEmoji: "🎬",
-  },
-  {
-    name: "Cherry",
-    role: "Media Director",
-    aboutMe: "I'm Cherry and I'm doing BMS + cpsc ;)",
-    funFact: "I sleeptalk multilingual",
-    image: "/people/cherry.png",
-    roleEmoji: "🎬",
-  },
-  {
-    name: "Elisabeth",
+    name: "Elisabeth Lau",
     role: "VP Logistics",
-    aboutMe: "I love badminton, calligraphy, kr&b, and cafe hopping",
-    funFact: "I've lived on campus since I was 5 years old",
     image: "/people/Elisabeth.png",
     roleEmoji: "⭐",
   },
   {
-    name: "Chhavi",
+    name: "Elaine Li",
+    role: "VP Partnerships",
+    image: "/people/elaine.jpeg",
+    roleEmoji: "⭐",
+  },
+  {
+    name: "Aurora Cheng",
+    role: "VP Marketing Design",
+    image: "/people/aurora.png",
+    roleEmoji: "⭐",
+  },
+  {
+    name: "Erin Chiu",
+    role: "Co-Treasurer",
+    image: "/people/erin.jpeg",
+    roleEmoji: "💵",
+  },
+  {
+    name: "Owen Li",
+    role: "Co-Treasurer",
+    image: "/people/owen.jpeg",
+    roleEmoji: "💵",
+  },
+  {
+    name: "Taro Ren",
+    role: "VP Internal",
+    image: "/people/taro.jpeg",
+    roleEmoji: "🎉",
+  },
+  {
+    name: "Aubrey Ventura",
     role: "Design Director",
-    aboutMe: "I am in my fourth year studying CS",
-    funFact: "I love the moon 🌙",
-    image: "/people/chhavi.jpeg",
+    image: "/people/aubrey.png",
     roleEmoji: "🎨",
   },
-  
+  {
+    name: "Martin Uy",
+    role: "Design Director",
+    image: "/people/martin.png",
+    roleEmoji: "🎨",
+  },
+  {
+    name: "David Theopine",
+    role: "Design Director",
+    image: "/people/david.png",
+    roleEmoji: "🎨",
+  },
+  {
+    name: "Iris Liu",
+    role: "Media Director",
+    image: "/people/iris.png",
+    roleEmoji: "🎬",
+  },
+  {
+    name: "Mason Suen",
+    role: "Media Director",
+    image: "/people/mason.png",
+    roleEmoji: "🎬",
+  },
+  {
+    name: "Cherry Wang",
+    role: "Media Director",
+    image: "/people/cherry.png",
+    roleEmoji: "🎬",
+  },
+  {
+    name: "Eric Yan",
+    role: "Logistics Director",
+    image: "/people/eric.jpeg",
+    roleEmoji: "💡",
+  },
+  {
+    name: "Kazuma Uji",
+    role: "Logistics Director",
+    image: "/people/kazuma.png",
+    roleEmoji: "💡",
+  },
+  {
+    name: "Jessie Megan",
+    role: "Logistics Director",
+    image: "/people/jessie.png",
+    roleEmoji: "💡",
+  },
+  {
+    name: "Mia Makino",
+    role: "Logistics Director",
+    image: "/people/Mia.png",
+    roleEmoji: "💡",
+  },
+  {
+    name: "Katrina Wei",
+    role: "Partnerships Director",
+    image: "/people/Kat.png",
+    roleEmoji: "🤝",
+  },
+  {
+    name: "Quang Mai",
+    role: "Partnerships Director",
+    image: "/people/quang.jpeg",
+    roleEmoji: "🤝",
+  },
 ];
 
 const SECTION_STYLES = {
@@ -121,7 +166,7 @@ export default function TeamSection() {
 
     let animationId: number;
     let position = 0;
-    let speed = 0.5;
+    let speed = 0.9;
 
     const cardWidth = 155 + 44;
     const resetPoint = cardWidth * TEAM_MEMBERS.length;
@@ -189,7 +234,7 @@ export default function TeamSection() {
         <div className="overflow-hidden">
           <div
             ref={scrollRef}
-            className="flex w-max items-center gap-11 will-change-transform"
+            className="flex w-max items-center gap-8 will-change-transform"
           >
             {duplicatedMembers.map((member, index) => (
               <div

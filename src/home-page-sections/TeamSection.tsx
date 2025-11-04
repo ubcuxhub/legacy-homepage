@@ -13,7 +13,7 @@ const TEAM_MEMBERS: TeamMember[] = [
   {
     name: "Brian Yang",
     role: "Co-President",
-    image: "/people/Brian.png",
+    image: "/people/brian.png",
     roleEmoji: "⭐",
   },
   {
@@ -43,13 +43,13 @@ const TEAM_MEMBERS: TeamMember[] = [
   {
     name: "Erin Chiu",
     role: "Co-Treasurer",
-    image: "/people/erin.jpeg",
+    image: "/people/erin.png",
     roleEmoji: "💵",
   },
   {
     name: "Owen Li",
     role: "Co-Treasurer",
-    image: "/people/owen.jpeg",
+    image: "/people/owen.png",
     roleEmoji: "💵",
   },
   {
@@ -77,6 +77,12 @@ const TEAM_MEMBERS: TeamMember[] = [
     roleEmoji: "🎨",
   },
   {
+    name: "Chhavi",
+    role: "Design Director",
+    image: "/people/chhavi.jpeg",
+    roleEmoji: "🎨",
+  },
+  {
     name: "Iris Liu",
     role: "Media Director",
     image: "/people/iris.png",
@@ -95,9 +101,15 @@ const TEAM_MEMBERS: TeamMember[] = [
     roleEmoji: "🎬",
   },
   {
+    name: "Marina Yu",
+    role: "Media Director",
+    image: "/people/marina.png",
+    roleEmoji: "🎬",
+  },
+  {
     name: "Eric Yan",
     role: "Logistics Director",
-    image: "/people/eric.jpeg",
+    image: "/people/eric.png",
     roleEmoji: "💡",
   },
   {
@@ -119,6 +131,18 @@ const TEAM_MEMBERS: TeamMember[] = [
     roleEmoji: "💡",
   },
   {
+    name: "Carys Fong",
+    role: "Logistics Director",
+    image: "/people/carys.png",
+    roleEmoji: "💡",
+  },
+  {
+    name: "Raksha Zunnuru",
+    role: "Logistics Director",
+    image: "/people/raksha.png",
+    roleEmoji: "💡",
+  },
+  {
     name: "Katrina Wei",
     role: "Partnerships Director",
     image: "/people/Kat.png",
@@ -129,6 +153,12 @@ const TEAM_MEMBERS: TeamMember[] = [
     role: "Partnerships Director",
     image: "/people/quang.jpeg",
     roleEmoji: "🤝",
+  },
+  {
+    name: "Johnny Dong",
+    role: "Developer",
+    image: "/people/johnny.png",
+    roleEmoji: "💻",
   },
 ];
 
@@ -154,30 +184,21 @@ const SECTION_STYLES = {
 } as const;
 
 export default function TeamSection() {
-  const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
   const [hoveredMember, setHoveredMember] = useState<TeamMember | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    fetch("/team.json")
-      .then((res) => res.json())
-      .then((data) => {
-        const filtered = (data as TeamMember[]).filter(member => member.image && member.image.trim() !== "");
-        setTeamMembers(filtered);
-      })
-      .catch((err) => console.error("Error loading team data:", err));
-  }, []);
+  const duplicatedMembers = [...TEAM_MEMBERS, ...TEAM_MEMBERS];
 
   useEffect(() => {
     const el = scrollRef.current;
-    if (!el || teamMembers.length === 0) return;
+    if (!el) return;
 
     let animationId: number;
     let position = 0;
     let speed = 0.9;
 
     const cardWidth = 155 + 44;
-    const resetPoint = cardWidth * teamMembers.length;
+    const resetPoint = cardWidth * TEAM_MEMBERS.length;
 
     const animate = () => {
       position += speed;
@@ -203,9 +224,7 @@ export default function TeamSection() {
       el.removeEventListener("mouseenter", slowDown);
       el.removeEventListener("mouseleave", speedUp);
     };
-  }, [teamMembers]);
-
-  const duplicatedMembers = [...teamMembers, ...teamMembers];
+  }, []);
 
   return (
     <div id="team" className="w-full">
@@ -247,21 +266,19 @@ export default function TeamSection() {
             className="flex w-max items-center gap-8 will-change-transform"
           >
             {duplicatedMembers.map((member, index) => (
-              member.image ? (
-                <div
-                  key={`${member.name}-${index}`}
-                  className="relative h-[155px] w-[155px] flex-shrink-0 overflow-hidden rounded-2xl"
-                  onMouseEnter={() => setHoveredMember(member)}
-                  onMouseLeave={() => setHoveredMember(null)}
-                >
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill={true}
-                    className="object-cover object-top"
-                  />
-                </div>
-              ) : null
+              <div
+                key={`${member.name}-${index}`}
+                className="relative h-[155px] w-[155px] flex-shrink-0 overflow-hidden rounded-2xl"
+                onMouseEnter={() => setHoveredMember(member)}
+                onMouseLeave={() => setHoveredMember(null)}
+              >
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  fill={true}
+                  className="object-cover object-top"
+                />
+              </div>
             ))}
           </div>
         </div>

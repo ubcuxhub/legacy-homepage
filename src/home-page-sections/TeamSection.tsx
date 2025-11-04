@@ -3,6 +3,135 @@ import React, { useState, useRef, useEffect } from "react";
 import { TeamMember } from "../components/TeamMemberCard";
 import Image from "next/image";
 
+const TEAM_MEMBERS: TeamMember[] = [
+  {
+    name: "Zelalem Araya",
+    role: "Advisor",
+    image: "/people/zela.png",
+    roleEmoji: "💭",
+  },
+  {
+    name: "Brian Yang",
+    role: "Co-President",
+    image: "/people/Brian.png",
+    roleEmoji: "⭐",
+  },
+  {
+    name: "Jackie Crowley",
+    role: "Co-President",
+    image: "/people/jackie.png",
+    roleEmoji: "⭐",
+  },
+  {
+    name: "Elisabeth Lau",
+    role: "VP Logistics",
+    image: "/people/Elisabeth.png",
+    roleEmoji: "⭐",
+  },
+  {
+    name: "Elaine Li",
+    role: "VP Partnerships",
+    image: "/people/elaine.jpeg",
+    roleEmoji: "⭐",
+  },
+  {
+    name: "Aurora Cheng",
+    role: "VP Marketing Design",
+    image: "/people/aurora.png",
+    roleEmoji: "⭐",
+  },
+  {
+    name: "Erin Chiu",
+    role: "Co-Treasurer",
+    image: "/people/erin.jpeg",
+    roleEmoji: "💵",
+  },
+  {
+    name: "Owen Li",
+    role: "Co-Treasurer",
+    image: "/people/owen.jpeg",
+    roleEmoji: "💵",
+  },
+  {
+    name: "Taro Ren",
+    role: "VP Internal",
+    image: "/people/taro.jpeg",
+    roleEmoji: "🎉",
+  },
+  {
+    name: "Aubrey Ventura",
+    role: "Design Director",
+    image: "/people/aubrey.png",
+    roleEmoji: "🎨",
+  },
+  {
+    name: "Martin Uy",
+    role: "Design Director",
+    image: "/people/martin.png",
+    roleEmoji: "🎨",
+  },
+  {
+    name: "David Theopine",
+    role: "Design Director",
+    image: "/people/david.png",
+    roleEmoji: "🎨",
+  },
+  {
+    name: "Iris Liu",
+    role: "Media Director",
+    image: "/people/iris.png",
+    roleEmoji: "🎬",
+  },
+  {
+    name: "Mason Suen",
+    role: "Media Director",
+    image: "/people/mason.png",
+    roleEmoji: "🎬",
+  },
+  {
+    name: "Cherry Wang",
+    role: "Media Director",
+    image: "/people/cherry.png",
+    roleEmoji: "🎬",
+  },
+  {
+    name: "Eric Yan",
+    role: "Logistics Director",
+    image: "/people/eric.jpeg",
+    roleEmoji: "💡",
+  },
+  {
+    name: "Kazuma Uji",
+    role: "Logistics Director",
+    image: "/people/kazuma.png",
+    roleEmoji: "💡",
+  },
+  {
+    name: "Jessie Megan",
+    role: "Logistics Director",
+    image: "/people/jessie.png",
+    roleEmoji: "💡",
+  },
+  {
+    name: "Mia Makino",
+    role: "Logistics Director",
+    image: "/people/Mia.png",
+    roleEmoji: "💡",
+  },
+  {
+    name: "Katrina Wei",
+    role: "Partnerships Director",
+    image: "/people/Kat.png",
+    roleEmoji: "🤝",
+  },
+  {
+    name: "Quang Mai",
+    role: "Partnerships Director",
+    image: "/people/quang.jpeg",
+    roleEmoji: "🤝",
+  },
+];
+
 const SECTION_STYLES = {
   subtitle: {
     color: "#7A7A7A",
@@ -45,7 +174,7 @@ export default function TeamSection() {
 
     let animationId: number;
     let position = 0;
-    let speed = 0.5;
+    let speed = 0.9;
 
     const cardWidth = 155 + 44;
     const resetPoint = cardWidth * teamMembers.length;
@@ -115,7 +244,7 @@ export default function TeamSection() {
         <div className="overflow-hidden">
           <div
             ref={scrollRef}
-            className="flex w-max items-center gap-11 will-change-transform"
+            className="flex w-max items-center gap-8 will-change-transform"
           >
             {duplicatedMembers.map((member, index) => (
               member.image ? (

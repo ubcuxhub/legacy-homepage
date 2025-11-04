@@ -6,8 +6,6 @@ import Image from "next/image";
 export interface TeamMember {
   name: string;
   role: string;
-  aboutMe: string;
-  funFact: string;
   image: string;
   roleEmoji: string;
 }
@@ -201,14 +199,14 @@ export default function TeamMemberCard({
               About Me
             </h4>
             <div style={CARD_STYLES.infoBox}>
-              <p style={CARD_STYLES.infoText}>{member.aboutMe}</p>
+              {/* <p style={CARD_STYLES.infoText}>{member.aboutMe}</p> */}
             </div>
           </div>
 
           <div>
             <h4 style={CARD_STYLES.sectionTitle}>Fun Fact</h4>
             <div style={CARD_STYLES.infoBox}>
-              <p style={CARD_STYLES.infoText}>{member.funFact}</p>
+              {/* <p style={CARD_STYLES.infoText}>{member.funFact}</p> */}
             </div>
           </div>
         </div>

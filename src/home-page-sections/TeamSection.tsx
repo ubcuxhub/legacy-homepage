@@ -114,7 +114,7 @@ export default function TeamSection() {
           style={{ background: "linear-gradient(to left, #f3f4f6, transparent)" }}
         />
 
-        <div className="justify-self-center font-bold h-4 mb-12">
+        <div className="justify-self-center font-bold h-4 mb-8">
           {hoveredMember ? `${hoveredMember.name} ${hoveredMember.roleEmoji} ${hoveredMember.role}` : ""}
         </div>
 

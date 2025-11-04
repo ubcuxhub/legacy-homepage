@@ -203,11 +203,10 @@ export default function TeamSection() {
     const animate = () => {
       position += speed;
 
-      if (position >= resetPoint) {
-        position -= resetPoint;
-      }
+      // Use modulo to create seamless loop without reset jumps
+      const currentPosition = position % resetPoint;
 
-      el.style.transform = `translateX(-${position}px)`;
+      el.style.transform = `translateX(-${currentPosition}px)`;
       animationId = requestAnimationFrame(animate);
     };
 

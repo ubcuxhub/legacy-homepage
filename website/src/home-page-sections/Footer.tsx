@@ -9,14 +9,13 @@ import FooterCallout from "@/components/FooterCallout";
 export default function Footer() {
   return (
     <div className="w-full bg-white flex flex-col pt-8 pb-16">
-
       <FooterCallout />
 
       <div className="flex flex-col items-center gap-8 pt-8 px-[5%] md:px-[20%]">
         {/* Logo */}
         <div className="h-[96px] w-[96px] mt-4">
           <Image
-            src="/square-logo.png"
+            src="/logo.png"
             alt="UBC UX HUB"
             width={96}
             height={96}
@@ -36,7 +35,10 @@ export default function Footer() {
           >
             About Us
           </Link>
-          <Link className="transition-colors hover:text-gray-600" href="#events">
+          <Link
+            className="transition-colors hover:text-gray-600"
+            href="#events"
+          >
             Events
           </Link>
           <Link className="transition-colors hover:text-gray-600" href="#team">
@@ -106,8 +108,6 @@ export default function Footer() {
           </p>
         </div>
       </div>
-
-      
     </div>
   );
 }

@@ -9,52 +9,18 @@ export default function Hero() {
     <div id="home" className="pt-36 md:px-[10%] px-[5%]">
 
       <section className="relative flex flex-shrink-0 flex-col items-center overflow-visible rounded-[20px] border border-[#C1C7CD] bg-white">
-        {/* cursor - "and largest!" */}
-        <div className="absolute z-10 hidden md:block md:top-[100px] md:left-[100px] lg:top-[100px] lg:left-[180px] transition-transform duration-300 ease-in-out hover:scale-115">
-          <Image
-            src="/and largest.png"
-            alt="and largest!"
-            width={120}
-            height={120}
-            className="h-auto w-auto max-w-[80px] md:max-w-[100px] lg:max-w-[120px]"
-            priority
-          />
-        </div>
-
-        {/* cursor - "since 2017" with hover swap */}
-        <div className="group absolute z-10 hidden md:block md:top-[150px] md:right-[250px] lg:top-[110px] lg:right-[475px] transition-transform duration-300 ease-in-out hover:scale-115">
-          <div className="relative h-auto w-auto">
-            {/* default image */}
+        {/* cursor - "UBC UX Hub" */}
+        <div className="absolute z-10 hidden md:block md:top-[440px] md:right-[50px] lg:top-[425px] lg:right-[100px] transition-transform duration-300 ease-in-out hover:scale-115">
+          <div className="relative aspect-square w-[80px] md:w-[110px] lg:w-[140px]">
             <Image
-              src="/since-2017.png"
-              alt="since 2017"
-              width={120}
-              height={120}
-              className="h-auto w-auto max-w-[80px] md:max-w-[100px] lg:max-w-[120px] transition-opacity duration-200 ease-in-out group-hover:opacity-0"
+              src="/figma-cursor-chat.png"
+              alt="UBC UX Hub"
+              fill
+              className="object-contain"
               priority
-            />
-            {/* hover image */}
-            <Image
-              src="/since-2017-2.png"
-              alt="since 2017 hover"
-              width={120}
-              height={120}
-              className="absolute left-0 top-0 h-auto w-auto max-w-[80px] md:max-w-[100px] lg:max-w-[120px] opacity-0 transition-opacity duration-200 ease-in-out group-hover:opacity-100"
-              priority
+              sizes="(max-width: 768px) 80px, (max-width: 1024px) 110px, 140px"
             />
           </div>
-        </div>
-
-        {/* cursor - "UBC UX Hub" */}
-        <div className="absolute z-10 hidden md:block md:top-[330px] md:right-[95px] lg:top-[425px] lg:right-[120px] transition-transform duration-300 ease-in-out hover:scale-115">
-          <Image
-            src="/figma-cursor-chat.png"
-            alt="UBC UX Hub"
-            width={120}
-            height={120}
-            className="h-auto w-auto max-w-[80px] md:max-w-[100px] lg:max-w-[120px]"
-            priority
-          />
         </div>
 
         {/* Browser window header with colored dots */}
@@ -73,8 +39,48 @@ export default function Hero() {
             <h1 className="font-dm-sans mt-4 flex flex-col gap-0 font-bold leading-normal sm:mt-5 md:mt-6 md:gap-1 lg:mt-8 lg:gap-1 text-[clamp(32px,9vw,58px)]">
               <div className="flex flex-wrap items-center gap-2">
                 <span>UBC&apos;s</span>
-                <span className="ml-1 rounded-[80px] px-3 py-1.5 text-[#F5F5F5] sm:px-4 md:px-6 lg:px-6 bg-[linear-gradient(156deg,#3A5A8A_-1.32%,#B899D1_77.58%,#F5B4AB_97.31%)] text-[clamp(30px,8vw,56px)] leading-[1.1]">
-                  first-ever
+                <span className="relative ml-1 inline-block">
+                  <span className="rounded-[80px] px-3 py-1.5 text-[#F5F5F5] sm:px-4 md:px-6 lg:px-6 bg-[linear-gradient(156deg,#3A5A8A_-1.32%,#B899D1_77.58%,#F5B4AB_97.31%)] text-[clamp(30px,8vw,56px)] leading-[1.1]">
+                    first-ever
+                  </span>
+
+                  {/* cursor - "and largest!" */}
+                  <div className="absolute -top-[70px] left-[-80px] md:left-[-95px] lg:left-[-120px] hidden md:block transition-transform duration-300 ease-in-out hover:scale-110">
+                    <div className="relative aspect-[274/122] w-[80px] md:w-[110px] lg:w-[140px]">
+                      <Image
+                        src="/and largest.png"
+                        alt="and largest!"
+                        fill
+                        className="object-contain"
+                        sizes="(max-width: 768px) 110px, (max-width: 1024px) 140px, 170px"
+                        priority
+                      />
+                    </div>
+                  </div>
+
+                  {/* cursor - "since 2017" with hover swap */}
+                  <div className="group absolute -top-[70px] right-[-100px] sm:right-[-90px] md:right-[-70px] lg:right-[-90px] hidden md:block transition-transform duration-300 ease-in-out hover:scale-110 scale-60">
+                    <div className="relative aspect-square w-[60px] sm:w-[70px] md:w-[85px] lg:w-[95px]">
+                      <Image
+                        src="/since-2017.png"
+                        alt="since 2017"
+                        fill
+                        className="object-contain transition-opacity duration-200 ease-in-out group-hover:opacity-0"
+                        sizes="(max-width: 640px) 90px, (max-width: 768px) 100px, (max-width: 1024px) 120px, 150px"
+                        priority
+                      />
+                      <div className="absolute inset-0 translate-x-[30px] opacity-0 transition-opacity duration-200 ease-in-out group-hover:opacity-100">
+                        <Image
+                          src="/since-2017-2.png"
+                          alt="since 2017 hover"
+                          fill
+                          className="object-contain"
+                          sizes="(max-width: 640px) 90px, (max-width: 768px) 100px, (max-width: 1024px) 120px, 150px"
+                          priority
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </span>
               </div>
 

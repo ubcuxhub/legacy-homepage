@@ -59,7 +59,7 @@ export default function Hero() {
                   </div>
 
                   {/* cursor - "since 2017" with hover swap */}
-                  <div className="group absolute -top-[70px] right-[-100px] sm:right-[-90px] md:right-[-70px] lg:right-[-90px] hidden md:block transition-transform duration-300 ease-in-out hover:scale-110 scale-60">
+                  <div className="group absolute -top-[70px] right-[-100px] sm:right-[-90px] md:right-[-70px] lg:right-[-90px] hidden md:block transition-transform duration-300 ease-in-out hover:scale-110 scale-50">
                     <div className="relative aspect-square w-[60px] sm:w-[70px] md:w-[85px] lg:w-[95px]">
                       <Image
                         src="/since-2017.png"
@@ -69,7 +69,7 @@ export default function Hero() {
                         sizes="(max-width: 640px) 90px, (max-width: 768px) 100px, (max-width: 1024px) 120px, 150px"
                         priority
                       />
-                      <div className="absolute inset-0 translate-x-[30px] opacity-0 transition-opacity duration-200 ease-in-out group-hover:opacity-100">
+                      <div className="absolute inset-0 translate-x-[50px] opacity-0 transition-opacity duration-200 ease-in-out group-hover:opacity-100 scale-150">
                         <Image
                           src="/since-2017-2.png"
                           alt="since 2017 hover"

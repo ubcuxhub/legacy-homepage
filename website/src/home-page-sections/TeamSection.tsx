@@ -225,7 +225,7 @@ export default function TeamSection() {
         </h2>
       </div>
 
-      <div className="relative w-full">
+      <div className="flex flex-col items-center">
         <div
           className="absolute left-0 top-0 md:w-20 w-10 h-full z-10 pointer-events-none"
           style={{

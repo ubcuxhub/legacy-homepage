@@ -40,13 +40,30 @@ export function SignUpForm({
     }
 
     try {
-      const { error } = await supabase.auth.signUp({
-        email,
+      const normalizedEmail = email.trim().toLowerCase();
+      const { data, error } = await supabase.auth.signUp({
+        email: normalizedEmail,
         password,
         options: {
           emailRedirectTo: `${window.location.origin}/events`,
         },
       });
+
+      const user = data.user;
+      if (!user) throw new Error("User not returned from Supabase");
+      const res = await fetch("/api/link-auth-user", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: normalizedEmail,
+          authUserId: user.id,
+        }),
+      });
+
+      if (!res.ok) {
+        console.error("Failed to link userInfo:", await res.text());
+      }
+
       if (error) throw error;
       router.push("/auth/sign-up-success");
     } catch (error: unknown) {

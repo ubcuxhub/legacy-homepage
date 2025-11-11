@@ -1,4 +1,4 @@
-type MembershipTier = {
+export type MembershipTier = {
   display: string;
   price: number;
   ubcStudent: boolean;

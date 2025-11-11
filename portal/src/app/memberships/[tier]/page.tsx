@@ -1,6 +1,7 @@
 import { membershipTiers } from "@/utils/membershipUtil";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import PaymentForm from "@/components/PaymentForm";
 
 async function page({ params }: { params: Promise<{ tier: string }> }) {
   const { tier } = await params;
@@ -24,6 +25,8 @@ async function page({ params }: { params: Promise<{ tier: string }> }) {
           ? membershipTiers[tier].description
           : ""}
       </div>
+
+      <PaymentForm tier={membershipTiers[tier]} />
     </div>
   );
 }

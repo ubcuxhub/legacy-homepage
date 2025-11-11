@@ -17,8 +17,8 @@ export const metadata: Metadata = {
   description: "All the tools you need to manage your UX Hub account",
   icons: {
     icon: [
-      { url: "icons/icon-dark.svg", media: "(prefers-color-scheme: light)" },
-      { url: "icons/icon-light.svg", media: "(prefers-color-scheme: dark)" },
+      { url: "/icons/icon-dark.svg", media: "(prefers-color-scheme: light)" },
+      { url: "/icons/icon-light.svg", media: "(prefers-color-scheme: dark)" },
     ],
   },
 };
@@ -33,6 +33,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        {/* after implementing auth: <UserProvider>{children}</UserProvider> */}
         {children}
       </body>
     </html>

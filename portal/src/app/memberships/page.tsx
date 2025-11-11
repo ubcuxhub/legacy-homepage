@@ -1,4 +1,4 @@
-import { membershipTiers } from "@/utils/membershipUtil";
+import { membershipTiers } from "@/lib/membershipUtil";
 import Link from "next/link";
 
 const page = async () => {

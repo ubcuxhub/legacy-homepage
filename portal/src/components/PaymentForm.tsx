@@ -19,6 +19,8 @@ export default function PaymentForm({ tier }: PaymentFormProps) {
   const [paymentLoading, setPaymentLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [payments, setPayments] = useState<any>(null);
+  const [card, setCard] = useState<any>(null);
+
 
   useEffect(() => {
     let isMounted = true;
@@ -43,22 +45,21 @@ export default function PaymentForm({ tier }: PaymentFormProps) {
     const initialize = async () => {
       try {
         await loadSquareScript();
-
-        console.log("APP_ID", process.env.NEXT_PUBLIC_SQUARE_APP_ID);
-        console.log("LOCATION_ID", process.env.NEXT_PUBLIC_SQUARE_LOCATION_ID);
-
+    
         const paymentsInstance = window.Square.payments(
           process.env.NEXT_PUBLIC_SQUARE_APP_ID!,
           process.env.NEXT_PUBLIC_SQUARE_LOCATION_ID!
         );
         if (!isMounted) return;
         setPayments(paymentsInstance);
-
-        const card = await paymentsInstance.card();
-        await card.attach("#card-container");
+    
+        const cardInstance = await paymentsInstance.card();
+        await cardInstance.attach("#card-container");
+    
         if (!isMounted) return;
+        setCard(cardInstance);
         setCardLoaded(true);
-
+    
         const digitalWallet = await paymentsInstance.paymentRequest({
           countryCode: "CA",
           currencyCode: "CAD",
@@ -68,10 +69,10 @@ export default function PaymentForm({ tier }: PaymentFormProps) {
           },
           requestBillingContact: true,
         });
-
+    
         const applePay = await paymentsInstance.applePay(digitalWallet);
         const googlePay = await paymentsInstance.googlePay(digitalWallet);
-
+    
         if (await applePay.canMakePayment()) {
           await applePay.attach("#apple-pay-button");
         } else if (await googlePay.canMakePayment()) {
@@ -81,6 +82,7 @@ export default function PaymentForm({ tier }: PaymentFormProps) {
         console.error("Error initializing Square Payments:", err);
       }
     };
+    
 
     initialize();
     return () => {
@@ -92,37 +94,40 @@ export default function PaymentForm({ tier }: PaymentFormProps) {
     event.preventDefault();
     setPaymentLoading(true);
     setMessage("");
-
+  
     try {
+      if (!card) {
+        setMessage("Payment form not ready yet. Please wait a moment.");
+        return;
+      }
+  
       const name = (document.getElementById("name") as HTMLInputElement).value;
-      const email = (document.getElementById("email") as HTMLInputElement)
-        .value;
+      const email = (document.getElementById("email") as HTMLInputElement).value;
       const studentNumber =
         (document.getElementById("studentNumber") as HTMLInputElement)?.value ||
         null;
-
-      const card = await payments.card();
+  
       const result = await card.tokenize();
-
+  
       if (result.status !== "OK") {
         setMessage("Card tokenization failed. Please check your details.");
         return;
       }
-
-      const payload: Record<string, unknown> = {
+  
+      const payload = {
         token: result.token,
         name,
         email,
         studentNumber,
         tier,
       };
-
+  
       const res = await fetch("/api/pay", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-
+  
       const data = await res.json();
       if (res.ok) setMessage("Payment successful!");
       else setMessage("Payment failed: " + (data.error || "Unknown error"));
@@ -133,6 +138,7 @@ export default function PaymentForm({ tier }: PaymentFormProps) {
       setPaymentLoading(false);
     }
   };
+  
 
   return (
     <div className="max-w-md mx-auto mt-8 p-6 border rounded-2xl shadow-sm bg-white/5 backdrop-blur-md">

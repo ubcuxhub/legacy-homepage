@@ -1,7 +1,9 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
-import { supabase } from "@/utils/supabase/server";
+import { createClient } from "@/lib/supabase/client";
+
+const supabase = createClient();
 
 export interface Member {
   email: string;

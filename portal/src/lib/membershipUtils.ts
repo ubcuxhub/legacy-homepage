@@ -38,4 +38,5 @@ export interface Member {
   faculty?: string;
   major?: string;
   year?: string;
+  role_access: string;
 }

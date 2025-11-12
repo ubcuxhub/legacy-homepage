@@ -9,9 +9,9 @@ export interface Event {
   check_in_events: CheckInEvent[];
   description: string;
   application_template?: ApplicationQuestionTemplate[];
-  createdAt: string;
-  capacity: string;
-  attendees: string[];
+  created_at: string;
+  max_capacity: string;
+  image_url: string;
 }
 
 export interface EventApplication {

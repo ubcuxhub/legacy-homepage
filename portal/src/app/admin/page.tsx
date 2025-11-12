@@ -1,13 +1,19 @@
 "use client";
 import ProtectedRoute from "@/components/ProtectedRoute";
-import { useUser } from "@/context/UserContext";
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 const AuthDashboard = () => {
-  const { user, loading } = useUser();
+  const router = useRouter();
+
+  useEffect(() => {
+    router.replace("/admin/events"); // replace so /admin doesn’t stay in history
+  }, [router]);
 
   return (
     <ProtectedRoute admin>
-      <div>page</div>
+      <p>Redirecting to admin events...</p>
     </ProtectedRoute>
   );
 };

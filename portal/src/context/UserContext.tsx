@@ -2,19 +2,9 @@
 
 import { createContext, useContext, useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
+import { Member } from "@/lib/membershipUtils";
 
 const supabase = createClient();
-
-export interface Member {
-  email: string;
-  name: string;
-  phone: string;
-  order_date?: string | null;
-  student_number?: number | null;
-  membership_type?: string | null;
-  newsletter?: string | null;
-  auth_user_id: string; // UUID linked to auth.users.id
-}
 
 interface UserContextType {
   user: Member | null;

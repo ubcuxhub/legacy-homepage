@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 
-const supabaseAdmin = createClient(
+const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.SUPABASE_SECRET_KEY!
 );
@@ -16,7 +16,7 @@ export async function POST(req: Request) {
     );
   }
 
-  const { data, error } = await supabaseAdmin
+  const { data, error } = await supabase
     .from("userInfo")
     .update({ auth_user_id: authUserId })
     .eq("email", email.trim().toLowerCase())

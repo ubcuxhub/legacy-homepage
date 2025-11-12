@@ -1,22 +1,62 @@
-import { createClient } from "@/lib/supabase/server";
+"use client";
 import { redirect } from "next/navigation";
 import { LogoutButton } from "@/components/LogoutButton";
+import { useUser } from "@/context/UserContext";
+import { createClient } from "@/lib/supabase/client";
+import { useEffect, useState } from "react";
+import { Event } from "@/lib/eventUtils";
 
-export default async function Events() {
-  const supabase = await createClient();
+export default function Events() {
+  const { user, loading } = useUser();
 
-  const { data, error } = await supabase.auth.getClaims();
-  const user = data?.claims;
+  const [events, setEvents] = useState<Event[]>([]);
+  const [loadingEvents, setLoadingEvents] = useState(true);
 
-  if (error || !user) {
+  useEffect(() => {
+    const supabase = createClient();
+
+    const fetchEvents = async () => {
+      try {
+        setLoadingEvents(true);
+
+        const { data, error } = await supabase
+          .from("events")
+          .select("*")
+          .order("event_date", { ascending: true });
+
+        if (error) throw error;
+        setEvents(data ?? []);
+      } catch (err) {
+        console.error("Error fetching events:", err);
+      } finally {
+        setLoadingEvents(false);
+      }
+    };
+
+    if (user) {
+      fetchEvents();
+    }
+  }, [user]);
+
+  if (loading) return <p>Loading...</p>;
+  if (!user) {
     redirect("/auth/login");
   }
 
   return (
     <div>
       <p>Hi!</p>
-      <p>{`Your are logging in as ${user.email}`}</p>
-      <p>here's a list of events...</p>
+      <p>{`Logged in as ${user.email}`}</p>
+      <p>Events: </p>
+      {loadingEvents ? (
+        <></>
+      ) : (
+        <div>
+          {events.map((event) => (
+            <div key={event.name}>{event.name}</div>
+          ))}
+        </div>
+      )}
       <LogoutButton></LogoutButton>
     </div>
   );

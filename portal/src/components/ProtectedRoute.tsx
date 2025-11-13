@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/context/UserContext";
+import { AdminPageSkeleton } from "@/components/AdminPageSkeleton";
 
 interface ProtectedRouteProps {
   children: React.ReactNode;
@@ -27,6 +28,9 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
   }, [loading, user, admin, router]);
 
   if (loading) {
+    if (admin) {
+      return <AdminPageSkeleton />;
+    }
     return (
       <div className="flex items-center justify-center h-screen text-gray-500">
         Loading...

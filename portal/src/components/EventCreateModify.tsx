@@ -20,6 +20,7 @@ import {
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { ImageUpload } from "@/components/ImageUpload";
 
 interface EventCreateModifyProps {
   eventId?: string;
@@ -67,7 +68,7 @@ export const EventCreateModify = ({
 
   const [formState, setFormState] = useState<EventFormState>(defaultFormState);
   const [checkInEvents, setCheckInEvents] = useState<CheckInEvent[]>([
-    { location: "", date: "", time: "" },
+    { name: "", location: "", date: "", time: "" },
   ]);
   const [applicationTemplate, setApplicationTemplate] = useState<
     ApplicationQuestionTemplate[]
@@ -76,12 +77,16 @@ export const EventCreateModify = ({
       question: "",
       response: ResponseType.text,
       max_char_limit: 0,
+      response_options: [],
     },
   ]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [loadingEvent, setLoadingEvent] = useState(!!eventId);
   const [error, setError] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [questionErrors, setQuestionErrors] = useState<Record<number, string>>(
+    {}
+  );
 
   useEffect(() => {
     const fetchExistingEvent = async () => {
@@ -130,21 +135,45 @@ export const EventCreateModify = ({
       setCheckInEvents(
         Array.isArray(data.check_in_events) && data.check_in_events.length > 0
           ? data.check_in_events
-          : [{ location: "", date: "", time: "" }]
+          : [{ name: "", location: "", date: "", time: "" }]
       );
 
-      setApplicationTemplate(
-        Array.isArray(data.application_template) &&
-          data.application_template.length > 0
-          ? data.application_template
-          : [
-              {
-                question: "",
-                response: ResponseType.text,
-                max_char_limit: 0,
-              },
-            ]
-      );
+      // Fetch application questions from event_application_questions table
+      const { data: questionsData, error: questionsError } = await supabase
+        .from("event_application_questions")
+        .select("*")
+        .eq("event_id", eventId)
+        .order("created_at", { ascending: true });
+
+      if (questionsError) {
+        console.error("Error fetching application questions:", questionsError);
+        setApplicationTemplate([
+          {
+            question: "",
+            response: ResponseType.text,
+            max_char_limit: 0,
+            response_options: [],
+          },
+        ]);
+      } else if (questionsData && questionsData.length > 0) {
+        setApplicationTemplate(
+          questionsData.map((q) => ({
+            question: q.question ?? "",
+            response: (q.response as ResponseType) ?? ResponseType.text,
+            max_char_limit: q.max_char_limit ?? 0,
+            response_options: q.response_options ?? [],
+          }))
+        );
+      } else {
+        setApplicationTemplate([
+          {
+            question: "",
+            response: ResponseType.text,
+            max_char_limit: 0,
+            response_options: [],
+          },
+        ]);
+      }
 
       setLoadingEvent(false);
     };
@@ -158,11 +187,16 @@ export const EventCreateModify = ({
     }
   };
 
+  const clearQuestionErrors = () => {
+    setQuestionErrors({});
+  };
+
   const handleFieldChange = <K extends keyof EventFormState>(
     field: K,
     value: EventFormState[K]
   ) => {
     resetSuccessMessage();
+    clearQuestionErrors();
     setFormState((prev) => ({
       ...prev,
       [field]: value,
@@ -189,7 +223,10 @@ export const EventCreateModify = ({
 
   const addCheckInEvent = () => {
     resetSuccessMessage();
-    setCheckInEvents((prev) => [...prev, { location: "", date: "", time: "" }]);
+    setCheckInEvents((prev) => [
+      ...prev,
+      { name: "", location: "", date: "", time: "" },
+    ]);
   };
 
   const removeCheckInEvent = (index: number) => {
@@ -202,9 +239,21 @@ export const EventCreateModify = ({
   const updateApplicationQuestion = (
     index: number,
     field: keyof ApplicationQuestionTemplate,
-    value: string | ResponseType | number
+    value: string | ResponseType | number | string[]
   ) => {
     resetSuccessMessage();
+    // Clear error for this question when user modifies fields that affect validation
+    if (
+      field === "question" ||
+      field === "max_char_limit" ||
+      field === "response_options"
+    ) {
+      setQuestionErrors((prev) => {
+        const newErrors = { ...prev };
+        delete newErrors[index];
+        return newErrors;
+      });
+    }
     setApplicationTemplate((prev) =>
       prev.map((question, idx) =>
         idx === index
@@ -213,7 +262,59 @@ export const EventCreateModify = ({
               [field]:
                 field === "max_char_limit"
                   ? Number(value)
+                  : field === "response_options"
+                  ? (value as string[])
                   : (value as string | ResponseType),
+            }
+          : question
+      )
+    );
+  };
+
+  const addResponseOption = (index: number) => {
+    resetSuccessMessage();
+    setApplicationTemplate((prev) =>
+      prev.map((question, idx) =>
+        idx === index
+          ? {
+              ...question,
+              response_options: [...(question.response_options || []), ""],
+            }
+          : question
+      )
+    );
+  };
+
+  const updateResponseOption = (
+    questionIndex: number,
+    optionIndex: number,
+    value: string
+  ) => {
+    resetSuccessMessage();
+    setApplicationTemplate((prev) =>
+      prev.map((question, idx) =>
+        idx === questionIndex
+          ? {
+              ...question,
+              response_options: (question.response_options || []).map(
+                (opt, optIdx) => (optIdx === optionIndex ? value : opt)
+              ),
+            }
+          : question
+      )
+    );
+  };
+
+  const removeResponseOption = (questionIndex: number, optionIndex: number) => {
+    resetSuccessMessage();
+    setApplicationTemplate((prev) =>
+      prev.map((question, idx) =>
+        idx === questionIndex
+          ? {
+              ...question,
+              response_options: (question.response_options || []).filter(
+                (_, optIdx) => optIdx !== optionIndex
+              ),
             }
           : question
       )
@@ -224,36 +325,73 @@ export const EventCreateModify = ({
     resetSuccessMessage();
     setApplicationTemplate((prev) => [
       ...prev,
-      { question: "", response: ResponseType.text, max_char_limit: 0 },
+      {
+        question: "",
+        response: ResponseType.text,
+        max_char_limit: 0,
+        response_options: [],
+      },
     ]);
   };
 
   const removeApplicationQuestion = (index: number) => {
     resetSuccessMessage();
-    setApplicationTemplate((prev) =>
-      prev.length === 1 ? prev : prev.filter((_, idx) => idx !== index)
-    );
+    setApplicationTemplate((prev) => prev.filter((_, idx) => idx !== index));
   };
 
   const validateForm = () => {
     if (!formState.name.trim()) return "Event name is required.";
     if (!formState.event_date) return "Event date is required.";
     if (!formState.event_time) return "Event time is required.";
-    if (!formState.location_building.trim())
-      return "Location building is required.";
-    if (!formState.location_room.trim()) return "Location room is required.";
+    // location_building and location_room are now optional
     if (!formState.location_address_url.trim())
       return "Location address URL is required.";
     if (!formState.description.trim()) return "Description is required.";
     if (!formState.max_capacity) return "Max capacity is required.";
-    if (!checkInEvents.every((item) => item.location && item.date && item.time))
-      return "All check-in events require location, date, and time.";
     if (
-      !applicationTemplate.every(
-        (item) => item.question.trim() && item.max_char_limit > 0
+      !checkInEvents.every(
+        (item) => item.name && item.location && item.date && item.time
       )
     )
-      return "Application questions require a question and maximum character limit greater than 0.";
+      return "All check-in events require name, location, date, and time.";
+
+    // Validate application questions and track errors per question
+    const newQuestionErrors: Record<number, string> = {};
+    if (applicationTemplate.length > 0) {
+      for (let i = 0; i < applicationTemplate.length; i++) {
+        const item = applicationTemplate[i];
+        if (!item.question.trim()) {
+          newQuestionErrors[i] = "Question is required.";
+        } else {
+          if (item.response === ResponseType.text) {
+            if (item.max_char_limit <= 0) {
+              newQuestionErrors[i] =
+                "Text response questions require a maximum character limit greater than 0.";
+            }
+          } else if (
+            item.response === ResponseType.multi_select ||
+            item.response === ResponseType.single_select
+          ) {
+            if (
+              !item.response_options ||
+              item.response_options.length === 0 ||
+              !item.response_options.every((opt) => opt.trim())
+            ) {
+              newQuestionErrors[i] =
+                "Select response questions require at least one option.";
+            }
+          }
+        }
+      }
+    }
+
+    setQuestionErrors(newQuestionErrors);
+
+    // If there are question errors, return a generic error
+    if (Object.keys(newQuestionErrors).length > 0) {
+      return "Please fix the errors in application questions.";
+    }
+
     if (!formState.price.trim()) return "Price is required.";
     if (Number.isNaN(Number(formState.price)))
       return "Price must be a valid number.";
@@ -273,12 +411,12 @@ export const EventCreateModify = ({
     }
 
     setIsSubmitting(true);
+    // Prepare payload without application_template
     const payload = {
       ...formState,
       price: Number(formState.price),
       max_capacity: String(formState.max_capacity),
       check_in_events: checkInEvents,
-      application_template: applicationTemplate,
       created_at: formState.created_at || new Date().toISOString(),
     };
 
@@ -286,6 +424,7 @@ export const EventCreateModify = ({
       (payload as { image_url?: string | null }).image_url = null;
     }
 
+    // First, insert or update the event
     const query = eventId
       ? supabase.from("events").update(payload).eq("id", eventId)
       : supabase.from("events").insert(payload);
@@ -304,24 +443,88 @@ export const EventCreateModify = ({
       return;
     }
 
+    const finalEventId = data.id;
+
+    // If updating, delete existing application questions
+    if (eventId) {
+      const { error: deleteError } = await supabase
+        .from("event_application_questions")
+        .delete()
+        .eq("event_id", eventId);
+
+      if (deleteError) {
+        setError(`Failed to delete existing questions: ${deleteError.message}`);
+        setIsSubmitting(false);
+        return;
+      }
+    }
+
+    // Insert application questions if there are any
+    if (applicationTemplate.length > 0) {
+      // Filter out empty questions (where question is empty)
+      const validQuestions = applicationTemplate.filter((q) =>
+        q.question.trim()
+      );
+
+      if (validQuestions.length > 0) {
+        const questionsToInsert = validQuestions.map((q) => {
+          const questionData: {
+            event_id: string;
+            question: string;
+            response: string;
+            max_char_limit?: number;
+            response_options?: string[];
+          } = {
+            event_id: finalEventId,
+            question: q.question,
+            response: q.response,
+          };
+
+          if (q.response === ResponseType.text) {
+            questionData.max_char_limit = q.max_char_limit;
+          } else if (
+            q.response === ResponseType.multi_select ||
+            q.response === ResponseType.single_select
+          ) {
+            questionData.response_options = q.response_options || [];
+          }
+
+          return questionData;
+        });
+
+        const { error: questionsError } = await supabase
+          .from("event_application_questions")
+          .insert(questionsToInsert);
+
+        if (questionsError) {
+          setError(
+            `Failed to save application questions: ${questionsError.message}`
+          );
+          setIsSubmitting(false);
+          return;
+        }
+      }
+    }
+
     setSuccessMessage(
       eventId ? "Event updated successfully." : "Event created successfully."
     );
     setIsSubmitting(false);
     if (!eventId) {
       setFormState(defaultFormState);
-      setCheckInEvents([{ location: "", date: "", time: "" }]);
+      setCheckInEvents([{ name: "", location: "", date: "", time: "" }]);
       setApplicationTemplate([
         {
           question: "",
           response: ResponseType.text,
           max_char_limit: 0,
+          response_options: [],
         },
       ]);
     }
 
     if (onSuccess) {
-      onSuccess(data.id);
+      onSuccess(finalEventId);
     } else {
       router.refresh();
     }
@@ -349,7 +552,9 @@ export const EventCreateModify = ({
           <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
             <section className="grid gap-4 md:grid-cols-2">
               <div className="grid gap-2">
-                <Label htmlFor="name">Event Name</Label>
+                <Label htmlFor="name">
+                  Event Name <span className="text-red-500">*</span>
+                </Label>
                 <Input
                   id="name"
                   value={formState.name}
@@ -358,7 +563,9 @@ export const EventCreateModify = ({
                 />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="price">Price</Label>
+                <Label htmlFor="price">
+                  Price <span className="text-red-500">*</span>
+                </Label>
                 <Input
                   id="price"
                   type="number"
@@ -370,7 +577,9 @@ export const EventCreateModify = ({
                 />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="event_date">Event Date</Label>
+                <Label htmlFor="event_date">
+                  Event Date <span className="text-red-500">*</span>
+                </Label>
                 <Input
                   id="event_date"
                   type="date"
@@ -382,7 +591,9 @@ export const EventCreateModify = ({
                 />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="event_time">Event Time</Label>
+                <Label htmlFor="event_time">
+                  Event Time <span className="text-red-500">*</span>
+                </Label>
                 <Input
                   id="event_time"
                   type="time"
@@ -394,7 +605,9 @@ export const EventCreateModify = ({
                 />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="max_capacity">Max Capacity</Label>
+                <Label htmlFor="max_capacity">
+                  Max Capacity <span className="text-red-500">*</span>
+                </Label>
                 <Input
                   id="max_capacity"
                   type="number"
@@ -406,15 +619,12 @@ export const EventCreateModify = ({
                   required
                 />
               </div>
-              <div className="grid gap-2">
-                <Label htmlFor="image_url">Image URL</Label>
-                <Input
-                  id="image_url"
+              <div className="grid gap-2 md:col-span-2">
+                <ImageUpload
                   value={formState.image_url}
-                  onChange={(e) =>
-                    handleFieldChange("image_url", e.target.value)
-                  }
-                  placeholder="https://example.com/event.jpg"
+                  onChange={(path) => handleFieldChange("image_url", path)}
+                  eventName={formState.name || "event"}
+                  disabled={isSubmitting}
                 />
               </div>
               <div className="grid gap-2">
@@ -425,7 +635,6 @@ export const EventCreateModify = ({
                   onChange={(e) =>
                     handleFieldChange("location_building", e.target.value)
                   }
-                  required
                 />
               </div>
               <div className="grid gap-2">
@@ -436,12 +645,11 @@ export const EventCreateModify = ({
                   onChange={(e) =>
                     handleFieldChange("location_room", e.target.value)
                   }
-                  required
                 />
               </div>
               <div className="grid gap-2 md:col-span-2">
                 <Label htmlFor="location_address_url">
-                  Location Address URL
+                  Location Address URL <span className="text-red-500">*</span>
                 </Label>
                 <Input
                   id="location_address_url"
@@ -454,7 +662,9 @@ export const EventCreateModify = ({
                 />
               </div>
               <div className="grid gap-2 md:col-span-2">
-                <Label htmlFor="description">Description</Label>
+                <Label htmlFor="description">
+                  Description <span className="text-red-500">*</span>
+                </Label>
                 <textarea
                   id="description"
                   className="min-h-[120px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
@@ -489,46 +699,69 @@ export const EventCreateModify = ({
                 {checkInEvents.map((item, index) => (
                   <div
                     key={`check-in-${index}`}
-                    className="grid gap-3 rounded-lg border p-4 md:grid-cols-3"
+                    className="grid gap-3 rounded-lg border p-4"
                   >
                     <div className="grid gap-2">
-                      <Label htmlFor={`check_location_${index}`}>
-                        Location
+                      <Label htmlFor={`check_name_${index}`}>
+                        Name <span className="text-red-500">*</span>
                       </Label>
                       <Input
-                        id={`check_location_${index}`}
-                        value={item.location}
+                        id={`check_name_${index}`}
+                        value={item.name}
                         onChange={(e) =>
-                          updateCheckInEvent(index, "location", e.target.value)
+                          updateCheckInEvent(index, "name", e.target.value)
                         }
                         required
                       />
                     </div>
-                    <div className="grid gap-2">
-                      <Label htmlFor={`check_date_${index}`}>Date</Label>
-                      <Input
-                        id={`check_date_${index}`}
-                        type="date"
-                        value={item.date}
-                        onChange={(e) =>
-                          updateCheckInEvent(index, "date", e.target.value)
-                        }
-                        required
-                      />
+                    <div className="grid gap-3 md:grid-cols-3">
+                      <div className="grid gap-2">
+                        <Label htmlFor={`check_location_${index}`}>
+                          Location <span className="text-red-500">*</span>
+                        </Label>
+                        <Input
+                          id={`check_location_${index}`}
+                          value={item.location}
+                          onChange={(e) =>
+                            updateCheckInEvent(
+                              index,
+                              "location",
+                              e.target.value
+                            )
+                          }
+                          required
+                        />
+                      </div>
+                      <div className="grid gap-2">
+                        <Label htmlFor={`check_date_${index}`}>
+                          Date <span className="text-red-500">*</span>
+                        </Label>
+                        <Input
+                          id={`check_date_${index}`}
+                          type="date"
+                          value={item.date}
+                          onChange={(e) =>
+                            updateCheckInEvent(index, "date", e.target.value)
+                          }
+                          required
+                        />
+                      </div>
+                      <div className="grid gap-2">
+                        <Label htmlFor={`check_time_${index}`}>
+                          Time <span className="text-red-500">*</span>
+                        </Label>
+                        <Input
+                          id={`check_time_${index}`}
+                          type="time"
+                          value={item.time}
+                          onChange={(e) =>
+                            updateCheckInEvent(index, "time", e.target.value)
+                          }
+                          required
+                        />
+                      </div>
                     </div>
-                    <div className="grid gap-2">
-                      <Label htmlFor={`check_time_${index}`}>Time</Label>
-                      <Input
-                        id={`check_time_${index}`}
-                        type="time"
-                        value={item.time}
-                        onChange={(e) =>
-                          updateCheckInEvent(index, "time", e.target.value)
-                        }
-                        required
-                      />
-                    </div>
-                    <div className="md:col-span-3 flex justify-end">
+                    <div className="flex justify-end">
                       <Button
                         type="button"
                         variant="ghost"
@@ -552,6 +785,7 @@ export const EventCreateModify = ({
                   </h3>
                   <p className="text-sm text-muted-foreground">
                     Define any application questions attendees must answer.
+                    (Optional)
                   </p>
                 </div>
                 <Button
@@ -570,7 +804,9 @@ export const EventCreateModify = ({
                     className="grid gap-3 rounded-lg border p-4 md:grid-cols-3"
                   >
                     <div className="grid gap-2 md:col-span-2">
-                      <Label htmlFor={`question_${index}`}>Question</Label>
+                      <Label htmlFor={`question_${index}`}>
+                        Question <span className="text-red-500">*</span>
+                      </Label>
                       <Input
                         id={`question_${index}`}
                         value={question.question}
@@ -582,7 +818,17 @@ export const EventCreateModify = ({
                           )
                         }
                         required
+                        className={
+                          questionErrors[index]
+                            ? "border-red-500 focus-visible:ring-red-500"
+                            : ""
+                        }
                       />
+                      {questionErrors[index] && (
+                        <p className="text-sm text-red-500">
+                          {questionErrors[index]}
+                        </p>
+                      )}
                     </div>
                     <div className="grid gap-2">
                       <Label htmlFor={`response_${index}`}>Response Type</Label>
@@ -590,13 +836,41 @@ export const EventCreateModify = ({
                         id={`response_${index}`}
                         className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
                         value={question.response}
-                        onChange={(e) =>
-                          updateApplicationQuestion(
-                            index,
-                            "response",
-                            e.target.value as ResponseType
-                          )
-                        }
+                        onChange={(e) => {
+                          const newResponseType = e.target
+                            .value as ResponseType;
+                          resetSuccessMessage();
+                          // Clear error for this question when response type changes
+                          setQuestionErrors((prev) => {
+                            const newErrors = { ...prev };
+                            delete newErrors[index];
+                            return newErrors;
+                          });
+                          // Update response type and initialize appropriate fields
+                          setApplicationTemplate((prev) =>
+                            prev.map((q, idx) =>
+                              idx === index
+                                ? {
+                                    ...q,
+                                    response: newResponseType,
+                                    ...(newResponseType ===
+                                      ResponseType.multi_select ||
+                                    newResponseType ===
+                                      ResponseType.single_select
+                                      ? {
+                                          response_options:
+                                            q.response_options || [],
+                                        }
+                                      : {}),
+                                    ...(newResponseType === ResponseType.text &&
+                                    q.max_char_limit <= 0
+                                      ? { max_char_limit: 100 }
+                                      : {}),
+                                  }
+                                : q
+                            )
+                          );
+                        }}
                         required
                       >
                         {Object.values(ResponseType).map((value) => (
@@ -606,37 +880,111 @@ export const EventCreateModify = ({
                         ))}
                       </select>
                     </div>
-                    <div className="grid gap-2 md:col-span-3 md:grid-cols-3">
-                      <div className="grid gap-2 md:col-span-1">
-                        <Label htmlFor={`max_char_limit_${index}`}>
-                          Max Character Limit
-                        </Label>
-                        <Input
-                          id={`max_char_limit_${index}`}
-                          type="number"
-                          min="1"
-                          value={question.max_char_limit}
-                          onChange={(e) =>
-                            updateApplicationQuestion(
-                              index,
-                              "max_char_limit",
-                              Number(e.target.value)
-                            )
-                          }
-                          required
-                        />
-                      </div>
-                      <div className="md:col-span-2 flex items-end justify-end">
-                        <Button
-                          type="button"
-                          variant="ghost"
-                          className="text-red-500 hover:text-red-600"
-                          onClick={() => removeApplicationQuestion(index)}
-                          disabled={applicationTemplate.length === 1}
-                        >
-                          Remove
-                        </Button>
-                      </div>
+                    <div className="grid gap-2 md:col-span-3">
+                      {question.response === ResponseType.text ? (
+                        <div className="grid gap-2 md:grid-cols-3">
+                          <div className="grid gap-2 md:col-span-1">
+                            <Label htmlFor={`max_char_limit_${index}`}>
+                              Max Character Limit{" "}
+                              <span className="text-red-500">*</span>
+                            </Label>
+                            <Input
+                              id={`max_char_limit_${index}`}
+                              type="number"
+                              min="1"
+                              value={question.max_char_limit}
+                              onChange={(e) =>
+                                updateApplicationQuestion(
+                                  index,
+                                  "max_char_limit",
+                                  Number(e.target.value)
+                                )
+                              }
+                              required
+                              className="[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                            />
+                          </div>
+                          <div className="md:col-span-2 flex items-end justify-end">
+                            <Button
+                              type="button"
+                              variant="ghost"
+                              className="text-red-500 hover:text-red-600"
+                              onClick={() => removeApplicationQuestion(index)}
+                            >
+                              Remove
+                            </Button>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="grid gap-3">
+                          <div className="flex items-center justify-between">
+                            <Label>Response Options</Label>
+                            <Button
+                              type="button"
+                              variant="outline"
+                              size="sm"
+                              onClick={() => addResponseOption(index)}
+                            >
+                              Add Option
+                            </Button>
+                          </div>
+                          <div className="flex flex-col gap-2">
+                            {(question.response_options || []).map(
+                              (option, optionIndex) => (
+                                <div
+                                  key={`option-${index}-${optionIndex}`}
+                                  className="flex gap-2"
+                                >
+                                  <Input
+                                    value={option}
+                                    onChange={(e) =>
+                                      updateResponseOption(
+                                        index,
+                                        optionIndex,
+                                        e.target.value
+                                      )
+                                    }
+                                    placeholder="Enter option text"
+                                    required
+                                  />
+                                  <Button
+                                    type="button"
+                                    variant="ghost"
+                                    size="sm"
+                                    className="text-red-500 hover:text-red-600 shrink-0"
+                                    onClick={() =>
+                                      removeResponseOption(index, optionIndex)
+                                    }
+                                    disabled={
+                                      (question.response_options || [])
+                                        .length === 0
+                                    }
+                                  >
+                                    Remove
+                                  </Button>
+                                </div>
+                              )
+                            )}
+                            {(!question.response_options ||
+                              question.response_options.length === 0) && (
+                              <p className="text-sm text-muted-foreground">
+                                No options added. Click &quot;Add Option&quot;
+                                to add selection options.
+                              </p>
+                            )}
+                          </div>
+                          <div className="flex justify-end">
+                            <Button
+                              type="button"
+                              variant="ghost"
+                              className="text-red-500 hover:text-red-600"
+                              onClick={() => removeApplicationQuestion(index)}
+                            >
+                              Remove Question
+                            </Button>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 ))}

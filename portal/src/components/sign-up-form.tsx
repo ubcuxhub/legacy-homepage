@@ -61,7 +61,7 @@ export function SignUpForm({
       });
 
       if (!res.ok) {
-        console.error("Failed to link userInfo:", await res.text());
+        console.error("Failed to link user_info:", await res.text());
       }
 
       if (error) throw error;

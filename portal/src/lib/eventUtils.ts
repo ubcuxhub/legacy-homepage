@@ -30,6 +30,7 @@ export interface ApplicationQuestionTemplate {
   question: string;
   response: ResponseType;
   max_char_limit: number;
+  response_options?: string[];
 }
 
 export enum ResponseType {
@@ -39,6 +40,7 @@ export enum ResponseType {
 }
 
 export interface CheckInEvent {
+  name: string;
   location: string;
   date: string;
   time: string;

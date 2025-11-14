@@ -38,7 +38,7 @@ const AdminUsersManager = () => {
 
       try {
         const { data, error } = await supabase
-          .from("userInfo")
+          .from("user_info")
           .select("*")
           .order("name", { ascending: true });
 
@@ -121,7 +121,7 @@ const AdminUsersManager = () => {
       }
 
       const { error } = await supabase
-        .from("userInfo")
+        .from("user_info")
         .update(updateData)
         .eq("email", selectedUser.email);
 

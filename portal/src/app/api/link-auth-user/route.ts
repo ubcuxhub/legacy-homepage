@@ -17,7 +17,7 @@ export async function POST(req: Request) {
   }
 
   const { data, error } = await supabase
-    .from("userInfo")
+    .from("user_info")
     .update({ auth_user_id: authUserId })
     .eq("email", email.trim().toLowerCase())
     .select();

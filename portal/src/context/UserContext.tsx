@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { Member } from "@/lib/membershipUtils";
 
@@ -20,40 +20,41 @@ const UserContext = createContext<UserContextType>({
 
 export const useUser = () => useContext(UserContext);
 
-// how to use:
-// const { user, loading } = useUser();
-// if (loading) return <p>Loading...</p>;
-
 export function UserProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<Member | null>(null);
   const [loading, setLoading] = useState(true);
 
+  const initialLoadDone = useRef(false);
+  const lastAuthUserId = useRef<string | null>(null);
+
   const loadUser = async () => {
     try {
-      setLoading(true);
+      if (!initialLoadDone.current) setLoading(true);
 
       const {
         data: { user: authUser },
         error: authError,
       } = await supabase.auth.getUser();
+
       if (authError || !authUser) {
         setUser(null);
         return;
       }
 
       const { data: member, error: memberError } = await supabase
-        .from("userInfo")
+        .from("user_info")
         .select("*")
         .eq("auth_user_id", authUser.id)
         .single();
 
       if (memberError) {
-        console.error("Error fetching member record:", memberError.message);
+        console.error("Error fetching member:", memberError.message);
         setUser(null);
       } else {
         setUser(member);
       }
     } finally {
+      initialLoadDone.current = true;
       setLoading(false);
     }
   };
@@ -63,11 +64,19 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      if (!session) {
-        setUser(null);
-      } else {
-        loadUser();
+    } = supabase.auth.onAuthStateChange((event, session) => {
+      const newId = session?.user?.id ?? null;
+
+      if (event === "TOKEN_REFRESHED") return;
+
+      if (newId !== lastAuthUserId.current) {
+        lastAuthUserId.current = newId;
+
+        if (!newId) {
+          setUser(null);
+        } else {
+          loadUser();
+        }
       }
     });
 

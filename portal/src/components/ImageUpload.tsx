@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect, DragEvent, ChangeEvent } from "react";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-
+import Image from "next/image";
 interface ImageUploadProps {
   value?: string;
   onChange: (path: string) => void;
@@ -162,11 +162,16 @@ export const ImageUpload = ({
           </div>
         ) : preview ? (
           <div className="relative">
-            <img
-              src={preview}
-              alt="Event preview"
-              className="max-h-48 w-auto mx-auto rounded-md"
-            />
+            <div className="relative h-48 w-full">
+              <Image
+                src={preview}
+                alt="Event preview"
+                fill
+                className="object-contain rounded-md"
+                unoptimized
+              />
+            </div>
+
             {!disabled && (
               <Button
                 type="button"

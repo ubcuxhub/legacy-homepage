@@ -1,10 +1,10 @@
 "use client";
 import { redirect } from "next/navigation";
-import { LogoutButton } from "@/components/LogoutButton";
+import { LogoutButton } from "@/components/auth/LogoutButton";
 import { useUser } from "@/context/UserContext";
 import { createClient } from "@/lib/supabase/client";
 import { useEffect, useState } from "react";
-import { Event } from "@/lib/eventUtils";
+import { Event } from "@/lib/eventTypes";
 
 export default function Events() {
   const { user, loading } = useUser();

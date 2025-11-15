@@ -81,7 +81,7 @@ export async function POST(req: Request) {
     const formattedDate = today.toISOString().split("T")[0].replace(/-/g, "/");
 
     const { error: updateError } = await supabase
-      .from("userInfo")
+      .from("user_info")
       .update({
         membership_type: tier.display,
         order_date: formattedDate,

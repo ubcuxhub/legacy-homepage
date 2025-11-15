@@ -25,3 +25,18 @@ export const membershipTiers: Record<string, MembershipTier> = {
   explorer: { display: "Explorer", price: 12.0, ubcStudent: true },
   faculty: { display: "Faculty", price: 18.0, ubcStudent: false },
 };
+
+export interface Member {
+  email: string;
+  name: string;
+  phone: string;
+  order_date?: string | null;
+  student_number?: number | null;
+  membership_type?: string | null;
+  newsletter?: string | null;
+  auth_user_id: string; // UUID linked to auth.users.id
+  faculty?: string;
+  major?: string;
+  year?: string;
+  role_access: string;
+}

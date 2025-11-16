@@ -1,22 +1,22 @@
-import { membershipTiers } from "@/lib/membershipUtils";
-import Link from "next/link";
+"use client";
+import ProtectedRoute from "@/components/ProtectedRoute";
+import { membershipTiers } from "@/lib/membershipTypes";
+import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
 
-const page = async () => {
+export default function MembershipsPage() {
+  const router = useRouter();
+
   return (
-    <div>
+    <ProtectedRoute>
       {Object.entries(membershipTiers).map(([name, info], index) => (
         <div key={index} className="mb-8">
           <div className="mb-4">{info.display}</div>
-          <Link
-            href={`/memberships/${name}`}
-            className="hover:cursor-pointer border-2 p-2 rounded-2xl hover:text-black hover:bg-white"
-          >
-            purchase
-          </Link>
+          <Button onClick={() => router.push(`/memberships/${name}`)}>
+            Purchase
+          </Button>
         </div>
       ))}
-    </div>
+    </ProtectedRoute>
   );
-};
-
-export default page;
+}

@@ -7,8 +7,8 @@ import { createClient } from "@/lib/supabase/client";
 import type {
   ApplicationQuestionTemplate,
   CheckInEvent,
-} from "@/lib/eventUtils";
-import { ResponseType } from "@/lib/eventUtils";
+} from "@/lib/eventTypes";
+import { ResponseType } from "@/lib/eventTypes";
 import {
   Card,
   CardContent,

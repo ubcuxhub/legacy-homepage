@@ -6,7 +6,7 @@ import Link from "next/link";
 import ProtectedRoute from "@/components/ProtectedRoute";
 import { AdminSidebar } from "@/components/AdminSidebar";
 import { createClient } from "@/lib/supabase/client";
-import type { Event } from "@/lib/eventUtils";
+import type { Event } from "@/lib/eventTypes";
 import { Button } from "@/components/ui/button";
 import {
   Card,

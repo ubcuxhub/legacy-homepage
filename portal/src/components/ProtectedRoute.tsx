@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/context/UserContext";
 import { AdminPageSkeleton } from "@/components/AdminPageSkeleton";
@@ -17,25 +17,34 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
   const { user, loading } = useUser();
   const router = useRouter();
 
-  useEffect(() => {
-    if (!loading) {
-      if (!user) {
-        router.push("/auth/login");
-      } else if (admin && user.role_access !== "admin") {
-        router.push("/401");
-      }
-    }
-  }, [loading, user, admin, router]);
+  const access = useMemo(() => {
+    if (loading) return "loading";
+    if (!user) return "unauthenticated";
+    if (admin && user.role_access !== "admin") return "forbidden";
+    return "allowed";
+  }, [user, loading, admin]);
 
-  if (loading) {
-    if (admin) {
-      return <AdminPageSkeleton />;
+  useEffect(() => {
+    if (access === "unauthenticated") {
+      router.replace("/auth/login");
+    } else if (access === "forbidden") {
+      router.replace("/401");
     }
-    return (
+  }, [access, router]);
+
+  if (access === "loading") {
+    return admin ? (
+      <AdminPageSkeleton />
+    ) : (
       <div className="flex items-center justify-center h-screen text-gray-500">
         Loading...
       </div>
     );
+  }
+
+  // If redirecting, render nothing
+  if (access === "unauthenticated" || access === "forbidden") {
+    return null;
   }
 
   return <>{children}</>;

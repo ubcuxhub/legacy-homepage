@@ -1,13 +1,17 @@
 "use client";
-import { redirect } from "next/navigation";
-import { LogoutButton } from "@/components/LogoutButton";
+
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { useUser } from "@/context/UserContext";
 import { createClient } from "@/lib/supabase/client";
-import { useEffect, useState } from "react";
-import { Event } from "@/lib/eventUtils";
+import { Event } from "@/lib/eventTypes";
+import { LogoutButton } from "@/components/auth/LogoutButton";
+import { Button } from "@/components/ui/button";
+import ProtectedRoute from "@/components/ProtectedRoute";
 
 export default function Events() {
-  const { user, loading } = useUser();
+  const { user } = useUser();
+  const router = useRouter();
 
   const [events, setEvents] = useState<Event[]>([]);
   const [loadingEvents, setLoadingEvents] = useState(true);
@@ -15,41 +19,28 @@ export default function Events() {
   useEffect(() => {
     const supabase = createClient();
 
-    const fetchEvents = async () => {
-      try {
-        setLoadingEvents(true);
-
-        const { data, error } = await supabase
-          .from("events")
-          .select("*")
-          .order("event_date", { ascending: true });
-
-        if (error) throw error;
-        setEvents(data ?? []);
-      } catch (err) {
-        console.error("Error fetching events:", err);
-      } finally {
-        setLoadingEvents(false);
-      }
-    };
-
-    if (user) {
-      fetchEvents();
+    async function fetchEvents() {
+      setLoadingEvents(true);
+      const { data } = await supabase
+        .from("events")
+        .select("*")
+        .order("event_date", { ascending: true });
+      setEvents(data ?? []);
+      setLoadingEvents(false);
     }
+
+    if (user) fetchEvents();
   }, [user]);
 
-  if (loading) return <p>Loading...</p>;
-  if (!user) {
-    redirect("/auth/login");
-  }
-
   return (
-    <div>
+    <ProtectedRoute>
       <p>Hi!</p>
-      <p>{`Logged in as ${user.email}`}</p>
-      <p>Events: </p>
+      <p>{`Logged in as ${user?.email}`}</p>
+
+      <p>Events:</p>
+
       {loadingEvents ? (
-        <></>
+        <p>Loading events...</p>
       ) : (
         <div>
           {events.map((event) => (
@@ -57,7 +48,8 @@ export default function Events() {
           ))}
         </div>
       )}
-      <LogoutButton></LogoutButton>
-    </div>
+      <Button onClick={() => router.push("/profile")}>View profile</Button>
+      <LogoutButton />
+    </ProtectedRoute>
   );
 }

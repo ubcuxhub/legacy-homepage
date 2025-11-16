@@ -1,8 +1,8 @@
 "use client";
 
-import { createContext, useContext, useEffect, useRef, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
-import { Member } from "@/lib/membershipUtils";
+import { Member } from "@/lib/membershipTypes";
 
 const supabase = createClient();
 
@@ -24,60 +24,52 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<Member | null>(null);
   const [loading, setLoading] = useState(true);
 
-  const initialLoadDone = useRef(false);
-  const lastAuthUserId = useRef<string | null>(null);
-
   const loadUser = async () => {
-    try {
-      if (!initialLoadDone.current) setLoading(true);
+    setLoading(true);
 
-      const {
-        data: { user: authUser },
-        error: authError,
-      } = await supabase.auth.getUser();
+    const {
+      data: { session },
+    } = await supabase.auth.getSession();
 
-      if (authError || !authUser) {
-        setUser(null);
-        return;
-      }
+    const authUser = session?.user;
+    if (!authUser) {
+      // async defer to avoid hook mismatch
+      setTimeout(() => setUser(null), 0);
+      setLoading(false);
+      return;
+    }
 
-      const { data: member, error: memberError } = await supabase
-        .from("user_info")
-        .select("*")
-        .eq("auth_user_id", authUser.id)
-        .single();
+    const { data: member, error } = await supabase
+      .from("user_info")
+      .select("*")
+      .eq("auth_user_id", authUser.id)
+      .single();
 
-      if (memberError) {
-        console.error("Error fetching member:", memberError.message);
+    setTimeout(() => {
+      if (error) {
         setUser(null);
       } else {
         setUser(member);
       }
-    } finally {
-      initialLoadDone.current = true;
       setLoading(false);
-    }
+    }, 0);
   };
 
   useEffect(() => {
-    loadUser();
+    // Defer initial load to avoid synchronous setState warnings
+    setTimeout(() => loadUser(), 0);
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((event, session) => {
-      const newId = session?.user?.id ?? null;
-
-      if (event === "TOKEN_REFRESHED") return;
-
-      if (newId !== lastAuthUserId.current) {
-        lastAuthUserId.current = newId;
-
-        if (!newId) {
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (!session?.user) {
+        setTimeout(() => {
           setUser(null);
-        } else {
-          loadUser();
-        }
+        }, 0);
+        return;
       }
+
+      setTimeout(() => loadUser(), 0);
     });
 
     return () => subscription.unsubscribe();

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import ProtectedRoute from "@/components/ProtectedRoute";
 import { AdminSidebar } from "@/components/AdminSidebar";
 import { createClient } from "@/lib/supabase/client";
-import type { Member } from "@/lib/membershipUtils";
+import type { Member } from "@/lib/membershipTypes";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";

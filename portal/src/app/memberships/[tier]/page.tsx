@@ -1,7 +1,8 @@
-import { membershipTiers } from "@/lib/membershipUtils";
+import { membershipTiers } from "@/lib/membershipTypes";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import PaymentForm from "@/components/PaymentForm";
+import ProtectedRoute from "@/components/ProtectedRoute";
 
 async function page({ params }: { params: Promise<{ tier: string }> }) {
   const { tier } = await params;
@@ -16,7 +17,7 @@ async function page({ params }: { params: Promise<{ tier: string }> }) {
   }).format(membershipTiers[tier].price);
 
   return (
-    <div>
+    <ProtectedRoute>
       <Link href={"/memberships"}>back</Link>
       <div>
         membership: {membershipTiers[tier].display} <br></br>
@@ -27,7 +28,7 @@ async function page({ params }: { params: Promise<{ tier: string }> }) {
       </div>
 
       <PaymentForm tier={membershipTiers[tier]} />
-    </div>
+    </ProtectedRoute>
   );
 }
 

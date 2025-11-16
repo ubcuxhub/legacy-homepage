@@ -1,55 +1,56 @@
 "use client";
-import { redirect } from "next/navigation";
-import { LogoutButton } from "@/components/auth/LogoutButton";
+
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { useUser } from "@/context/UserContext";
 import { createClient } from "@/lib/supabase/client";
-import { useEffect, useState } from "react";
 import { Event } from "@/lib/eventTypes";
+import { LogoutButton } from "@/components/auth/LogoutButton";
 
 export default function Events() {
   const { user, loading } = useUser();
+  const router = useRouter();
 
   const [events, setEvents] = useState<Event[]>([]);
   const [loadingEvents, setLoadingEvents] = useState(true);
 
+  // Redirect safely inside effect
+  useEffect(() => {
+    if (!loading && !user) {
+      router.replace("/auth/login"); // ✔ safe
+    }
+  }, [loading, user, router]);
+
+  // Fetch events only after user is confirmed
   useEffect(() => {
     const supabase = createClient();
 
-    const fetchEvents = async () => {
-      try {
-        setLoadingEvents(true);
-
-        const { data, error } = await supabase
-          .from("events")
-          .select("*")
-          .order("event_date", { ascending: true });
-
-        if (error) throw error;
-        setEvents(data ?? []);
-      } catch (err) {
-        console.error("Error fetching events:", err);
-      } finally {
-        setLoadingEvents(false);
-      }
-    };
-
-    if (user) {
-      fetchEvents();
+    async function fetchEvents() {
+      setLoadingEvents(true);
+      const { data } = await supabase
+        .from("events")
+        .select("*")
+        .order("event_date", { ascending: true });
+      setEvents(data ?? []);
+      setLoadingEvents(false);
     }
+
+    if (user) fetchEvents();
   }, [user]);
 
-  if (loading) return <p>Loading...</p>;
-  if (!user) {
-    redirect("/auth/login");
+  if (loading || !user) {
+    return <p>Loading...</p>; // ✔ never throws, stable hooks
   }
 
   return (
     <div>
       <p>Hi!</p>
       <p>{`Logged in as ${user.email}`}</p>
-      <p>Events: </p>
+
+      <p>Events:</p>
+
       {loadingEvents ? (
-        <></>
+        <p>Loading events...</p>
       ) : (
         <div>
           {events.map((event) => (

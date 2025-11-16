@@ -6,22 +6,16 @@ import { useUser } from "@/context/UserContext";
 import { createClient } from "@/lib/supabase/client";
 import { Event } from "@/lib/eventTypes";
 import { LogoutButton } from "@/components/auth/LogoutButton";
+import { Button } from "@/components/ui/button";
+import ProtectedRoute from "@/components/ProtectedRoute";
 
 export default function Events() {
-  const { user, loading } = useUser();
+  const { user } = useUser();
   const router = useRouter();
 
   const [events, setEvents] = useState<Event[]>([]);
   const [loadingEvents, setLoadingEvents] = useState(true);
 
-  // Redirect safely inside effect
-  useEffect(() => {
-    if (!loading && !user) {
-      router.replace("/auth/login"); // ✔ safe
-    }
-  }, [loading, user, router]);
-
-  // Fetch events only after user is confirmed
   useEffect(() => {
     const supabase = createClient();
 
@@ -38,14 +32,10 @@ export default function Events() {
     if (user) fetchEvents();
   }, [user]);
 
-  if (loading || !user) {
-    return <p>Loading...</p>; // ✔ never throws, stable hooks
-  }
-
   return (
-    <div>
+    <ProtectedRoute>
       <p>Hi!</p>
-      <p>{`Logged in as ${user.email}`}</p>
+      <p>{`Logged in as ${user?.email}`}</p>
 
       <p>Events:</p>
 
@@ -58,7 +48,8 @@ export default function Events() {
           ))}
         </div>
       )}
-      <LogoutButton></LogoutButton>
-    </div>
+      <Button onClick={() => router.push("/profile")}>View profile</Button>
+      <LogoutButton />
+    </ProtectedRoute>
   );
 }

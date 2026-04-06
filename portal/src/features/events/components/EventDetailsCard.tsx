@@ -5,7 +5,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import type { Event } from "@/lib/types/eventTypes";
+import type { Event } from "../types/eventTypes";
 
 interface EventDetailsCardProps {
   event: Event;

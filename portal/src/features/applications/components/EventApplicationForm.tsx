@@ -1,8 +1,10 @@
 "use client";
 
 import { useState, useEffect, useRef, useMemo, startTransition } from "react";
-import type { ApplicationQuestionTemplate } from "@/lib/types/eventTypes";
-import { ResponseType } from "@/lib/types/eventTypes";
+import {
+  ResponseType,
+  type ApplicationQuestionTemplate,
+} from "@/features/events";
 import {
   Card,
   CardContent,
@@ -294,4 +296,3 @@ export const EventApplicationForm = ({
     </Card>
   );
 };
-

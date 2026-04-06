@@ -1,8 +1,8 @@
 import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import PaymentForm from "@/components/PaymentForm";
-import ProtectedRoute from "@/components/ProtectedRoute";
+import { ProtectedRoute } from "@/features/auth";
+import { PaymentForm } from "@/features/memberships";
 import { MembershipTier } from "@/lib/types/membershipTypes";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, Check } from "lucide-react";

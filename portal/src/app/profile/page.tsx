@@ -3,7 +3,7 @@ import { FACULTIES, YEAR_LEVELS } from "@/lib/constants";
 import { useUser } from "@/context/UserContext";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import ProtectedRoute from "@/components/ProtectedRoute";
+import { ProtectedRoute } from "@/features/auth";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";

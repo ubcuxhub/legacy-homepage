@@ -2,19 +2,19 @@
 
 import { useEffect, useState, useMemo } from "react";
 import { useParams, useSearchParams } from "next/navigation";
-import ProtectedRoute from "@/components/ProtectedRoute";
-import { AdminSidebar } from "@/components/AdminSidebar";
+import { AdminSidebar } from "@/features/admin";
+import { ProtectedRoute } from "@/features/auth";
+import {
+  ApplicationListCard,
+  type ApplicationStatus,
+  type GroupedRegistration,
+} from "@/features/applications";
+import { type Event } from "@/features/events";
 import { createClient } from "@/lib/supabase/client";
-import type {
-  ApplicationStatus,
-  GroupedRegistration,
-} from "@/lib/types/applicationTypes";
-import type { Event } from "@/lib/types/eventTypes";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Spinner } from "@/components/ui/spinner";
-import { BackButton } from "@/components/BackButton";
-import { ApplicationListCard } from "@/components/ApplicationListCard";
+import { BackButton } from "@/components/shared/BackButton";
 import { fetchEventRegistrationsGroupedByUser } from "@/lib/queries/registrations";
 
 export default function ReviewApplicationsPage() {

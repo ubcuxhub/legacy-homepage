@@ -2,9 +2,9 @@
 
 import { useRouter } from "next/navigation";
 
-import ProtectedRoute from "@/components/ProtectedRoute";
-import { AdminSidebar } from "@/components/AdminSidebar";
-import { EventCreateModify } from "@/components/EventCreateModify";
+import { AdminSidebar } from "@/features/admin";
+import { ProtectedRoute } from "@/features/auth";
+import { EventCreateModify } from "@/features/events";
 
 const AdminCreateEventPage = () => {
   const router = useRouter();

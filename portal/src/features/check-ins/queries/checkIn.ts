@@ -2,7 +2,7 @@ import { createClient } from "@/lib/supabase/client";
 import type {
   AttendingRegistration,
   CheckInSession,
-} from "@/lib/types/checkInTypes";
+} from "../types/checkInTypes";
 
 export async function fetchCheckInSessions(
   supabase: ReturnType<typeof createClient>,

@@ -2,11 +2,17 @@
 
 import { useParams } from "next/navigation";
 import { useUser } from "@/context/UserContext";
-import ProtectedRoute from "@/components/ProtectedRoute";
-import { EventApplicationForm } from "@/components/EventApplicationForm";
-import { EventDetailsCard } from "@/components/EventDetailsCard";
-import { EventStatusCard } from "@/components/EventStatusCard";
-import { MessageCard } from "@/components/MessageCard";
+import { ProtectedRoute } from "@/features/auth";
+import {
+  EventDetailsCard,
+  EventStatusCard,
+  useEventDetail,
+} from "@/features/events";
+import {
+  EventApplicationForm,
+  useEventApplication,
+} from "@/features/applications";
+import { MessageCard } from "@/components/shared/MessageCard";
 import {
   Card,
   CardContent,
@@ -16,9 +22,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
 import Link from "next/link";
-import { useEventDetail } from "@/hooks/useEventDetail";
-import { useEventApplication } from "@/hooks/useEventApplication";
-import { BackButton } from "@/components/BackButton";
+import { BackButton } from "@/components/shared/BackButton";
 
 export default function EventDetailPage() {
   const params = useParams();
@@ -121,4 +125,3 @@ export default function EventDetailPage() {
     </ProtectedRoute>
   );
 }
-

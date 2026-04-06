@@ -3,13 +3,12 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-import ProtectedRoute from "@/components/ProtectedRoute";
-import { AdminSidebar } from "@/components/AdminSidebar";
+import { AdminSidebar } from "@/features/admin";
+import { ProtectedRoute } from "@/features/auth";
+import { EventCard, type Event } from "@/features/events";
 import { createClient } from "@/lib/supabase/client";
-import type { Event } from "@/lib/types/eventTypes";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
-import { EventCard } from "@/components/EventCard";
 
 const AdminEventsManager = () => {
   const [events, setEvents] = useState<Event[]>([]);

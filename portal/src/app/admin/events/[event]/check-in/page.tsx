@@ -2,14 +2,18 @@
 
 import { useEffect, useState, useMemo } from "react";
 import { useParams } from "next/navigation";
-import ProtectedRoute from "@/components/ProtectedRoute";
-import { AdminSidebar } from "@/components/AdminSidebar";
+import { AdminSidebar } from "@/features/admin";
+import { ProtectedRoute } from "@/features/auth";
+import {
+  CheckInTable,
+  fetchAttendingRegistrations,
+  fetchCheckInSessions,
+  fetchCheckInStatuses,
+  type AttendingRegistration,
+  type CheckInSession,
+} from "@/features/check-ins";
+import { type Event } from "@/features/events";
 import { createClient } from "@/lib/supabase/client";
-import type {
-  AttendingRegistration,
-  CheckInSession,
-} from "@/lib/types/checkInTypes";
-import type { Event } from "@/lib/types/eventTypes";
 import {
   Card,
   CardContent,
@@ -18,13 +22,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Spinner } from "@/components/ui/spinner";
-import { BackButton } from "@/components/BackButton";
-import { CheckInTable } from "@/components/CheckInTable";
-import {
-  fetchCheckInSessions,
-  fetchAttendingRegistrations,
-  fetchCheckInStatuses,
-} from "@/lib/queries/checkIn";
+import { BackButton } from "@/components/shared/BackButton";
 
 // Stat card component
 function StatCard({

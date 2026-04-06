@@ -3,7 +3,7 @@
 import { useEffect, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/context/UserContext";
-import { AdminPageSkeleton } from "@/components/AdminPageSkeleton";
+import { AdminPageSkeleton } from "@/features/admin";
 
 interface ProtectedRouteProps {
   children: React.ReactNode;

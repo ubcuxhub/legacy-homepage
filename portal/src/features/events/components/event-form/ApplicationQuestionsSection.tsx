@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import type { ApplicationQuestionTemplate } from "@/lib/types/eventTypes";
-import { ResponseType } from "@/lib/types/eventTypes";
+import {
+  ResponseType,
+  type ApplicationQuestionTemplate,
+} from "../../types/eventTypes";
 
 interface ApplicationQuestionsSectionProps {
   applicationTemplate: ApplicationQuestionTemplate[];
@@ -208,4 +210,3 @@ export const ApplicationQuestionsSection = ({
     </section>
   );
 };
-

@@ -1,8 +1,10 @@
+"use client";
+
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { ensureUserInfo } from "@/lib/queries/user";
-import { prepareResponseData } from "@/lib/helpers/eventApplication";
+import { prepareResponseData } from "../helpers/eventApplication";
 import type { User } from "@/lib/types/membershipTypes";
 
 interface UseEventApplicationResult {
@@ -249,4 +251,3 @@ export function useEventApplication(
     clearMessages,
   };
 }
-

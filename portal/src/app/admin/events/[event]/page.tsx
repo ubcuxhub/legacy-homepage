@@ -1,6 +1,6 @@
-import { AdminSidebar } from "@/components/AdminSidebar";
-import EventCreateModify from "@/components/EventCreateModify";
-import ProtectedRoute from "@/components/ProtectedRoute";
+import { AdminSidebar } from "@/features/admin";
+import { ProtectedRoute } from "@/features/auth";
+import { EventCreateModify } from "@/features/events";
 import React from "react";
 
 interface EventViewProps {

@@ -5,9 +5,11 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 import { createClient } from "@/lib/supabase/client";
-import type { ApplicationQuestionTemplate } from "@/lib/types/eventTypes";
-import { ResponseType } from "@/lib/types/eventTypes";
-import type { CheckInSessionDraft } from "@/lib/types/checkInTypes";
+import {
+  ResponseType,
+  type ApplicationQuestionTemplate,
+} from "../types/eventTypes";
+import type { CheckInSessionDraft } from "@/features/check-ins";
 import {
   Card,
   CardContent,
@@ -17,16 +19,16 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { BasicEventInfo } from "@/components/event-form/BasicEventInfo";
-import { EventPricing } from "@/components/event-form/EventPricing";
-import { EventLocation } from "@/components/event-form/EventLocation";
-import { EventSchedule } from "@/components/event-form/EventSchedule";
-import { RegistrationTimes } from "@/components/event-form/RegistrationTimes";
-import { CheckInEventsSection } from "@/components/event-form/CheckInEventsSection";
-import { ApplicationQuestionsSection } from "@/components/event-form/ApplicationQuestionsSection";
+import { BasicEventInfo } from "./event-form/BasicEventInfo";
+import { EventPricing } from "./event-form/EventPricing";
+import { EventLocation } from "./event-form/EventLocation";
+import { EventSchedule } from "./event-form/EventSchedule";
+import { RegistrationTimes } from "./event-form/RegistrationTimes";
+import { CheckInEventsSection } from "./event-form/CheckInEventsSection";
+import { ApplicationQuestionsSection } from "./event-form/ApplicationQuestionsSection";
 import { Skeleton } from "@/components/ui/skeleton";
-import { BackButton } from "@/components/BackButton";
-import { DeleteEventModal } from "@/components/DeleteEventModal";
+import { BackButton } from "@/components/shared/BackButton";
+import { DeleteEventModal } from "./DeleteEventModal";
 
 interface EventCreateModifyProps {
   eventId?: string;

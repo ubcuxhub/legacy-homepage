@@ -1,6 +1,6 @@
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { ImageUpload } from "@/components/ImageUpload";
+import { ImageUpload } from "@/components/shared/ImageUpload";
 
 interface BasicEventInfoProps {
   name: string;
@@ -78,4 +78,3 @@ export const BasicEventInfo = ({
     </section>
   );
 };
-

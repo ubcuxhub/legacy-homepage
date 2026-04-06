@@ -3,20 +3,22 @@
 import { useEffect, useState, useMemo } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import ProtectedRoute from "@/components/ProtectedRoute";
-import { AdminSidebar } from "@/components/AdminSidebar";
+import { AdminSidebar } from "@/features/admin";
+import { ProtectedRoute } from "@/features/auth";
+import {
+  ApplicantInfoCard,
+  ApplicationResponseCard,
+  StatusUpdateSection,
+  type ApplicationStatus,
+} from "@/features/applications";
+import { type Event } from "@/features/events";
 import { createClient } from "@/lib/supabase/client";
 import { useUser } from "@/context/UserContext";
-import type { ApplicationStatus } from "@/lib/types/applicationTypes";
-import type { Event } from "@/lib/types/eventTypes";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
 import { Card, CardContent } from "@/components/ui/card";
-import { BackButton } from "@/components/BackButton";
-import { ApplicationResponseCard } from "@/components/ApplicationResponseCard";
-import { ApplicantInfoCard } from "@/components/ApplicantInfoCard";
-import { StatusUpdateSection } from "@/components/StatusUpdateSection";
-import { SuccessOverlay } from "@/components/SuccessOverlay";
+import { BackButton } from "@/components/shared/BackButton";
+import { SuccessOverlay } from "@/components/shared/SuccessOverlay";
 
 interface Registration {
   id: string;

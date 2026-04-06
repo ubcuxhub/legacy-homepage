@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import ProtectedRoute from "@/components/ProtectedRoute";
-import { AdminSidebar } from "@/components/AdminSidebar";
+import { AdminSidebar } from "@/features/admin";
+import { ProtectedRoute } from "@/features/auth";
 import { createClient } from "@/lib/supabase/client";
 import type { User } from "@/lib/types/membershipTypes";
 import { Input } from "@/components/ui/input";

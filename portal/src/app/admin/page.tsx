@@ -1,5 +1,5 @@
 "use client";
-import ProtectedRoute from "@/components/ProtectedRoute";
+import { ProtectedRoute } from "@/features/auth";
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";

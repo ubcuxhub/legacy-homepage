@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Event } from "@/lib/types/eventTypes";
+import type { Event } from "../types/eventTypes";
 import { Button } from "@/components/ui/button";
 import {
   Card,

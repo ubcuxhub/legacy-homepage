@@ -3,7 +3,7 @@
 import type {
   AttendingRegistration,
   CheckInSession,
-} from "@/lib/types/checkInTypes";
+} from "../types/checkInTypes";
 import { CheckInTableCell } from "./CheckInTableCell";
 
 interface CheckInTableRowProps {

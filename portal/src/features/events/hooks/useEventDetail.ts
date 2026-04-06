@@ -1,7 +1,12 @@
+"use client";
+
 import { useEffect, useState, useMemo } from "react";
 import { createClient } from "@/lib/supabase/client";
-import type { Event, ApplicationQuestionTemplate } from "@/lib/types/eventTypes";
-import { ResponseType } from "@/lib/types/eventTypes";
+import {
+  ResponseType,
+  type Event,
+  type ApplicationQuestionTemplate,
+} from "../types/eventTypes";
 import type { User } from "@/lib/types/membershipTypes";
 
 type EventRecord = Event & { id: string };
@@ -118,4 +123,3 @@ export function useEventDetail(
     registrationId,
   };
 }
-

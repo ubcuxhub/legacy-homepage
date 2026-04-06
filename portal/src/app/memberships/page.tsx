@@ -1,5 +1,5 @@
 "use client";
-import ProtectedRoute from "@/components/ProtectedRoute";
+import { ProtectedRoute } from "@/features/auth";
 import { MembershipTier } from "@/lib/types/membershipTypes";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";

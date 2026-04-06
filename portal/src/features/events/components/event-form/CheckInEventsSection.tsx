@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import type { CheckInSessionDraft } from "@/lib/types/checkInTypes";
+import type { CheckInSessionDraft } from "@/features/check-ins";
 
 interface CheckInEventsSectionProps {
   checkInEvents: CheckInSessionDraft[];

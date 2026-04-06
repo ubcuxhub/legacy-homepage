@@ -4,11 +4,9 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/context/UserContext";
 import { createClient } from "@/lib/supabase/client";
-import { Event } from "@/lib/types/eventTypes";
-import { LogoutButton } from "@/components/auth/LogoutButton";
+import { LogoutButton, ProtectedRoute } from "@/features/auth";
+import { EventCard, type Event } from "@/features/events";
 import { Button } from "@/components/ui/button";
-import ProtectedRoute from "@/components/ProtectedRoute";
-import { EventCard } from "@/components/EventCard";
 import { Skeleton } from "@/components/ui/skeleton";
 import { CalendarDays, User, Sparkles } from "lucide-react";
 

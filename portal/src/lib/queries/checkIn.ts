@@ -1,18 +1,8 @@
 import { createClient } from "@/lib/supabase/client";
-
-export interface CheckInSession {
-  id: string;
-  name: string;
-  start_time: string | null;
-  end_time: string | null;
-}
-
-export interface AttendingRegistration {
-  id: string;
-  user_id: string;
-  user_name: string;
-  user_email: string;
-}
+import type {
+  AttendingRegistration,
+  CheckInSession,
+} from "@/lib/types/checkInTypes";
 
 export async function fetchCheckInSessions(
   supabase: ReturnType<typeof createClient>,
@@ -69,7 +59,6 @@ export async function fetchCheckInStatuses(
   supabase: ReturnType<typeof createClient>,
   eventId: string
 ): Promise<Map<string, string | null>> {
-  // First get all registration IDs for this event
   const { data: registrationsData, error: regsError } = await supabase
     .from("event_registrations")
     .select("id")
@@ -82,7 +71,6 @@ export async function fetchCheckInStatuses(
 
   const registrationIds = registrationsData.map((reg) => reg.id);
 
-  // Then get all check-ins for these registrations
   const { data, error } = await supabase
     .from("check_ins")
     .select("event_registration_id, check_in_session_id, checked_in_at")
@@ -104,4 +92,3 @@ export async function fetchCheckInStatuses(
 
   return statusMap;
 }
-

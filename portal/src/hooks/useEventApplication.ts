@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
-import { ensureUserInfo, prepareResponseData } from "@/lib/utils/eventApplication";
+import { ensureUserInfo } from "@/lib/queries/user";
+import { prepareResponseData } from "@/lib/helpers/eventApplication";
 import type { User } from "@/lib/types/membershipTypes";
 
 interface UseEventApplicationResult {

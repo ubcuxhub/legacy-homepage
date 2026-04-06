@@ -43,9 +43,3 @@ export enum ResponseType {
   multi_select = "multi_select",
   single_select = "single_select",
 }
-
-export interface CheckInEvent {
-  name: string;
-  start_time: string; // datetime-local format for UI
-  end_time: string; // datetime-local format for UI
-}

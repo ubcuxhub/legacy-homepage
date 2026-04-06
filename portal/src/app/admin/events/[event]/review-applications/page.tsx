@@ -5,19 +5,17 @@ import { useParams, useSearchParams } from "next/navigation";
 import ProtectedRoute from "@/components/ProtectedRoute";
 import { AdminSidebar } from "@/components/AdminSidebar";
 import { createClient } from "@/lib/supabase/client";
+import type {
+  ApplicationStatus,
+  GroupedRegistration,
+} from "@/lib/types/applicationTypes";
 import type { Event } from "@/lib/types/eventTypes";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Spinner } from "@/components/ui/spinner";
 import { BackButton } from "@/components/BackButton";
-import {
-  ApplicationListCard,
-  type ApplicationStatus,
-} from "@/components/ApplicationListCard";
-import {
-  fetchEventRegistrationsGroupedByUser,
-  type GroupedRegistration,
-} from "@/lib/utils/fetchEventRegistrations";
+import { ApplicationListCard } from "@/components/ApplicationListCard";
+import { fetchEventRegistrationsGroupedByUser } from "@/lib/queries/registrations";
 
 export default function ReviewApplicationsPage() {
   const params = useParams();

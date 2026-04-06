@@ -5,6 +5,10 @@ import { useParams } from "next/navigation";
 import ProtectedRoute from "@/components/ProtectedRoute";
 import { AdminSidebar } from "@/components/AdminSidebar";
 import { createClient } from "@/lib/supabase/client";
+import type {
+  AttendingRegistration,
+  CheckInSession,
+} from "@/lib/types/checkInTypes";
 import type { Event } from "@/lib/types/eventTypes";
 import {
   Card,
@@ -20,9 +24,7 @@ import {
   fetchCheckInSessions,
   fetchAttendingRegistrations,
   fetchCheckInStatuses,
-  type CheckInSession,
-  type AttendingRegistration,
-} from "@/lib/utils/fetchCheckInData";
+} from "@/lib/queries/checkIn";
 
 // Stat card component
 function StatCard({

@@ -8,8 +8,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import type { ApplicationStatus } from "@/lib/types/applicationTypes";
 import { Clock, X, Check, User, Mail, Calendar } from "lucide-react";
-import type { ApplicationStatus } from "@/components/ApplicationListCard";
 
 interface ApplicantInfoCardProps {
   name: string;
@@ -85,4 +85,3 @@ export function ApplicantInfoCard({
     </Card>
   );
 }
-

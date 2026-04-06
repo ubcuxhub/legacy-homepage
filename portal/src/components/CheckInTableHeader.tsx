@@ -1,6 +1,6 @@
 "use client";
 
-import type { CheckInSession } from "@/lib/utils/fetchCheckInData";
+import type { CheckInSession } from "@/lib/types/checkInTypes";
 
 interface CheckInTableHeaderProps {
   sessions: CheckInSession[];
@@ -20,4 +20,3 @@ export function CheckInTableHeader({ sessions }: CheckInTableHeaderProps) {
     </thead>
   );
 }
-

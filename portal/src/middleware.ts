@@ -1,6 +1,5 @@
-// middleware.ts
-import { NextResponse, type NextRequest } from "next/server";
 import { createServerClient } from "@supabase/ssr";
+import { NextResponse, type NextRequest } from "next/server";
 
 export async function middleware(req: NextRequest) {
   const res = NextResponse.next();
@@ -20,8 +19,17 @@ export async function middleware(req: NextRequest) {
     }
   );
 
-  await supabase.auth.getUser(); // refreshes cookies when needed
+  await supabase.auth.getUser();
+
   return res;
 }
 
-export const config = { matcher: ["/dashboard/:path*", "/api/:path*"] };
+export const config = {
+  matcher: [
+    "/admin/:path*",
+    "/events/:path*",
+    "/profile/:path*",
+    "/memberships/:path*",
+    "/api/:path*",
+  ],
+};

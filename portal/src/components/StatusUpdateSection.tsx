@@ -9,8 +9,8 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
+import type { ApplicationStatus } from "@/lib/types/applicationTypes";
 import { X, Check } from "lucide-react";
-import type { ApplicationStatus } from "@/components/ApplicationListCard";
 
 interface StatusUpdateSectionProps {
   currentStatus: ApplicationStatus;

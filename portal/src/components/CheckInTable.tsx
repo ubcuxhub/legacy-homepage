@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import type {
   AttendingRegistration,
   CheckInSession,
-} from "@/lib/utils/fetchCheckInData";
+} from "@/lib/types/checkInTypes";
 import { CheckInTableHeader } from "./CheckInTableHeader";
 import { CheckInTableRow } from "./CheckInTableRow";
 
@@ -68,4 +68,3 @@ export function CheckInTable({
     </div>
   );
 }
-

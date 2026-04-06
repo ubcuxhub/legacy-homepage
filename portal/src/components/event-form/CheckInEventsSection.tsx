@@ -1,13 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import type { CheckInEvent } from "@/lib/types/eventTypes";
+import type { CheckInSessionDraft } from "@/lib/types/checkInTypes";
 
 interface CheckInEventsSectionProps {
-  checkInEvents: CheckInEvent[];
+  checkInEvents: CheckInSessionDraft[];
   onAdd: () => void;
   onRemove: (index: number) => void;
-  onUpdate: (index: number, field: keyof CheckInEvent, value: string) => void;
+  onUpdate: (
+    index: number,
+    field: keyof CheckInSessionDraft,
+    value: string
+  ) => void;
 }
 
 export const CheckInEventsSection = ({
@@ -95,4 +99,3 @@ export const CheckInEventsSection = ({
     </section>
   );
 };
-

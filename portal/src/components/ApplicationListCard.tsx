@@ -2,9 +2,8 @@
 
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import type { ApplicationStatus } from "@/lib/types/applicationTypes";
 import { Clock, X, Check } from "lucide-react";
-
-export type ApplicationStatus = "pending" | "declined" | "accepted";
 
 interface ApplicationListCardProps {
   registrationId: string;

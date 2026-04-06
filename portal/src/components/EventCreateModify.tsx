@@ -5,11 +5,9 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 import { createClient } from "@/lib/supabase/client";
-import type {
-  ApplicationQuestionTemplate,
-  CheckInEvent,
-} from "@/lib/types/eventTypes";
+import type { ApplicationQuestionTemplate } from "@/lib/types/eventTypes";
 import { ResponseType } from "@/lib/types/eventTypes";
+import type { CheckInSessionDraft } from "@/lib/types/checkInTypes";
 import {
   Card,
   CardContent,
@@ -114,7 +112,7 @@ export const EventCreateModify = ({
   const hasRestoredState = useRef(false);
 
   const [formState, setFormState] = useState<EventFormState>(defaultFormState);
-  const [checkInEvents, setCheckInEvents] = useState<CheckInEvent[]>([
+  const [checkInEvents, setCheckInEvents] = useState<CheckInSessionDraft[]>([
     { name: "", start_time: "", end_time: "" },
   ]);
   const [applicationTemplate, setApplicationTemplate] = useState<
@@ -353,7 +351,7 @@ export const EventCreateModify = ({
 
   const updateCheckInEvent = (
     index: number,
-    field: keyof CheckInEvent,
+    field: keyof CheckInSessionDraft,
     value: string
   ) => {
     resetSuccessMessage();

@@ -1,6 +1,9 @@
 "use client";
 
-import type { AttendingRegistration, CheckInSession } from "@/lib/utils/fetchCheckInData";
+import type {
+  AttendingRegistration,
+  CheckInSession,
+} from "@/lib/types/checkInTypes";
 import { CheckInTableCell } from "./CheckInTableCell";
 
 interface CheckInTableRowProps {
@@ -41,4 +44,3 @@ export function CheckInTableRow({
     </tr>
   );
 }
-

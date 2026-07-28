@@ -1,13 +1,8 @@
 # Welcome to UX Hub ✨
 
-This repo contains all UX Hub's projects:
+This repo contains all UX Hub's website - to be replaced by a new combed website + portal deployment!
 
 ```
 uxhub/
-├── portal/    # Student Portal — membership sign-ups and event payments
 └── website/   # ubcuxhub.ca — the public-facing club homepage
 ```
-
-Admin Account:
-[ubcuxhub@gmail.com](mailto:ubcuxhub@gmail.com)  
-the@maz1ngP0rtal!
